@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/add-property', 'IndexController@addProperty')->name('addProperty');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
