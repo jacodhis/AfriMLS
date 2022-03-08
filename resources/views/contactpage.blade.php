@@ -1,0 +1,150 @@
+@extends('layouts.frontend.layouts')
+@section('content')
+        <!-- Page Title #1
+============================================ -->
+<section id="page-title" class="page-title bg-overlay bg-overlay-dark2">
+    <div class="bg-section">
+        <img src="assets/images/page-titles/1.jpg" alt="Background" />
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
+                <div class="title title-1 text-center">
+                    <div class="title--content">
+                        <div class="title--heading">
+                            <h1>Contact</h1>
+                        </div>
+                        <ol class="breadcrumb">
+                            <li><a href="{{ route('landingPage')}}">Home</a></li>
+                            <li class="active">Contact</li>
+                        </ol>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <!-- .title end -->
+            </div>
+            <!-- .col-md-12 end -->
+        </div>
+        <!-- .row end -->
+    </div>
+    <!-- .container end -->
+</section>
+<!-- #page-title end -->
+
+<!-- Contact #1
+============================================= -->
+<section id="contact" class="contact contact-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3">
+                <div class="heading heading-2 mb-55">
+                    <h2 class="heading--title">Get In Touch</h2>
+                </div>
+                <div class="contact-panel">
+                    <h3>Address</h3>
+                    <p>86 Petersham town, Wardll street Australia PA 6550.</p>
+                </div>
+                <!-- .contact-panel -->
+                <div class="contact-panel">
+                    <h3>Phone:</h3>
+                    <p>(04) 491 570 110</p>
+                    <p>+61 525 240 310</p>
+                </div>
+                <!-- .contact-panel -->
+                <div class="contact-panel">
+                    <h3>Email:</h3>
+                    <p>contact@land.com</p>
+                </div>
+                <!-- .contact-panel -->
+            </div>
+            <!-- .col-md-3 end -->
+
+            <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-1 bg-white p-30 bg-white">
+                <div id="googleMap" style="width:100%;height:370px;"></div>
+            </div>
+            <!-- .col-md-8 end -->
+        </div>
+        <!-- .row end -->
+    </div>
+</section>
+<!-- #contact  end -->
+
+<!-- Contact #2
+============================================= -->
+<section id="contact2" class="contact contact-2 bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="heading heading-2 mb-50">
+                    <h2 class="heading--title">Contact Us</h2>
+                </div>
+            </div>
+            <!-- .col-md-12 end -->
+        </div>
+        <!-- .row end -->
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <form class="mb-0">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-4">
+                            <div class="form-group">
+                                <label for="contact-name">Your Name*</label>
+                                <input type="text" class="form-control" name="contact-name" id="contact-name" required>
+                            </div>
+                        </div>
+                        <!-- .col-md-4 end -->
+                        <div class="col-xs-12 col-sm-12 col-md-4">
+                            <div class="form-group">
+                                <label for="contact-email">Email Address*</label>
+                                <input type="email" class="form-control" name="contact-email" id="contact-email" required>
+                            </div>
+                        </div>
+                        <!-- .col-md-4 end -->
+                        <div class="col-xs-12 col-sm-12 col-md-4">
+                            <div class="form-group">
+                                <label for="phone-number">Phone Number</label>
+                                <input type="text" class="form-control" name="phone-number" id="phone-number" placeholder="(optional)">
+                            </div>
+                        </div>
+                        <!-- .col-md-4 end -->
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label for="message">Message*</label>
+                                <textarea class="form-control" name="contact-message" id="message" rows="2" required></textarea>
+                            </div>
+                        </div>
+                        <!-- .col-md-12 end -->
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <input type="submit" value="Send Message" name="submit" class="btn btn--primary">
+                        </div>
+                        <!-- .col-md-12 -->
+                    </div>
+                </form>
+            </div>
+            <!-- .col-md-12 end -->
+        </div>
+        <!-- .row end -->
+    </div>
+</section>
+<!-- #contact2  end -->
+
+<!-- cta #1
+============================================= -->
+<section id="cta" class="cta cta-1 text-center bg-overlay bg-overlay-dark pt-90">
+    <div class="bg-section"><img src="assets/images/cta/bg-1.jpg" alt="Background"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
+                <h3>Join our professional team & agents to start selling your house</h3>
+                <a href="#" class="btn btn--primary">Contact</a>
+            </div>
+            <!-- .col-md-6 -->
+        </div>
+        <!-- .row -->
+    </div>
+    <!-- .container -->
+</section>
+<!-- #cta1 end -->
+
+@endsection
+

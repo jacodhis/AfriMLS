@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
 
+Route::get('/', 'IndexController@landingPage')->name('landingPage');
+Route::get('/contact-Us', 'IndexController@contactPage')->name('contactPage');
 Route::get('/add-property', 'IndexController@addProperty')->name('addProperty');
+Route::get('/about-us', 'IndexController@aboutUs')->name('aboutUs');
 
 Auth::routes();
 
