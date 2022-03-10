@@ -15,9 +15,22 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', 'IndexController@landingPage')->name('landingPage');
-Route::get('/contact-Us', 'IndexController@contactPage')->name('contactPage');
-Route::get('/add-property', 'IndexController@addProperty')->name('addProperty');
 Route::get('/about-us', 'IndexController@aboutUs')->name('aboutUs');
+Route::get('/contact-Us', 'IndexController@contactPage')->name('contactPage');
+//property routes
+
+Route::get('/add-property', 'PropertyController@addProperty')->name('addProperty');
+Route::get('/my-properties', 'PropertyController@myproperties')->name('myproperties');
+Route::get('/properties/{id}', 'PropertyController@show')->name('propertyShow');
+
+//agents routes
+Route::get('/agents', 'AgentsController@agents')->name('agents');
+Route::get('/agents-profile', 'AgentsController@agentsProfile')->name('agentsProfile');
+
+
+
+//user route
+Route::get('/user-profile', 'UserController@userProfile')->name('userProfile');
 
 Auth::routes();
 

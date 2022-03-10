@@ -1,4 +1,9 @@
 @extends('layouts.frontend.layouts')
+
+@section('otherLandingPages-nav')
+  @include('includes.otherpagesnavigation')
+@endsection
+
 @section('content')
      <!-- Page Title #1
 ============================================ -->
@@ -15,7 +20,7 @@
                             <h1>Add Property</h1>
                         </div>
                         <ol class="breadcrumb">
-                            <li><a href="#">Home</a></li>
+                            <li><a href="{{route('landingPage')}}">Home</a></li>
                             <li class="active">Add Property</li>
                         </ol>
                     </div>

@@ -17,11 +17,12 @@
     <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i%7CPoppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+
     <!-- Stylesheets
     ============================================= -->
-    <link href="assets/css/external.css" rel="stylesheet">
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="{{ asset('assets/css/external.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
       <script src="assets/js/html5shiv.js"></script>
@@ -50,9 +51,9 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="logo" href="index.html">
-                            <img class="logo-light" src="assets/images/logo/AfriMLS-logo-web.jpg"
+                            <img class="logo-light" src="{{asset('assets/images/logo/AfriMLS-logo-web.jpg')}}"
                                 alt="Afri MLS Logo">
-                            <img class="logo-dark" src="assets/images/logo/AfriMLS-logo-web.jpg"
+                            <img class="logo-dark" src="{{asset('assets/images/logo/AfriMLS-logo-web.jpg')}}"
                                 alt="Afri MLS Logo">
                         </a>
                     </div>
@@ -175,12 +176,13 @@
                                     </li>
                                 </ul>
                             </li>
+
+
+
                             <!-- li end -->
-                            <li><a href="{{ route('landingPage')}}">Home</a></li>
-                            <li><a href="{{ route('aboutUs')}}">About Us</a></li>
-                            <li><a href="#">To Let</a></li>
-                            <li><a href="#">For Sale</a></li>
-                            <li><a href="{{ route('contactPage')}}">Contact Us</a></li>
+                           @yield('landingPage-nav')
+
+                           @yield('otherLandingPages-nav')
                         </ul>
                         <!-- Module Signup  -->
                         <div class="module module-login pull-left">
@@ -349,9 +351,9 @@
 
     <!-- Footer Scripts
 ============================================= -->
-    <script src="assets/js/jquery-2.2.4.min.js"></script>
-    <script src="assets/js/plugins.js"></script>
-    <script src="assets/js/functions.js"></script>
+    <script src="{{asset('assets/js/jquery-2.2.4.min.js')}}"></script>
+    <script src="{{asset('assets/js/plugins.js')}}"></script>
+    <script src="{{asset('assets/js/functions.js')}}"></script>
 </body>
 
 </html>

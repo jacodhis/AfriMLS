@@ -1,4 +1,17 @@
+{{-- @php(extract($data)) --}}
+
+
 @extends('layouts.frontend.layouts')
+
+@section('title')
+ Afri LMS
+@endsection
+
+@section('landingPage-nav')
+  @include('includes.homePageNavigation')
+@endsection
+
+
 @section('content')
     <!-- Hero Search
             ============================================= -->
@@ -8,7 +21,8 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="slider--content">
                         <div class="text-center">
-                            <h1>@yield('heading-note')</h1>
+                            <h1>Find/Sell your Property Today</h1>
+
                         </div>
 
                     </div>
@@ -58,11 +72,15 @@
                                     <div class="select--box">
                                         <i class="fa fa-angle-down"></i>
                                         <select name="select-location" id="select-location">
-                            <option>Country</option>
-                            <option>Kenya</option>
-                            <option>Rwanda</option>
-                            <option>South Africa</option>
-                        </select>
+                                            <option>County</option>
+                                            @foreach($data[0]['counties'] as $county)
+                                            <option value="{{$county->id}}">{{$county->name}}</option>
+                                            @endforeach
+                                          {{-- <option>
+                                            {{-- <option>Kenya</option>
+                                            <option>Rwanda</option>
+                                            <option>South Africa</option> --}}
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -73,12 +91,15 @@
                                     <div class="select--box">
                                         <i class="fa fa-angle-down"></i>
                                         <select name="select-location" id="select-location">
-                            <option>City/Neighbourhood</option>
-                            <option>Westlands,Nairobi</option>
-                            <option>Westlands,Nairobi</option>
-                            <option>Westlands,Nairobi</option>
+                                            <option>City/Neighbourhood</option>
+                                            {{-- @foreach($data[0]['counties'] as $county)
+                                              <option value="{{$county->id}}">{{$county->name}}</option>
+                                            @endforeach --}}
+                                            <option>Westlands,Nairobi</option>
+                                            <option>Westlands,Nairobi</option>
+                                            <option>Westlands,Nairobi</option>
 
-                        </select>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -88,11 +109,11 @@
                                     <div class="select--box">
                                         <i class="fa fa-angle-down"></i>
                                         <select name="select-type" id="select-type">
-                            <option>Property Type</option>
-                            <option>Apartment</option>
-                            <option>House</option>
-                            <option>Land</option>
-                        </select>
+                                            <option>Property Type</option>
+                                            @foreach($data[0]['categories'] as $category)
+                                             <option value="{{$category->id}}">{{$category->name}}</option>
+                                           @endforeach
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -102,11 +123,11 @@
                                     <div class="select--box">
                                         <i class="fa fa-angle-down"></i>
                                         <select name="select-status" id="select-status">
-                            <option>Any Status</option>
-                            <option>For Rent</option>
-                            <option>For Sale</option>
-                            <option>To Let</option>
-                        </select>
+                                        <option>Any Status</option>
+                                            @foreach($data[0]['options'] as $option)
+                                                <option value='{{$option->id}}'>{{$option->name}}</option>
+                                            @endforeach
+                                       </select>
                                     </div>
                                 </div>
                             </div>
@@ -178,38 +199,45 @@
                     <div class="carousel carousel-dots" data-slide="3" data-slide-rs="2" data-autoplay="true"
                         data-nav="false" data-dots="true" data-space="25" data-loop="true" data-speed="800">
                         <!-- .property-item #1 -->
+                        @foreach($data[0]['properties'] as $property)
+
                         <div class="property-item">
-                            <div class="property--img">
-                                <a href="#">
-                                    <img src="assets/images/properties/house-1.png" alt="property image"
-                                        class="img-responsive">
-                                    <span class="property--status">For Sale</span>
-                                </a>
-                            </div>
-                            <div class="property--content">
-                                <div class="property--info">
-                                    <h5 class="property--title"><a href="#">3 Bedroomed in Runda</a></h5>
-                                    <p class="property--location"> Nairobi County</p>
-                                    <p class="property--price">$70,000</p>
-                                </div>
-                                <!-- .property-info end -->
-                                <div class="property--features">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><span class="feature">Beds:</span><span class="feature-num">2</span>
-                                        </li>
-                                        <li><span class="feature">Baths:</span><span class="feature-num">1</span>
-                                        </li>
-                                        <li><span class="feature">Area:</span><span class="feature-num">200 sq
-                                                ft</span></li>
-                                    </ul>
-                                </div>
-                                <!-- .property-features end -->
-                            </div>
-                        </div>
-                        <!-- .property item end -->
+                           <div class="property--img">
+                               {{-- <a href="{{route('property',[$property->id])}}"> --}}
+                                <a href="/properties/{{$property->id}}">
+                                   <img src="{{URL::to($property->image)}}" alt="property image" height="500"
+                                   class="img-responsive">
+
+                                   {{-- <img src="assets/images/properties/house-1.png" alt="property image"
+                                       class="img-responsive"> --}}
+                                   <span class="property--status">{{$property->option}}</span>
+                               </a>
+                           </div>
+                           <div class="property--content">
+                               <div class="property--info">
+                                   <h5 class="property--title"><a href="#">3 Bedroomed in Runda</a></h5>
+                                   <p class="property--location"> {{$property->county->name}} , County</p>
+                                   <p class="property--price"> ${{$property->amount}}</p>
+                               </div>
+                               <!-- .property-info end -->
+                               <div class="property--features">
+                                   <ul class="list-unstyled mb-0">
+                                       <li><span class="feature">Beds:</span><span class="feature-num">2</span>
+                                       </li>
+                                       <li><span class="feature">Baths:</span><span class="feature-num">1</span>
+                                       </li>
+                                       <li><span class="feature">Area:</span><span class="feature-num">200 sq
+                                               ft</span></li>
+                                   </ul>
+                               </div>
+                               <!-- .property-features end -->
+                           </div>
+                       </div>
+                        @endforeach
+                         <!-- .property item end -->
 
                         <!-- .property-item #2 -->
-                        <div class="property-item">
+                        {{-- <div class="property-item">
                             <div class="property--img">
                                 <a href="#">
                                     <img src="assets/images/properties/house-2.png" alt="property image"
@@ -236,11 +264,11 @@
                                 </div>
                                 <!-- .property-features end -->
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- .property item end -->
 
                         <!-- .property-item #3 -->
-                        <div class="property-item">
+                        {{-- <div class="property-item">
                             <div class="property--img">
                                 <a href="#">
                                     <img src="assets/images/properties/house-3.png" alt="property image"
@@ -267,7 +295,7 @@
                                 </div>
                                 <!-- .property-features end -->
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- .property item end -->
 
 
@@ -287,7 +315,7 @@
 
 
     </div>
-    ============================================= -->
+
     <section id="cta" class="cta cta-1 text-center bg-overlay bg-overlay-dark pt-90">
         <div class="container">
             <div class="row">

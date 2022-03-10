@@ -1,4 +1,8 @@
 @extends('layouts.frontend.layouts')
+@section('otherLandingPages-nav')
+  @include('includes.otherpagesnavigation')
+@endsection
+
 @section('content')
         <!-- Page Title #1
 ============================================ -->
