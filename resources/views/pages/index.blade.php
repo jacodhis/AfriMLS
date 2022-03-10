@@ -4,7 +4,7 @@
 @extends('layouts.frontend.layouts')
 
 @section('title')
- Afri LMS
+ Afri MLS
 @endsection
 
 @section('landingPage-nav')
@@ -72,9 +72,9 @@
                                     <div class="select--box">
                                         <i class="fa fa-angle-down"></i>
                                         <select name="select-location" id="select-location">
-                                            <option>County</option>
-                                            @foreach($data[0]['counties'] as $county)
-                                            <option value="{{$county->id}}">{{$county->name}}</option>
+                                            <option>Country</option>
+                                            @foreach($data[0]['countries'] as $country)
+                                            <option value="{{$country->id}}">{{$country->name}}</option>
                                             @endforeach
                                           {{-- <option>
                                             {{-- <option>Kenya</option>
@@ -205,8 +205,10 @@
                            <div class="property--img">
                                {{-- <a href="{{route('property',[$property->id])}}"> --}}
                                 <a href="/properties/{{$property->id}}">
-                                   <img src="{{URL::to($property->image)}}" alt="property image" height="500"
-                                   class="img-responsive">
+                                   {{-- <img src="{{URL::to($property->image)}}" alt="property image" height="500"
+                                   class="img-responsive"> --}}
+                                   <img src="{{asset('images/'.$property->image) }}" alt="property image"
+                                   class="img-responsive" >
 
                                    {{-- <img src="assets/images/properties/house-1.png" alt="property image"
                                        class="img-responsive"> --}}

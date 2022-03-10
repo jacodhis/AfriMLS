@@ -27,6 +27,11 @@ Route::get('/properties/{id}', 'PropertyController@show')->name('propertyShow');
 Route::get('/agents', 'AgentsController@agents')->name('agents');
 Route::get('/agents-profile', 'AgentsController@agentsProfile')->name('agentsProfile');
 
+Route::get('/admin', function(){
+  return view('layouts.backend');
+
+})->name('admin');
+
 
 
 //user route

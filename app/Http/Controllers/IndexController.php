@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\property;
 use App\Models\county;
+use App\Models\country;
 use App\Models\category;
 
 use DB;
@@ -14,16 +15,24 @@ class IndexController extends Controller
     public function landingPage(){
 
         $data = [];
-         $options = DB::table('options')->select(['id','name'])->get();//goes to search
+        $options = DB::table('options')->select(['id','name'])->get();//goes to search
+        $countries = country::inRandomOrder()
+                                            ->limit(5)
+                                            ->get();//goes to search
+                                            // dd($countries);
 
-       $properties = property::get();
+    //    $properties = property::get();
+       $properties = property::inRandomOrder()->take(9)->get();
+    //    dd($properties);
+    //    $counties = county::get();
 
-       $counties = county::get(); //used in place of country in search
+
        $categories = category::get();
 
        array_push($data,[
            'properties'=>$properties,
-           'counties' => $counties,
+        //    'counties' => $counties,
+           'countries' => $countries,
            'categories' =>$categories,
            'options' =>$options
         ]);

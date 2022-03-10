@@ -22,7 +22,7 @@ class options extends Seeder
             ['id'=>'3','name' => 'For Sale'],
 
 
-];
+        ];
         foreach ($options as $option) {
             option::create($option);
         }

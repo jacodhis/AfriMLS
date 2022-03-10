@@ -100,22 +100,22 @@
                                     <img src="assets/images/properties/slider/5.jpg" alt="Property Image"> --}}
 
 
-                                    <img src="{{URL::to($property->image)}}" alt="property image" height="500"
-                                     class="img-responsive">
-                                     <img src="{{URL::to($property->image)}}" alt="property image" height="500"
-                                     class="img-responsive">
-                                     <img src="{{URL::to($property->image)}}" alt="property image" height="500"
-                                     class="img-responsive">
-                                     <img src="{{URL::to($property->image)}}" alt="property image" height="500"
-                                     class="img-responsive">
+                                    <img src="{{asset('images/'.$property->image) }}" alt="property image"
+                                       class="img-responsive" >
+                                       <img src="{{asset('images/'.$property->image) }}" alt="property image"
+                                       class="img-responsive" >
+                                       <img src="{{asset('images/'.$property->image) }}" alt="property image"
+                                   class="img-responsive" >
+                                   <img src="{{asset('images/'.$property->image) }}" alt="property image"
+                                   class="img-responsive" >
 
                                 </div>
                                 <!-- .carousel end -->
                                 <div class="owl-thumbs thumbs-bg" data-slider-id="1">
 
                                     <button class="owl-thumb-item">
-                                        <img src="{{URL::to($property->image)}}" alt="property image" height="500"
-                                        class="img-responsive">
+                                        {{-- <img src="{{URL::to($property->image)}}" alt="property image"
+                                        class="img-responsive"> --}}
                                     </button>
                                     <button class="owl-thumb-item">
                                         <img src="{{URL::to($property->image)}}" alt="property image" height="500"
@@ -128,6 +128,8 @@
                                     <button class="owl-thumb-item">
                                         <img src="{{URL::to($property->image)}}" alt="property image" height="500"
                                         class="img-responsive">
+                                        {{-- <img src="{{asset('images/'.$property->image) }}" alt="property image"
+                                   class="img-responsive" > --}}
                                     </button>
 
                                     {{-- <button class="owl-thumb-item">
