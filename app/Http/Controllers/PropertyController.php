@@ -4,9 +4,27 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\property;
+use DB;
 
 class PropertyController extends Controller
 {
+
+    public function properties(){
+        $data = [];
+
+        $categories = DB::table('categories')->get();
+        $properties = DB::table('properties')->get();
+
+        array_push($data,['categories'=>$categories,'properties'=>$properties]);
+
+        if(empty($data)){
+            echo "empty";
+        }else{
+            return view('property.properties',['data'=>$data]);
+        }
+
+
+    }
 
     public function addProperty(){
         return view('property.addproperty');
@@ -17,19 +35,43 @@ class PropertyController extends Controller
     }
 
     public function show($id){
-        // $specification = specification::where('property_id','=',$id)->get();
-        // if(empty($specification)){
-        //      echo "empty";
-        // }else{
-        //     dd($specification);
 
-        // }
+        $data = [];
+
        $property = property::findorFail($id);
 
+       $propertyOption = $property->option;
+       $feautures = $property->feautures;
+       $location = $property->location;
+       $city = $location->city;
+       $country = $city->country;
 
-       return view('property.show',['property'=>$property]);
+       array_push($data,
+              [
+              'property'=>$property,
+              'location'=>$location,
+              'city'=>$city,
+              'country'=>$country,
+              'feautures'=>$feautures,
+              'propertyOption'=>$propertyOption,
+            ]);
+
+
+         if(empty($data)){
+             dd('empty');
+         }else{
+        //    dd($data);
+            return view('property.show',['data'=>$data]);
+
+         }
+
+
+
+
+
 
     }
+
 
 
 

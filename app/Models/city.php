@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class city extends Model
 {
     use HasFactory;
+
+    protected $table = 'cities';
+
+
+    public function country(){
+        return $this->belongsTo('App\Models\country');
+    }
+
+
+    public function locations(){
+        return $this->hasMany('App\Models\location');
+    }
+
+
 }

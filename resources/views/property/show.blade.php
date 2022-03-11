@@ -46,11 +46,11 @@
                     <div class="property--info clearfix">
                         <div class="pull-left">
                             <h5 class="property--title">1220 Petersham Town</h5>
-                            <p class="property--location"><i class="fa fa-map-marker"></i>Petersham town, Wardll St - Australia PA 6550</p>
+                            <p class="property--location"><i class="fa fa-map-marker"></i>{{$data[0]['location']->address}} ,{{$data[0]['city']->name}} , - {{$data[0]['country']->name}}</p>
                         </div>
                         <div class="pull-right">
-                            <span class="property--status">For Sale</span>
-                            <p class="property--price">$130,000</p>
+                            <span class="property--status">{{$data[0]['propertyOption']->name}}</span>
+                            <p class="property--price">${{$data[0]['property']->price}}</p>
                         </div>
                     </div>
                     <!-- .property-info end -->
@@ -58,7 +58,7 @@
                         <div class="pull-left">
                             <ul class="list-unstyled list-inline mb-0">
                                 <li>
-                                    Property ID:<span class="value">5331</span>
+                                    Property ID:<span class="value">{{$data[0]['property']->id}}</span>
                                 </li>
                                 <li>
                                     Add to favorites:<span class="value"> <i class="fa fa-heart-o"></i></span>
@@ -100,13 +100,13 @@
                                     <img src="assets/images/properties/slider/5.jpg" alt="Property Image"> --}}
 
 
-                                    <img src="{{asset('images/'.$property->image) }}" alt="property image"
+                                    <img src="{{asset('images/'.$data[0]['property']->image) }}" alt="property image"
                                        class="img-responsive" >
-                                       <img src="{{asset('images/'.$property->image) }}" alt="property image"
+                                       <img src="{{asset('images/'.$data[0]['property']->image) }}" alt="property image"
                                        class="img-responsive" >
-                                       <img src="{{asset('images/'.$property->image) }}" alt="property image"
+                                       <img src="{{asset('images/'.$data[0]['property']->image) }}" alt="property image"
                                    class="img-responsive" >
-                                   <img src="{{asset('images/'.$property->image) }}" alt="property image"
+                                   <img src="{{asset('images/'.$data[0]['property']->image) }}" alt="property image"
                                    class="img-responsive" >
 
                                 </div>
@@ -118,18 +118,19 @@
                                         class="img-responsive"> --}}
                                     </button>
                                     <button class="owl-thumb-item">
-                                        <img src="{{URL::to($property->image)}}" alt="property image" height="500"
+                                        <img src="{{URL::to($data[0]['property']->image)}}" alt="property image" height="500"
                                         class="img-responsive">
+
+                                        {{-- <img src="{{asset('images/'.$data[0]['property']->image) }}" alt="property image"
+                                        class="img-responsive">
+                                        <img src="{{asset('images/'.$data[0]['property']->image) }}" alt="property image"
+                                        class="img-responsive">
+                                        <img src="{{asset('images/'.$data[0]['property']->image) }}" alt="property image"
+                                        class="img-responsive"> --}}
+
                                     </button>
-                                    <button class="owl-thumb-item">
-                                        <img src="{{URL::to($property->image)}}" alt="property image" height="500"
-                                        class="img-responsive">
-                                    </button>
-                                    <button class="owl-thumb-item">
-                                        <img src="{{URL::to($property->image)}}" alt="property image" height="500"
-                                        class="img-responsive">
-                                        {{-- <img src="{{asset('images/'.$property->image) }}" alt="property image"
-                                   class="img-responsive" > --}}
+
+
                                     </button>
 
                                     {{-- <button class="owl-thumb-item">
@@ -242,7 +243,7 @@
                         <!-- feature-panel end -->
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="property--details">
-                                {{$property->description}}
+                                {{$data[0]['property']->description}}
                                 {{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in volupte velit esse cillum dolore eu fugiat nulla pariatur.</p>
                                 <p>Duis aute irure dolor in reprehenderit in volupte velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis.</p> --}}
                             </div>
@@ -259,16 +260,20 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="heading">
-                                <h2 class="heading--title">Features</h2>
+                                <h2 class="heading--title">Features <small>({{$data[0]['feautures']->count()}})</small></h2>
                             </div>
                         </div>
                         <!-- feature-item #1 -->
+                        @foreach($data[0]['feautures'] as $feauture)
                         <div class="col-xs-6 col-sm-4 col-md-4">
+
                             <div class="feature-item">
-                                <p>Center Cooling</p>
+                                <p>{{$feauture->feauture}} </p>
                             </div>
+
                         </div>
-                        <!-- feature-item end -->
+                        @endforeach
+                        {{-- <!-- feature-item end -->
                         <!-- feature-item #2 -->
                         <div class="col-xs-6 col-sm-4 col-md-4">
                             <div class="feature-item">
@@ -281,10 +286,10 @@
                             <div class="feature-item">
                                 <p>Pet Friendly</p>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- feature-item end -->
                         <!-- feature-item #4 -->
-                        <div class="col-xs-6 col-sm-4 col-md-4">
+                        {{-- <div class="col-xs-6 col-sm-4 col-md-4">
                             <div class="feature-item">
                                 <p>Fire Alarm</p>
                             </div>
@@ -309,10 +314,10 @@
                             <div class="feature-item">
                                 <p>Heating</p>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- feature-item end -->
                         <!-- feature-item #8 -->
-                        <div class="col-xs-6 col-sm-4 col-md-4">
+                        {{-- <div class="col-xs-6 col-sm-4 col-md-4">
                             <div class="feature-item">
                                 <p>Pool</p>
                             </div>
@@ -344,7 +349,7 @@
                             <div class="feature-item">
                                 <p>Dish Washer</p>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- feature-item end -->
                     </div>
                     <!-- .row end -->
@@ -361,11 +366,11 @@
                         <!-- .col-md-12 end -->
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <ul class="list-unstyled mb-20">
-                                <li><span>Address:</span>1220 Petersham Town</li>
-                                <li><span>City:</span>Sydney</li>
-                                <li><span>Country:</span>Australia</li>
-                                <li><span>State:</span>Newcastle</li>
-                                <li><span>Zip/Postal code:</span>54330</li>
+                                <li><span>Address:</span>{{$data[0]['location']->address}}</li>
+                                <li><span>City:</span>{{$data[0]['city']->name}}</li>
+                                <li><span>Country:</span>{{$data[0]['country']->name}}</li>
+                                {{-- <li><span>State:</span>Newcastle</li> --}}
+                                <li><span>Zip/Postal code:</span>{{$data[0]['city']->postalCode}}</li>
                             </ul>
                         </div>
                         <!-- .col-md-12 end -->

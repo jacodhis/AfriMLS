@@ -17,9 +17,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('image');
+            $table->string('price');
             $table->longText('description')->nullable();
 
-            $table->integer('amount');
+            $table->unsignedBigInteger('location_id');
+            $table->index('location_id');
+
+
 
             $table->unsignedBigInteger('county_id');
             $table->index('county_id');

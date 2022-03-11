@@ -92,12 +92,12 @@
                                         <i class="fa fa-angle-down"></i>
                                         <select name="select-location" id="select-location">
                                             <option>City/Neighbourhood</option>
-                                            {{-- @foreach($data[0]['counties'] as $county)
-                                              <option value="{{$county->id}}">{{$county->name}}</option>
-                                            @endforeach --}}
+                                            @foreach($data[0]['cities'] as $city)
+                                              <option value="{{$city->id}}">{{$city->name}}</option>
+                                            @endforeach
+                                            {{-- <option>Westlands,Nairobi</option>
                                             <option>Westlands,Nairobi</option>
-                                            <option>Westlands,Nairobi</option>
-                                            <option>Westlands,Nairobi</option>
+                                            <option>Westlands,Nairobi</option> --}}
 
                                         </select>
                                     </div>
@@ -212,14 +212,14 @@
 
                                    {{-- <img src="assets/images/properties/house-1.png" alt="property image"
                                        class="img-responsive"> --}}
-                                   <span class="property--status">{{$property->option}}</span>
+                                   {{-- <span class="property--status">#</span> --}}
                                </a>
                            </div>
                            <div class="property--content">
                                <div class="property--info">
                                    <h5 class="property--title"><a href="#">3 Bedroomed in Runda</a></h5>
                                    <p class="property--location"> {{$property->county->name}} , County</p>
-                                   <p class="property--price"> ${{$property->amount}}</p>
+                                   <p class="property--price"> ${{$property->price}}</p>
                                </div>
                                <!-- .property-info end -->
                                <div class="property--features">

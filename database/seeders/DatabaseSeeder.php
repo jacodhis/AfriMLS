@@ -16,10 +16,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(property::class);
+        $this->call(roles::class);
         $this->call(counties::class);
         $this->call(categories::class);
         $this->call(options::class);
         $this->call(Countries::class);
+        $this->call(location::class);
+        $this->call(cities::class);
+        $this->call(feautures::class);
+
         // \App\Models\User::factory(10)->create();
     }
 }

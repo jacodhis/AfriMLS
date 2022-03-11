@@ -292,8 +292,8 @@
                         </div>
                         <!-- Module Consultation  -->
                         <div class="module module-property pull-left">
-                            <a href="{{ route('addProperty') }}" target="_blank" class="btn"><i
-                                    class="fa fa-plus"></i> Add property</a>
+                            {{-- <a href="{{ route('property') }}" target="_blank" class="btn"><i
+                                    class="fa fa-plus"></i>  property</a> --}}
                         </div>
                     </div>
                     <!-- /.navbar-collapse -->

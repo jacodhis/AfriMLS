@@ -7,7 +7,7 @@ use App\Models\property;
 use App\Models\county;
 use App\Models\country;
 use App\Models\category;
-
+use App\Models\city;
 use DB;
 
 class IndexController extends Controller
@@ -16,15 +16,13 @@ class IndexController extends Controller
 
         $data = [];
         $options = DB::table('options')->select(['id','name'])->get();//goes to search
-        $countries = country::inRandomOrder()
-                                            ->limit(5)
-                                            ->get();//goes to search
-                                            // dd($countries);
+        $countries = country::inRandomOrder()->limit(5) ->get();//goes to search
+        $cities = city::inRandomOrder()->limit(5) ->get();
 
-    //    $properties = property::get();
-       $properties = property::inRandomOrder()->take(9)->get();
-    //    dd($properties);
-    //    $counties = county::get();
+
+        $properties = property::inRandomOrder()->take(9)->get();
+        //    dd($properties);
+        //    $counties = county::get();
 
 
        $categories = category::get();
@@ -32,6 +30,7 @@ class IndexController extends Controller
        array_push($data,[
            'properties'=>$properties,
         //    'counties' => $counties,
+           'cities' => $cities,
            'countries' => $countries,
            'categories' =>$categories,
            'options' =>$options

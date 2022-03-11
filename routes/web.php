@@ -13,24 +13,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+// navigation routes
 Route::get('/', 'IndexController@landingPage')->name('landingPage');
 Route::get('/about-us', 'IndexController@aboutUs')->name('aboutUs');
 Route::get('/contact-Us', 'IndexController@contactPage')->name('contactPage');
 //property routes
 
-Route::get('/add-property', 'PropertyController@addProperty')->name('addProperty');
+
+Route::get('/properties', 'PropertyController@properties')->name('properties');
+Route::get('ok',function(){
+return 'hi';
+})->name('addProperty');
+
 Route::get('/my-properties', 'PropertyController@myproperties')->name('myproperties');
 Route::get('/properties/{id}', 'PropertyController@show')->name('propertyShow');
 
 //agents routes
 Route::get('/agents', 'AgentsController@agents')->name('agents');
 Route::get('/agents-profile', 'AgentsController@agentsProfile')->name('agentsProfile');
+Route::get('/agents-dashboard', 'AgentsController@dashboard')->name('agentdashboard');
 
-Route::get('/admin', function(){
-  return view('layouts.backend');
 
-})->name('admin');
+Route::get('/property', [App\Http\Livewire\Property::class,'render'])->name('property');
+
+
 
 
 

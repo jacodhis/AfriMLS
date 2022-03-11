@@ -10,4 +10,10 @@ class option extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    protected $table = 'options';
+
+    public function properties(){
+        return $this->hasMany('App\Models\property');
+    }
 }

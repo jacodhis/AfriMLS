@@ -20,8 +20,8 @@ class categories extends Seeder
             ['id'=>'1','name' => 'Apartment'],
             ['id'=>'2','name' => 'House'],
             ['id'=>'3','name' => 'Land'],
-            ['id'=>'4','name' => 'Accessories'],
-            ['id'=>'5','name' => 'clothes'],
+            // ['id'=>'4','name' => 'Accessories'],
+            // ['id'=>'5','name' => 'clothes'],
 
 ];
         foreach ($categories as $category) {

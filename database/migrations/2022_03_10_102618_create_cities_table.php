@@ -15,7 +15,18 @@ return new class extends Migration
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('postalCode')->nullable();
             $table->timestamps();
+
+
+            $table->unsignedBigInteger('country_id');
+            $table->index('country_id');
+
+
+
+
+
         });
     }
 

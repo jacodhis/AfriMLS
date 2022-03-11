@@ -11,4 +11,8 @@ class country extends Model
     protected $gurded = [];
 
     protected $table = 'countries';
+
+    public function cities(){
+        return $this->hasMany('App\Models\city');
+    }
 }

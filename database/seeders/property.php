@@ -101,9 +101,11 @@ class property extends Seeder
                 'name' => Str::random(6),
                 'image' => 'image'.mt_rand(1,3).'.jpg',
                 'category_id' => mt_rand(1,5),
-                'amount' => mt_rand(100000,200000),
                 'county_id' => mt_rand(1,47),
                 'option_id' => mt_rand(1,3),
+                 'price' => mt_rand(10000,5000000),
+                 'location_id' => mt_rand(1,200),
+                 'description' => 'Duis aute irure dolor in reprehenderit in volupte velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis',
 
             ]);
 

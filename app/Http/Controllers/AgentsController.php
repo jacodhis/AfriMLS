@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class AgentsController extends Controller
 {
+    public function dashboard(){
+
+        return view('agents.dashboard');
+
+    }
 
       //agents
       public function agents(){
