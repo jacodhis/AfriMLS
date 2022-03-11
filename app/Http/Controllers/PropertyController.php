@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\property;
+use App\Models\Category;
 use DB;
 
 class PropertyController extends Controller
@@ -12,8 +13,9 @@ class PropertyController extends Controller
     public function properties(){
         $data = [];
 
-        $categories = DB::table('categories')->get();
-        $properties = DB::table('properties')->get();
+        $categories = Category::get();
+        $properties = Property::get();
+
 
         array_push($data,['categories'=>$categories,'properties'=>$properties]);
 

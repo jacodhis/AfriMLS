@@ -218,8 +218,8 @@
                            <div class="property--content">
                                <div class="property--info">
                                    <h5 class="property--title"><a href="#">3 Bedroomed in Runda</a></h5>
-                                   <p class="property--location"> {{$property->county->name}} , County</p>
-                                   <p class="property--price"> ${{$property->price}}</p>
+                                   <p class="property--location"> {{$property->county->name??""}} , County</p>
+                                   <p class="property--price"> ${{$property->price??""}}</p>
                                </div>
                                <!-- .property-info end -->
                                <div class="property--features">

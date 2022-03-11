@@ -94,18 +94,19 @@ class property extends Seeder
 
 
         $data = 200;
+        $count = 0;
         for ($i=0; $i < $data; $i++) {
-
+            $count ++;
             DB::table('properties')->insert([
 
-                'name' => Str::random(6),
+                'name' => 'Property '.$count,
                 'image' => 'image'.mt_rand(1,3).'.jpg',
                 'category_id' => mt_rand(1,5),
                 'county_id' => mt_rand(1,47),
                 'option_id' => mt_rand(1,3),
                  'price' => mt_rand(10000,5000000),
                  'location_id' => mt_rand(1,200),
-                 'description' => 'Duis aute irure dolor in reprehenderit in volupte velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis',
+                 'description' => 'This is a DESCRIPTION ...... Duis aute irure dolor in reprehenderit in volupte velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis',
 
             ]);
 

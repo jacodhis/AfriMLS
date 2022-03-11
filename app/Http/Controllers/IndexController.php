@@ -16,7 +16,14 @@ class IndexController extends Controller
 
         $data = [];
         $options = DB::table('options')->select(['id','name'])->get();//goes to search
-        $countries = country::inRandomOrder()->limit(5) ->get();//goes to search
+        // $countries = country::inRandomOrder()->limit(5) ->get();//goes to search
+        $countries = country::where('id',1)
+                           ->orWhere('id',2)
+                           ->orWhere('id',3)
+                           ->orWhere('id',4)
+                           ->orWhere('id',5)
+                           ->get();
+        // dd($countries);
         $cities = city::inRandomOrder()->limit(5) ->get();
 
 
