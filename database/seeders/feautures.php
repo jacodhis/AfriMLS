@@ -18,10 +18,11 @@ class feautures extends Seeder
     {
         //
         $data = 500;
+        $count = 0;
         for ($i=0; $i < $data; $i++) {
-
+           $count ++;
             DB::table('feautures')->insert([
-                'feauture' => Str::random(10),
+                'feauture' => 'Feauture'.$count,
                 'property_id' => mt_rand(1,200)
 
             ]);

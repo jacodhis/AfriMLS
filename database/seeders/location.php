@@ -19,10 +19,11 @@ class location extends Seeder
     {
         //
         $data = 200;
+        $count = 0;
         for ($i=0; $i < $data; $i++) {
-
+          $count++;
             DB::table('locations')->insert([
-                'address' => Str::random(10),
+                'address' => 'location '.$count,
                 'city_id' => mt_rand(1,200),
 
             ]);
