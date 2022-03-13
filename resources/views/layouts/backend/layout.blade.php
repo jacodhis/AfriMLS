@@ -46,32 +46,34 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="{{route('agentdashboard')}}">
+                <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>#</span>
+                    <span>property-Type</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
-                        {{-- <a class="collapse-item" href="{{route('property/houses')}}">Houses</a> --}}
-                        <a class="collapse-item" href="cards.html">Lands</a>
-                        <a class="collapse-item" href="cards.html">#</a>
+                        @php
+                         $propertyTypes =  \App\Models\category::get() ;
+
+                        @endphp
+                        @foreach ($propertyTypes as $propertyType )
+                        <a class="collapse-item" href="/propertyType/{{$propertyType->id}}">{{$propertyType->name}}</a>
+                        @endforeach
+
+
+
+                      {{-- @foreach($data[0]['propertyTypes'] as $propertyType )
+                        <a class="collapse-item" href="/propertyType/{{$propertyType->id}}">{{$propertyType->name}}</a>
+                      @endforeach --}}
                     </div>
                 </div>
             </li>
@@ -126,10 +128,10 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="{{route('properties')}}">
+                <a class="nav-link" href="#">
                     {{-- <i class="fas fa-fw fa-chart-area"></i> --}}
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Property </span></a>
+                    <span>other Menu  </span></a>
             </li>
 
             <!-- Nav Item - Tables -->
@@ -370,7 +372,7 @@
                         </div>
                     </div>
 
-                </div> --}}
+                </div>
                 <!-- /.container-fluid -->
 
             </div>

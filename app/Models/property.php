@@ -33,4 +33,8 @@ class property extends Model
         return $this->hasMany('App\Models\feauture');
     }
 
+    public function descriptions(){
+        return $this->hasMany('App\Models\description');
+    }
+
 }

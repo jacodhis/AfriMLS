@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(location::class);
         $this->call(cities::class);
         $this->call(feautures::class);
+        $this->call(descriptions::class);
 
         // \App\Models\User::factory(10)->create();
     }

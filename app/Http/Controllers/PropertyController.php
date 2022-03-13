@@ -10,43 +10,39 @@ use DB;
 class PropertyController extends Controller
 {
 
-    public function properties(){
+    public function show( $propertyTypeId){
         $data = [];
+        // $properties  = category::findorFail($propertyTypeId)->properties;
+        $propertyData = category::findorFail($propertyTypeId);
+        $properties = property::where('category_id',$propertyTypeId)->simplePaginate(8);
 
-        $categories = Category::get();
-        $properties = Property::get();
-
-
-        array_push($data,['categories'=>$categories,'properties'=>$properties]);
-
+        array_push($data,['propertyData'=>$propertyData,'properties' => $properties]);
         if(empty($data)){
-            echo "empty";
+            dd('empty');
         }else{
-            return view('property.properties',['data'=>$data]);
+
+         return view('property.show',['data'=>$data]);
         }
-
-
+    }
+    public function create($propertyTypeId){
+        $propertyType = category::findorFail($propertyTypeId);
+       return view('property.create',['propertyType'=>$propertyType]);
     }
 
-    public function addProperty(){
-        return view('property.addproperty');
-    }
 
     public function myproperties(){
         return view('property.myproperties');
     }
 
-    public function show($id){
-
-        $data = [];
-
+    public function viewPageshow($id){
+       $data = [];
        $property = property::findorFail($id);
-
        $propertyOption = $property->option;
        $feautures = $property->feautures;
        $location = $property->location;
        $city = $location->city;
        $country = $city->country;
+       $descriptions = $property->descriptions;
 
        array_push($data,
               [
@@ -56,6 +52,7 @@ class PropertyController extends Controller
               'country'=>$country,
               'feautures'=>$feautures,
               'propertyOption'=>$propertyOption,
+              'descriptions' => $descriptions
             ]);
 
 
@@ -63,7 +60,7 @@ class PropertyController extends Controller
              dd('empty');
          }else{
         //    dd($data);
-            return view('property.show',['data'=>$data]);
+            return view('property.viewPageshow',['data'=>$data]);
 
          }
 

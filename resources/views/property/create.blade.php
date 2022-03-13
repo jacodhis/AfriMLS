@@ -2,14 +2,14 @@
 
 
 @section('title')
-   Posted {{$data[0]['propertyData']->name}}
+   add {{$propertyType->name}}
 @endsection
 
 @section('content')
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">{{$data[0]['propertyData']->name}}</h1>
-        <a href="{{route('propertyType.create',[$data[0]['propertyData']->id])}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+        <h1 class="h3 mb-0 text-gray-800">{{$propertyType->name}}</h1>
+        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i> Add property</a>
     </div>
     {{-- @can('admin_agent_access') --}}
@@ -17,8 +17,8 @@
     <div class="row">
 
             <!-- Earnings (Monthly) Card Example -->
-            @foreach($data[0]['properties'] as $property)
-            <div class="col-xl-3 col-md-6 mb-4">
+
+            {{-- <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
@@ -36,9 +36,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            @endforeach
-            {{$data[0]['properties']->links()}}
+            </div> --}}
 
 
 

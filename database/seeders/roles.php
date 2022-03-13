@@ -22,10 +22,9 @@ class roles extends Seeder
             ['id'=>'2','name' => 'agent'],
             ['id'=>'3','name' => 'user'],
         ];
-        foreach($roles as $role){
-            role::create($role);
-        }
-
-
+        // foreach($roles as $role){
+        //     role::create($role);
+        // }
+        Role::insert($roles);
     }
 }

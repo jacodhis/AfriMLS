@@ -20,21 +20,26 @@ Route::get('/contact-Us', 'IndexController@contactPage')->name('contactPage');
 //property routes
 
 
-Route::get('/properties', 'PropertyController@properties')->name('properties');
 Route::get('ok',function(){
-return 'hi';
+return 'add property here';
 })->name('addProperty');
 
 Route::get('/my-properties', 'PropertyController@myproperties')->name('myproperties');
-Route::get('/properties/{id}', 'PropertyController@show')->name('propertyShow');
+Route::get('/properties/{id}', 'PropertyController@viewPageshow')->name('propertyShow');
+//from dashboard backend
+
+Route::get('/propertyType/{propertyTypeId}','PropertyController@show')->name('properTypeShow');
+Route::get('/propertyType/create/{propertyTypeId}','PropertyController@create')->name('propertyType.create');
+
 
 //agents routes
 Route::get('/agents', 'AgentsController@agents')->name('agents');
 Route::get('/agents-profile', 'AgentsController@agentsProfile')->name('agentsProfile');
-Route::get('/agents-dashboard', 'AgentsController@dashboard')->name('agentdashboard');
 
 
-Route::get('/property', [App\Http\Livewire\Property::class,'render'])->name('property');
+
+Route::get('/AfriMLSdashboard', 'BackendDashboardController@dashboard')->name('backendDashboard');
+
 
 
 
