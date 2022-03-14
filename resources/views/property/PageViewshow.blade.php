@@ -157,19 +157,25 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="heading">
-                                <h2 class="heading--title">Features <small></small></h2>
+                                <h2 class="heading--title">community Feutures <small></small></h2>
                             </div>
                         </div>
                         <!-- feature-item #1 -->
 
-                       @foreach($data[0]['property']->garagefeatures as $feauture)
+                       @foreach($data[0]['feauture_communities'] as $feauture)
                         <div class="col-xs-6 col-sm-4 col-md-4">
                             <div class="feature-item">
-                                {{-- <p>just</p> --}}
-                                <p>{{$feauture->garage_feautures}}</p>
+
+                                <p>
+                                    @foreach($feauture['real_c_feautures'] as $cf)
+                                    {{$cf->c_feautures}}
+
+                                    @endforeach
+                                </p>
                             </div>
                         </div>
                        @endforeach
+
                        <div class="heading">
                         <h2 class="heading--title">Carports Features <small></small></h2>
                     </div>

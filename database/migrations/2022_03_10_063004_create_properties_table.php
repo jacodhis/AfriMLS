@@ -53,6 +53,9 @@ return new class extends Migration
             $table->unsignedBigInteger('county_id')->default(2);
             $table->index('county_id');
 
+            $table->unsignedBigInteger('city_id')->default(2);
+            $table->index('city_id');
+
 
             $table->unsignedBigInteger('option_id')->default(1);
             $table->index('option_id');

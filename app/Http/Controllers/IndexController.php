@@ -30,6 +30,8 @@ class IndexController extends Controller
         $properties = property::inRandomOrder()->take(3)->get();
 
 
+
+
        $categories = category::get();
 
        array_push($data,[

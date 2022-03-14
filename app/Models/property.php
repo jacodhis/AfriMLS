@@ -36,6 +36,10 @@ class property extends Model
         return $this->hasMany('App\Models\garage_carport');
     }
 
+    public function community_feautures(){
+        return $this->hasMany('App\Models\community_feauture');
+    }
+
 
 
 
