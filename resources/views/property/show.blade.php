@@ -26,10 +26,16 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    <?php
+                                    $images = explode('|',$property->image);
+                                   ?>
+
 
                                 <center>
-                                    <a href="{{route('showsingleproperty',[$property->id])}}"><img src="{{asset('images/'.$property->image) }}" alt="property image"
-                                    class="img-responsive" height = "200" width="200"></a>
+                                    <img src="{{URL::to($images[0])}}" alt="property image"
+                                   class="img-responsive" height = "200" width="200" >
+                                    {{-- <a href="{{route('showsingleproperty',[$property->id])}}"><img src="{{asset('images/'.$property->image) }}" alt="property image"
+                                    class="img-responsive" height = "200" width="200"></a> --}}
                                 </center>
                             </div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800"><center>price : $ {{$property->price}}</center></div>

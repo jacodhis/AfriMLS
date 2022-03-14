@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\property;
 use App\Models\Category;
 use DB;
+use Image;
 
 class PropertyController extends Controller
 {
@@ -33,10 +34,49 @@ class PropertyController extends Controller
         return view('property.showsingleproperty',['property'=>$property]);
         // return $property;
     }
+    //displays form to add property
     public function create($propertyTypeId){
 
         $propertyType = category::findorFail($propertyTypeId);
        return view('property.create',['propertyType'=>$propertyType]);
+    }
+    //stores property
+    public function store(Request $request){
+
+
+        $image = [];
+        if($request->hasFile('property_images')){
+            $files = $request->property_images;
+            // dd($files);
+            foreach($files as $file){
+
+                $image_name = md5(rand(1000,10000));
+                $ext = strtolower($file->getClientOriginalExtension());
+                $image_full_name = $image_name.'.'.$ext;
+               //  $upload_path = 'public/multiple-images/';
+                $upload_path = 'images/propertyImages/';
+                $file->move(public_path($upload_path), $image_full_name);
+                $image_url = $upload_path.$image_full_name;
+                // $size = Image::make($file)->resize(500,500)->save($upload_path.$image_full_name);
+                array_push($image,$image_url);
+            }
+            $newProperty = new property;
+            $newProperty->name = $request->name;
+            $newProperty->category_id = $request->propertyId;
+            $newProperty->image = implode('|',$image);
+            $newProperty->save();
+
+            return back();
+            session()->flash('success','upload done successfully');
+
+
+        }else{
+            dd('does not exist');
+        }
+
+
+
+
     }
 
 

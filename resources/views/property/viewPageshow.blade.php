@@ -93,25 +93,28 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="property-single-carousel-content">
                                 <div class="carousel carousel-thumbs slider-navs" data-slide="1" data-slide-res="1" data-autoplay="true" data-thumbs="true" data-nav="true" data-dots="false" data-space="30" data-loop="true" data-speed="800" data-slider-id="1">
+                                    <?php
+                                    $images = explode('|',$data[0]['property']->image);
+                                   ?>
+                                   <img src="{{URL::to($images[0])}}" alt="property image"
+                                   class="img-responsive" >
 
-
-                                    <img src="{{asset('images/'.$data[0]['property']->image) }}" alt="property image"
-                                       class="img-responsive" >
-                                       <img src="{{asset('images/'.$data[0]['property']->image) }}" alt="property image"
+                                       {{-- <img src="{{asset('images/'.$data[0]['property']->image) }}" alt="property image"
                                        class="img-responsive" >
                                        <img src="{{asset('images/'.$data[0]['property']->image) }}" alt="property image"
                                    class="img-responsive" >
                                    <img src="{{asset('images/'.$data[0]['property']->image) }}" alt="property image"
-                                   class="img-responsive" >
+                                   class="img-responsive" > --}}
 
                                 </div>
                                 <!-- .carousel end -->
                                 <div class="owl-thumbs thumbs-bg" data-slider-id="1">
 
-                                    <button class="owl-thumb-item">
-                                        {{-- <img src="{{URL::to($property->image)}}" alt="property image"
-                                        class="img-responsive"> --}}
-                                    </button>
+                                    {{-- <button class="owl-thumb-item">
+                                        <img src="{{URL::to($property->image)}}" alt="property image"
+                                        class="img-responsive">
+                                    </button> --}}
+
                                     <button class="owl-thumb-item">
                                         <img src="{{URL::to($data[0]['property']->image)}}" alt="property image" height="500"
                                         class="img-responsive">

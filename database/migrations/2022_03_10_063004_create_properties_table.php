@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->string('image')->nullable();
-             $table->string('price')->nullable();
+            $table->longText('image')->nullable();
+             $table->string('price')->nullable()->default(4500);
 
             $table->string('number_bedroom')->nullable()->default(2);
             $table->string('number_bathroom')->nullable()->default(3);
@@ -45,20 +45,20 @@ return new class extends Migration
 
             $table->longText('description')->nullable();
 
-            $table->unsignedBigInteger('location_id');
+            $table->unsignedBigInteger('location_id')->default(1);
             $table->index('location_id');
 
 
 
-            $table->unsignedBigInteger('county_id');
+            $table->unsignedBigInteger('county_id')->default(2);
             $table->index('county_id');
 
 
-            $table->unsignedBigInteger('option_id');
+            $table->unsignedBigInteger('option_id')->default(1);
             $table->index('option_id');
 
 
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('category_id')->default(2);
             $table->index('category_id');
             $table->timestamps();
         });

@@ -93,7 +93,7 @@ class property extends Seeder
         // ]);
 
 
-        $data = 200;
+        $data = 4;
         $count = 0;
         for ($i=0; $i < $data; $i++) {
             $count ++;

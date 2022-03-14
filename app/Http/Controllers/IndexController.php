@@ -27,9 +27,7 @@ class IndexController extends Controller
         $cities = city::inRandomOrder()->limit(5) ->get();
 
 
-        $properties = property::inRandomOrder()->take(9)->get();
-        //    dd($properties);
-        //    $counties = county::get();
+        $properties = property::inRandomOrder()->take(3)->get();
 
 
        $categories = category::get();

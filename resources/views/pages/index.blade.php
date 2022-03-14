@@ -205,14 +205,11 @@
                            <div class="property--img">
                                {{-- <a href="{{route('property',[$property->id])}}"> --}}
                                 <a href="/properties/{{$property->id}}">
-                                   {{-- <img src="{{URL::to($property->image)}}" alt="property image" height="500"
-                                   class="img-responsive"> --}}
-                                   <img src="{{asset('images/'.$property->image) }}" alt="property image"
-                                   class="img-responsive" >
-
-                                   {{-- <img src="assets/images/properties/house-1.png" alt="property image"
-                                       class="img-responsive"> --}}
-                                   {{-- <span class="property--status">#</span> --}}
+                                   <?php
+                                    $images = explode('|',$property->image);
+                                   ?>
+                                    <img src="{{URL::to($images[0])}}" alt="property image"
+                                    class="img-responsive" >
                                </a>
                            </div>
                            <div class="property--content">
