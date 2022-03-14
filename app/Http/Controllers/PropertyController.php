@@ -10,9 +10,11 @@ use DB;
 class PropertyController extends Controller
 {
 
+
     public function show( $propertyTypeId){
+        // dd('hi');
         $data = [];
-        // $properties  = category::findorFail($propertyTypeId)->properties;
+
         $propertyData = category::findorFail($propertyTypeId);
         $properties = property::where('category_id',$propertyTypeId)->simplePaginate(8);
 
@@ -20,11 +22,13 @@ class PropertyController extends Controller
         if(empty($data)){
             dd('empty');
         }else{
+            // dd($data);
 
          return view('property.show',['data'=>$data]);
         }
     }
     public function create($propertyTypeId){
+
         $propertyType = category::findorFail($propertyTypeId);
        return view('property.create',['propertyType'=>$propertyType]);
     }
@@ -35,14 +39,15 @@ class PropertyController extends Controller
     }
 
     public function viewPageshow($id){
+
+
        $data = [];
        $property = property::findorFail($id);
        $propertyOption = $property->option;
-       $feautures = $property->feautures;
+
        $location = $property->location;
        $city = $location->city;
        $country = $city->country;
-       $descriptions = $property->descriptions;
 
        array_push($data,
               [
@@ -50,16 +55,16 @@ class PropertyController extends Controller
               'location'=>$location,
               'city'=>$city,
               'country'=>$country,
-              'feautures'=>$feautures,
               'propertyOption'=>$propertyOption,
-              'descriptions' => $descriptions
+
             ]);
 
 
          if(empty($data)){
              dd('empty');
          }else{
-        //    dd($data);
+
+
             return view('property.viewPageshow',['data'=>$data]);
 
          }

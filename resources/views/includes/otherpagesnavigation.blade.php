@@ -64,7 +64,7 @@
         <li><a href="social-profile.html">social profile</a></li>
         <li><a href="{{route('myproperties')}}">my properties</a></li>
         <li><a href="favourite-properties.html">favourite properties</a></li>
-        <li><a href="{{route('addProperty')}}">add property</a></li>
+        <li><a href="#">add property</a></li>
     </ul>
 </li>
 <li class="has-dropdown">

@@ -217,20 +217,20 @@
                            </div>
                            <div class="property--content">
                                <div class="property--info">
-                                   <h5 class="property--title"><a href="#">3 Bedroomed in Runda</a></h5>
+                                   {{-- <h5 class="property--title"><a href="#">3 Bedroomed in Runda</a></h5> --}}
                                    <p class="property--location"> {{$property->county->name??""}} , County</p>
                                    <p class="property--price"> ${{$property->price??""}}</p>
                                </div>
                                <!-- .property-info end -->
                                <div class="property--features">
-                                   <ul class="list-unstyled mb-0">
+                                   {{-- <ul class="list-unstyled mb-0">
                                        <li><span class="feature">Beds:</span><span class="feature-num">2</span>
                                        </li>
                                        <li><span class="feature">Baths:</span><span class="feature-num">1</span>
                                        </li>
                                        <li><span class="feature">Area:</span><span class="feature-num">200 sq
                                                ft</span></li>
-                                   </ul>
+                                   </ul> --}}
                                </div>
                                <!-- .property-features end -->
                            </div>

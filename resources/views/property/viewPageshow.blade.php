@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-        <!-- Page Title #1
+       <!-- Page Title #1
 ============================================ -->
 <section id="page-title" class="page-title bg-overlay bg-overlay-dark2">
     <div class="bg-section">
@@ -160,23 +160,23 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="heading">
-                                <h2 class="heading--title">Description</h2>
+                                <h2 class="heading--title">Property Description</h2>
                             </div>
                         </div>
                         <!-- feature-panel #1 -->
-                        @foreach ($data[0]['descriptions'] as $description )
-                        <div class="col-xs-6 col-sm-4 col-md-4">
+
+                        {{-- <div class="col-xs-6 col-sm-4 col-md-4">
                             <div class="feature-panel">
                                 <div class="feature--img">
                                     <img src="{{asset('assets/images/property-single/features/1.png')}}" alt="icon">
                                 </div>
                                 <div class="feature--content">
-                                    <h5>Area:</h5>
-                                    <p>{{$description->name}}</p>
+                                    <h5>Property Descriptiion</h5>
+                                    <p></p>
                                 </div>
                             </div>
-                        </div>
-                        @endforeach
+                        </div> --}}
+
                         {{-- <!-- feature-panel end -->
                         <!-- feature-panel #2 -->
                         <div class="col-xs-6 col-sm-4 col-md-4">
@@ -262,19 +262,19 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="heading">
-                                <h2 class="heading--title">Features <small>({{$data[0]['feautures']->count()}})</small></h2>
+                                <h2 class="heading--title">Features <small></small></h2>
                             </div>
                         </div>
                         <!-- feature-item #1 -->
-                        @foreach($data[0]['feautures'] as $feauture)
+
                         <div class="col-xs-6 col-sm-4 col-md-4">
 
                             <div class="feature-item">
-                                <p>{{$feauture->feauture}} </p>
+                                <p></p>
                             </div>
 
                         </div>
-                        @endforeach
+
                         {{-- <!-- feature-item end -->
                         <!-- feature-item #2 -->
                         <div class="col-xs-6 col-sm-4 col-md-4">
@@ -454,7 +454,7 @@
                         </div>
                         <!-- .col-md-12 end -->
                         <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="video--content text-center">
+                            {{-- <div class="video--content text-center">
                                 <div class="bg-section">
                                     <img src="assets/images/video/1.jpg" alt="Background" />
                                 </div>
@@ -468,7 +468,7 @@
                                     </div>
                                     <!-- .video-player end -->
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- .video-content end -->
                         </div>
                         <!-- .col-md-12 end -->

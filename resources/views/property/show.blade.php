@@ -9,8 +9,10 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">{{$data[0]['propertyData']->name}}</h1>
-        <a href="{{route('propertyType.create',[$data[0]['propertyData']->id])}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-download fa-sm text-white-50"></i> Add property</a>
+        <a href="{{route('addProperty',[$data[0]['propertyData']->id])}}  " class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+            class="fas fa-download fa-sm text-white-50"></i> Add property</a>
+
+
     </div>
     {{-- @can('admin_agent_access') --}}
         <!-- Content Row -->
@@ -26,8 +28,10 @@
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
 
                                 <center>
-                                    <img src="{{asset('images/'.$property->image) }}" alt="property image"
-                                    class="img-responsive" height = "200" width="200"></center></div>
+                                    <a href="#"><img src="{{asset('images/'.$property->image) }}" alt="property image"
+                                    class="img-responsive" height = "200" width="200"></a>
+                                </center>
+                            </div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800"><center>price : $ {{$property->price}}</center></div>
                             </div>
                             <div class="col-auto">

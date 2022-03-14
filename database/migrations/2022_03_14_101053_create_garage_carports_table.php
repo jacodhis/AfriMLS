@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('descriptions', function (Blueprint $table) {
+        Schema::create('garage_carports', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('garage_carpot')->nullable();
 
             $table->unsignedBigInteger('property_id');
             $table->index('property_id');
-
 
             $table->timestamps();
         });
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('descriptions');
+        Schema::dropIfExists('garage_carports');
     }
 };

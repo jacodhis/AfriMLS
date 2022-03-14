@@ -317,11 +317,11 @@
                         </div>
                         <div class="widget--content">
                             <ul class="list-unstyled mb-0">
-                                <li><a href="#">Home</a></li>
+                                <li><a href="{{route('landingPage')}}">Home</a></li>
                                 <li><a href="#">About Us</a></li>
                                 <li><a href="#">To Let</a></li>
                                 <li><a href="#">For Sale</a></li>
-                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="{{route('contactPage')}}">Contact Us</a></li>
                             </ul>
                         </div>
                     </div>

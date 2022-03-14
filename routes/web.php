@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+//agents routes
+Route::get('/agents', 'AgentsController@agents')->name('agents');
+Route::get('/agents-profile', 'AgentsController@agentsProfile')->name('agentsProfile');
+
 // navigation routes
 Route::get('/', 'IndexController@landingPage')->name('landingPage');
 Route::get('/about-us', 'IndexController@aboutUs')->name('aboutUs');
@@ -20,25 +25,17 @@ Route::get('/contact-Us', 'IndexController@contactPage')->name('contactPage');
 //property routes
 
 
-Route::get('ok',function(){
-return 'add property here';
-})->name('addProperty');
+Route::get('/propertyType/create/{id}','PropertyController@create')->name('addProperty');
 
 Route::get('/my-properties', 'PropertyController@myproperties')->name('myproperties');
 Route::get('/properties/{id}', 'PropertyController@viewPageshow')->name('propertyShow');
-//from dashboard backend
-
-Route::get('/propertyType/{propertyTypeId}','PropertyController@show')->name('properTypeShow');
-Route::get('/propertyType/create/{propertyTypeId}','PropertyController@create')->name('propertyType.create');
-
-
-//agents routes
-Route::get('/agents', 'AgentsController@agents')->name('agents');
-Route::get('/agents-profile', 'AgentsController@agentsProfile')->name('agentsProfile');
 
 
 
 Route::get('/AfriMLSdashboard', 'BackendDashboardController@dashboard')->name('backendDashboard');
+//from dashboard backend
+
+Route::get('/propertyType/{propertyTypeId}','PropertyController@show')->name('properTypeShow');
 
 
 

@@ -22,6 +22,7 @@
 
     <!-- Custom styles for this page -->
     <link href="{{asset('assetss/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+    @livewireStyles
 
 </head>
 
@@ -46,7 +47,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{route('backendDashboard')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -435,6 +436,8 @@
 
     <!-- Page level custom scripts -->
     <script src="{{asset('assetss/js/demo/datatables-demo.js')}}"></script>
+
+    @livewireScripts
 
 </body>
 

@@ -28,13 +28,18 @@ class property extends Model
         return $this->belongsTo('App\Models\location');
     }
 
-
-    public function feautures(){
-        return $this->hasMany('App\Models\feauture');
+    public function garagefeatures(){
+        return $this->hasMany('App\Models\garage_feauture');
     }
 
-    public function descriptions(){
-        return $this->hasMany('App\Models\description');
+    public function garagecarports(){
+        return $this->hasMany('App\Models\garage_carport');
     }
+
+
+
+
+
+
 
 }
