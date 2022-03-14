@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\property;
 use App\Models\Category;
+use App\Models\option;
 use DB;
 use Image;
 
@@ -36,12 +37,16 @@ class PropertyController extends Controller
     }
     //displays form to add property
     public function create($propertyTypeId){
-
+        $options = option::get();
         $propertyType = category::findorFail($propertyTypeId);
-       return view('property.create',['propertyType'=>$propertyType]);
+        return view('property.createproperty',['propertyType'=>$propertyType,'options'=>$options]);
+
     }
     //stores property
     public function store(Request $request){
+        // dd($request->option_id);
+
+
 
 
         $image = [];
@@ -61,9 +66,13 @@ class PropertyController extends Controller
                 array_push($image,$image_url);
             }
             $newProperty = new property;
-            $newProperty->name = $request->name;
+            $newProperty->name = $request->pname;
             $newProperty->category_id = $request->propertyId;
+            $newProperty->option_id = $request->option_id;
+            $newProperty->description = $request->description;
+            $newProperty->category_id = $request->propertyTypeId;
             $newProperty->image = implode('|',$image);
+
             $newProperty->save();
 
             return back();
@@ -110,8 +119,10 @@ class PropertyController extends Controller
              dd('empty');
          }else{
 
+            return view('property.PageViewshow',['data'=>$data]);
 
-            return view('property.viewPageshow',['data'=>$data]);
+
+            // return view('property.viewPageshow',['data'=>$data]);
 
          }
 
