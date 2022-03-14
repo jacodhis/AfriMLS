@@ -28,7 +28,7 @@
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
 
                                 <center>
-                                    <a href="#"><img src="{{asset('images/'.$property->image) }}" alt="property image"
+                                    <a href="{{route('showsingleproperty',[$property->id])}}"><img src="{{asset('images/'.$property->image) }}" alt="property image"
                                     class="img-responsive" height = "200" width="200"></a>
                                 </center>
                             </div>

@@ -10,7 +10,7 @@ use DB;
 class PropertyController extends Controller
 {
 
-
+// shows all propertis with the propertyType id in variable
     public function show( $propertyTypeId){
         // dd('hi');
         $data = [];
@@ -26,6 +26,12 @@ class PropertyController extends Controller
 
          return view('property.show',['data'=>$data]);
         }
+    }
+    //   shows a single property
+    public function showoneproperty($id){
+        $property = property::findorFail($id);
+        return view('property.showsingleproperty',['property'=>$property]);
+        // return $property;
     }
     public function create($propertyTypeId){
 

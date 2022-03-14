@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('image');
-             $table->string('price');
+            $table->string('name')->nullable();
+            $table->string('image')->nullable();
+             $table->string('price')->nullable();
 
             $table->string('number_bedroom')->nullable()->default(2);
             $table->string('number_bathroom')->nullable()->default(3);

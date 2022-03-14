@@ -26,7 +26,7 @@ Route::get('/contact-Us', 'IndexController@contactPage')->name('contactPage');
 
 
 Route::get('/propertyType/create/{id}','PropertyController@create')->name('addProperty');
-
+Route::get('showsingleproperty/{id}','PropertyController@showoneproperty')->name('showsingleproperty');
 Route::get('/my-properties', 'PropertyController@myproperties')->name('myproperties');
 Route::get('/properties/{id}', 'PropertyController@viewPageshow')->name('propertyShow');
 

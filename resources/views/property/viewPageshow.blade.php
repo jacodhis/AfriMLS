@@ -93,11 +93,6 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="property-single-carousel-content">
                                 <div class="carousel carousel-thumbs slider-navs" data-slide="1" data-slide-res="1" data-autoplay="true" data-thumbs="true" data-nav="true" data-dots="false" data-space="30" data-loop="true" data-speed="800" data-slider-id="1">
-                                    {{-- <img src="assets/images/properties/slider/1.jpg" alt="Property Image">
-                                    <img src="assets/images/properties/slider/2.jpg" alt="Property Image">
-                                    <img src="assets/images/properties/slider/3.jpg" alt="Property Image">
-                                    <img src="assets/images/properties/slider/4.jpg" alt="Property Image">
-                                    <img src="assets/images/properties/slider/5.jpg" alt="Property Image"> --}}
 
 
                                     <img src="{{asset('images/'.$data[0]['property']->image) }}" alt="property image"

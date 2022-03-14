@@ -17,8 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('address');
 
-            // $table->string('code');
-
             $table->unsignedBigInteger('city_id');
             $table->index('city_id');
 
