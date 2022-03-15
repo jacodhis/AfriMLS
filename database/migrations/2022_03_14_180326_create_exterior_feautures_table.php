@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('exterior_feautures', function (Blueprint $table) {
             $table->id();
-            $table->string('exterior_features');
+            $table->string('exterior_features')->nullable();
 
 
 

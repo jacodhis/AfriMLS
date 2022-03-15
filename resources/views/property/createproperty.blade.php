@@ -9,8 +9,9 @@
 
 <div class="card">
     <form action="{{route('property.store')}}" method="post" enctype="multipart/form-data">
+        @csrf
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <p>
                 <label for="pname">property name </label>
                 <input type="text" name = "pname" class="form-control">
@@ -20,20 +21,15 @@
                 <label for="pname">property image</label>
                 <input type="file" name="property_images[]" class="form-control" multiple>
             </p>
-
             <p>
-                <label for="">Type</label>
-                <select name="option_id" id="" class="form-control">Type
-                    <option value="" disabled>select option</option>
-                    @foreach ($data[0]['options'] as $option)
-                        <option value="{{$option->id}}">{{$option->name}}</option>
-                    @endforeach
-                </select>
-            </p>
+                <label for="description">Description</label>
+                <textarea name="description" id="" cols="20" rows="5" class="form-control"></textarea>
+            </p >
+
 
 
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <p>
                 <label for="">Cities</label>
               <select name="city_id" id="" class="form-control">
@@ -44,11 +40,23 @@
 
               </select>
           </p>
+          <p>
+            <label for="pname">property price</label>
+            <input type="number" min="1" name="property_price" class="form-control" >
+          </p>
+          <p>
+            <label for="">Type</label>
+            <select name="option_id" id="" class="form-control">Type
+                <option value="" disabled>select option</option>
+                @foreach ($data[0]['options'] as $option)
+                    <option value="{{$option->id}}">{{$option->name}}</option>
+                @endforeach
+            </select>
+        </p>
 
-            <p>
-                <label for="description">Description</label>
-                <textarea name="description" id="" cols="20" rows="5" class="form-control"></textarea>
-            </p >
+
+
+
 
             <input type="hidden" value="{{$data[0]['propertyType']->id}}" name ="propertyTypeId">
 
@@ -89,7 +97,7 @@
             @foreach ($data[0]['exterior_feautures'] as $exterior_feauture)
               <div class=" col-md-2">
                 <ul class="list-unstyled">
-                    <li><input type="checkbox" name="community_fs[]" value="{{$exterior_feauture->id}}" >{{$exterior_feauture->exterior_features}}</li>
+                    <li><input type="checkbox" name="exeterior_fs[]" value="{{$exterior_feauture->id}}" >{{$exterior_feauture->exterior_features}}</li>
 
 
                 </ul>
@@ -97,27 +105,20 @@
               </div>
               @endforeach
             </div>
+            <h3>Utilies Data</h3>
+            <div class="container row">
+              @foreach ($data[0]['utilities_data_feautures'] as $ut_data_feauture)
+                <div class=" col-md-2">
+                  <ul class="list-unstyled">
 
 
+                    <li><input type="checkbox" name="utilities_feauture[]" value="{{$ut_data_feauture->id}}" >{{$ut_data_feauture->utilities_data}}</li>
 
+                  </ul>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                </div>
+                @endforeach
+              </div>
 
 
       <p>

@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('feauture_communities', function (Blueprint $table) {
+        Schema::create('utility_datas', function (Blueprint $table) {
             $table->id();
-            $table->string('c_feautures')->nullable();
+            $table->string('utilities_data')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('feauture_communities');
+        Schema::dropIfExists('utility_datas');
     }
 };

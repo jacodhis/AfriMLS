@@ -16,6 +16,9 @@ class property extends Model
     public function county(){
         return $this->belongsTo('App\Models\county');
     }
+    public function city(){
+        return $this->belongsTo('App\Models\city');
+    }
 
     public function category(){
         return $this->belongsTo('App\Models\category');
@@ -42,6 +45,10 @@ class property extends Model
 
     public function exterior_property_feautures(){
         return $this->hasMany('App\Models\exterior_property_feauture');
+    }
+
+    public function utility_property_feautures(){
+        return $this->hasMany('App\Models\utility_property_feature');
     }
 
 

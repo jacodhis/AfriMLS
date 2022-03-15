@@ -10,10 +10,15 @@ class city extends Model
     use HasFactory;
 
     protected $table = 'cities';
+    protected $guarded = [];
 
 
     public function country(){
         return $this->belongsTo('App\Models\country');
+    }
+
+    public function properties(){
+        return $this->belongsTo('App\Models\properties');
     }
 
 

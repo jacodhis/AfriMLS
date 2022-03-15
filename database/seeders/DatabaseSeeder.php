@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
         $this->call(garage_carports::class);
         $this->call(feauture_communities::class);
         $this->call(exterior_feautures::class);
+        $this->call(utility_datas::class);
 
 
         // \App\Models\User::factory(10)->create();

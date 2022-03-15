@@ -13,9 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('feauture_communities', function (Blueprint $table) {
+        Schema::create('utility_property_features', function (Blueprint $table) {
             $table->id();
-            $table->string('c_feautures')->nullable();
+            // $table->string('utility_data_id')->deafault('1');
+
+            $table->unsignedBigInteger('utility_data_id');
+            $table->index('utility_data_id');
+
+            $table->unsignedBigInteger('property_id');
+            $table->index('property_id');
+
             $table->timestamps();
         });
     }
@@ -27,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('feauture_communities');
+        Schema::dropIfExists('utility_property_features');
     }
 };
