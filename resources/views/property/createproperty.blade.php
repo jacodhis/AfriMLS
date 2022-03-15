@@ -60,17 +60,19 @@
 
 
       </div>
-
+      <h3>community feautures</h3>
       <div class="container row">
-          <div class=" col-md-4">
+        @foreach ($data[0]['f_communities'] as $c_feauture)
+          <div class=" col-md-2">
             <ul class="list-unstyled">
-                <h3>community feautures</h3>
-              @foreach ($data[0]['f_communities'] as $c_feauture)
+
+
               <li><input type="checkbox" name="community_fs[]" value="{{$c_feauture->id}}" >{{$c_feauture->c_feautures}}</li>
-              @endforeach
+
             </ul>
 
           </div>
+          @endforeach
 
           {{-- <div class="col-md-4">
             <ul class="list-unstyled">
