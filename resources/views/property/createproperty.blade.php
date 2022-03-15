@@ -14,16 +14,16 @@
         <div class="col-md-4">
             <p>
                 <label for="pname">property name </label>
-                <input type="text" name = "pname" class="form-control">
+                <input type="text" name = "pname" class="form-control" required>
             </p>
 
             <p>
                 <label for="pname">property image</label>
-                <input type="file" name="property_images[]" class="form-control" multiple>
+                <input type="file" name="property_images[]" class="form-control" multiple required>
             </p>
             <p>
                 <label for="description">Description</label>
-                <textarea name="description" id="" cols="20" rows="5" class="form-control"></textarea>
+                <textarea name="description" id="" cols="20" rows="5" class="form-control" required></textarea>
             </p >
 
 
@@ -42,7 +42,7 @@
           </p>
           <p>
             <label for="pname">property price</label>
-            <input type="number" min="1" name="property_price" class="form-control" >
+            <input type="number" min="1" name="property_price" class="form-control" required>
           </p>
           {{-- <p>
             <label for="pname">Location</label>
@@ -72,7 +72,7 @@
         <div class="col-md-4">
             <p>
                 <label for="pname">property price</label>
-                <input type="number" min="1" name="property_price" class="form-control" >
+                <input type="number" min="1" name="property_price" class="form-control" required >
               </p>
               <p>
                 <label for="pname">Currency</label>

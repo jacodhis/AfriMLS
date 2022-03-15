@@ -1,5 +1,3 @@
-{{-- @php(extract($data)) --}}
-
 
 @extends('layouts.frontend.layouts')
 

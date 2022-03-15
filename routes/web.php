@@ -13,15 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/welcome',function(){
+    return view('welcome');
+});
 
-//agents routes
-Route::get('/agents', 'AgentsController@agents')->name('agents');
-Route::get('/agents-profile', 'AgentsController@agentsProfile')->name('agentsProfile');
 
 // navigation routes
 Route::get('/', 'IndexController@landingPage')->name('landingPage');
 Route::get('/about-us', 'IndexController@aboutUs')->name('aboutUs');
 Route::get('/contact-Us', 'IndexController@contactPage')->name('contactPage');
+
+//agents routes
+Route::get('/agents', 'AgentsController@agents')->name('agents');
+Route::get('/agents-profile', 'AgentsController@agentsProfile')->name('agentsProfile');
+
 //property routes
 
 
