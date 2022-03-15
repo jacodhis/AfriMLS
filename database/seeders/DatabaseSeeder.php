@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
         $this->call(garage_feautures::class);
         $this->call(garage_carports::class);
         $this->call(feauture_communities::class);
-        // $this->call(community_feautures::class);
+        $this->call(exterior_feautures::class);
 
 
         // \App\Models\User::factory(10)->create();

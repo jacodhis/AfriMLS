@@ -40,6 +40,10 @@ class property extends Model
         return $this->hasMany('App\Models\community_feauture');
     }
 
+    public function exterior_property_feautures(){
+        return $this->hasMany('App\Models\exterior_property_feauture');
+    }
+
 
 
 

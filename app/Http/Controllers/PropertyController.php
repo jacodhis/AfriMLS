@@ -9,6 +9,7 @@ use App\Models\option;
 use App\Models\city;
 use App\Models\community_feauture;
 use App\Models\feauture_community;
+use App\Models\exterior_feauture;
 use DB;
 use Image;
 
@@ -46,9 +47,11 @@ class PropertyController extends Controller
         $propertyType = category::findorFail($propertyTypeId);
         // $community_feautures = DB::table('community_feautures')->select('id','community_feauture')->get();
          $f_communities = feauture_community::get();
+         $exterior_feautures = exterior_feauture::get();
+        //  dd($exterior_feautures);
 
 
-        array_push($data,['options'=>$options,'cities'=>$cities,'propertyType'=>$propertyType,'f_communities'=>$f_communities]);
+        array_push($data,['options'=>$options,'cities'=>$cities,'propertyType'=>$propertyType,'f_communities'=>$f_communities,'exterior_feautures'=>$exterior_feautures]);
         // dd($data[0]['community_feautures']);
 
         return view('property.createproperty',['data'=>$data]);
