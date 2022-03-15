@@ -107,6 +107,7 @@ class property extends Seeder
                  'price' => mt_rand(10000,5000000),
                  'location_id' => mt_rand(1,4),
                  'city_id' => mt_rand(1,4),
+
                 //  'garage_feauture_id' =>mt_rand(1,16),
                  'description' => 'This is a DESCRIPTION ...... Duis aute irure dolor in reprehenderit in volupte velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis',
 

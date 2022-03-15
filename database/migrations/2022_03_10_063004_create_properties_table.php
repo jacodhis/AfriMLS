@@ -26,7 +26,7 @@ return new class extends Migration
 
             $table->string('price_unit')->nullable()->default(200);
             $table->string('is_feautured')->nullable()->default('yes');
-            $table->string('currency_id')->nullable()->default(1);
+            // $table->string('currency_id')->nullable()->default(1);
             $table->string('period')->nullable()->default(5);
             $table->string('house_no')->nullable()->default(4);
             $table->string('street_name')->nullable()->default('xyz');
@@ -44,6 +44,7 @@ return new class extends Migration
             $table->string('tax_year')->nullable();
 
             $table->longText('description')->nullable();
+
 
             $table->unsignedBigInteger('location_id')->default(1);
             $table->index('location_id');

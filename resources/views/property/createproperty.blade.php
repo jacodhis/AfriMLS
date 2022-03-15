@@ -44,6 +44,11 @@
             <label for="pname">property price</label>
             <input type="number" min="1" name="property_price" class="form-control" >
           </p>
+          {{-- <p>
+            <label for="pname">Location</label>
+            <input type="text" name="location" class="form-control" >
+        </p> --}}
+
           <p>
             <label for="">Type</label>
             <select name="option_id" id="" class="form-control">Type
@@ -63,6 +68,41 @@
 
 
         </div>
+
+        <div class="col-md-4">
+            <p>
+                <label for="pname">property price</label>
+                <input type="number" min="1" name="property_price" class="form-control" >
+              </p>
+              <p>
+                <label for="pname">Currency</label>
+               <select name="currency_id" id="" class="form-control">
+                   @foreach($data[0]['currencies'] as $currency)
+                     <option value="{{$currency->id}}">{{$currency->symbol}}</option>
+                   @endforeach
+               </select>
+              </p>
+
+            {{-- <h5>Coordinates</h5>
+            <div class="row">
+
+                <div class="col-md-6">
+                    <p>
+
+                        <input type="text" name="location" class="form-control" placeholder="Latitude" >
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <p>
+
+                        <input type="text" name="location" class="form-control" placeholder="longitude">
+                    </p>
+
+                </div>
+            </div> --}}
+
+        </div>
+
     </div>
     {{-- end of row --}}
       {{-- <div class="#">
@@ -105,7 +145,7 @@
               </div>
               @endforeach
             </div>
-            <h3>Utilies Data</h3>
+            <h3>Utilities Data</h3>
             <div class="container row">
               @foreach ($data[0]['utilities_data_feautures'] as $ut_data_feauture)
                 <div class=" col-md-2">

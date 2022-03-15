@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
         $this->call(feauture_communities::class);
         $this->call(exterior_feautures::class);
         $this->call(utility_datas::class);
+        $this->call(currencies::class);
 
 
         // \App\Models\User::factory(10)->create();

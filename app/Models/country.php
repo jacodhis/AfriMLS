@@ -15,4 +15,7 @@ class country extends Model
     public function cities(){
         return $this->hasMany('App\Models\city');
     }
+    public function currency(){
+        return $this->hasOne('App\Models\currency');
+    }
 }

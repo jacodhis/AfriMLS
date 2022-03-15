@@ -42,11 +42,11 @@
                     <div class="property--info clearfix">
                         <div class="pull-left">
                             <h5 class="property--title">1220 Petersham Town</h5>
-                            <p class="property--location"><i class="fa fa-map-marker"></i>{{$data[0]['location']->address}} ,{{$data[0]['city']->name}} , - {{$data[0]['country']->name}}</p>
+                            <p class="property--location"><i class="fa fa-map-marker"></i>{{$data[0]['location']->address ?? ""}} ,{{$data[0]['city']->name}} , - {{$data[0]['country']->name}}</p>
                         </div>
                         <div class="pull-right">
                             <span class="property--status">{{$data[0]['propertyOption']->name}}</span>
-                            <p class="property--price">${{$data[0]['property']->price}}</p>
+                            <p class="property--price">{{$data[0]['currency']->symbol ?? ""}} {{$data[0]['property']->price}}</p>
                         </div>
                     </div>
                     <!-- .property-info end -->

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\property;
 use App\Models\Category;
+use App\Models\currency;
 use App\Models\option;
 use App\Models\city;
 use App\Models\community_feauture;
@@ -52,7 +53,8 @@ class PropertyController extends Controller
          $f_communities = feauture_community::get();
          $exterior_feautures = exterior_feauture::get();
          $utilities_data_feautures = utility_data::get();
-        //  dd($utilities_data_feautures);
+         $currencies = currency::get();
+
 
         array_push($data,
         [
@@ -61,9 +63,10 @@ class PropertyController extends Controller
         'propertyType'=>$propertyType,
         'f_communities'=>$f_communities,
         'exterior_feautures'=>$exterior_feautures,
-        'utilities_data_feautures'=>$utilities_data_feautures
+        'utilities_data_feautures'=>$utilities_data_feautures,
+        'currencies'=>$currencies
         ]);
-        // dd($data[0]['community_feautures']);
+        // dd();
 
         return view('property.createproperty',['data'=>$data]);
 
@@ -71,10 +74,6 @@ class PropertyController extends Controller
     //stores property
     public function store(Request $request){
         // dd($request->all());
-
-
-
-
         $image = [];
         if($request->hasFile('property_images')){
             $files = $request->property_images;
@@ -98,10 +97,12 @@ class PropertyController extends Controller
             $newProperty->description = $request->description;
             $newProperty->category_id = $request->propertyTypeId;
             $newProperty->price = $request->property_price;
+            $newProperty->currency_id = $request->currency_id;
             $newProperty->city_id = $request->city_id;
             $newProperty->image = implode('|',$image);
 
             $newProperty->save();
+// dd($newProperty);
            if($newProperty){
 
                 // dd($request->exeterior_fs);
@@ -183,6 +184,9 @@ class PropertyController extends Controller
        $city = $property->city;
        $location = $property->location;
        $country = $city->country;
+    //    dd($country);
+       $currency = $country->currency;
+    //    dd($currency->symbol);
 
        array_push($data,
               [
@@ -194,9 +198,10 @@ class PropertyController extends Controller
               'feauture_communities' =>$feauture_communities,
               'exterior_feautures' =>$exterior_feautures,
               'utilities_data' =>$utilities_data,
+              'currency' =>$currency,
 
             ]);
-    //   dd($data[0]['feauture_communities']);
+    //   dd($data[0]['currency']->symbol);
 
          if(empty($data)){
              dd('empty');
