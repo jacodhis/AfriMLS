@@ -100,6 +100,7 @@
 
             <div class="row">
 
+                @if($data[0]['propertyType']->name == 'House')
                 <div class="col-md-6">
                     <p>
                         <label for="">no of bedrooms</label>
@@ -129,6 +130,13 @@
                 </div>
                 <div class="col-md-6">
                     <p>
+                        <label for="pname">house no</label>
+                        <input type="number" min="1" name = "house_number" class="form-control" placeholder="house no" >
+                    </p>
+                   </div>
+                @endif
+                <div class="col-md-6">
+                    <p>
                         <label for="">condo building</label>
                         <input type="text" name="condo_building" class="form-control" placeholder="condo building">
                     </p>
@@ -156,24 +164,23 @@
 
                 </div>
 
-                <div class="col-md-6">
-                    <p>floors in Unit</label>
-                        <input type="number" min="1" name="floors_in_unit" class="form-control" placeholder="floors in Unit">
-                    </p>
 
-                </div>
+
             </div>
 
         </div>
 
         <div class="col-md-3">
            <div class="row">
-               <div class="col-md-6">
-                <p>
-                    <label for="pname">house no</label>
-                    <input type="number" min="1" name = "house_number" class="form-control" placeholder="house no" >
+
+            <div class="col-md-6">
+                <p>floors in Unit</label>
+                    <input type="number" min="1" name="floors_in_unit" class="form-control" placeholder="floors in Unit">
                 </p>
-               </div>
+
+            </div>
+
+
 
                <div class="col-md-6">
                 <p>
@@ -243,10 +250,13 @@
 
     </div>
     <input type="hidden" value="{{$data[0]['propertyType']->id}}" name ="propertyTypeId">
+
  <section id="">
+
      <p>
         <input type="checkbox" name="is_feautured">  is_feautured
      </p>
+
      <p>
          <input type="checkbox" name="fire_place"> Fire place
      </p>

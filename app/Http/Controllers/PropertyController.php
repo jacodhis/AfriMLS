@@ -61,6 +61,7 @@ class PropertyController extends Controller
         $options = option::get();
         $cities = city::orderBy('name', 'asc')->get();
         $propertyType = category::findorFail($propertyTypeId);
+        // dd($propertyType);
         // $community_feautures = DB::table('community_feautures')->select('id','community_feauture')->get();
          $f_communities = feauture_community::get();
          $exterior_feautures = exterior_feauture::get();
