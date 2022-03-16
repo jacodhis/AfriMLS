@@ -46,7 +46,7 @@
                         </div>
                         <div class="pull-right">
                             <span class="property--status">{{$data[0]['propertyOption']->name}}</span>
-                            <p class="property--price">{{$data[0]['currency']->symbol ?? ""}} {{$data[0]['property']->price}}</p>
+                            <p class="property--price">{{$data[0]['currency']->symbol ?? "ksh"}} {{$data[0]['property']->price}}</p>
                         </div>
                     </div>
                     <!-- .property-info end -->
@@ -244,11 +244,11 @@
                         <!-- .col-md-12 end -->
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <ul class="list-unstyled mb-20">
-                                <li><span>Address:</span>{{$data[0]['location']->address}}</li>
-                                <li><span>City:</span>{{$data[0]['city']->name}}</li>
-                                <li><span>Country:</span>{{$data[0]['country']->name}}</li>
+                                <li><span>Address:</span>{{$data[0]['location']->address ?? ""}}</li>
+                                <li><span>City:</span>{{$data[0]['city']->name ??""}}</li>
+                                <li><span>Country:</span>{{$data[0]['country']->name ??""}}</li>
                                 {{-- <li><span>State:</span>Newcastle</li> --}}
-                                <li><span>Zip/Postal code:</span>{{$data[0]['city']->postalCode}}</li>
+                                <li><span>Zip/Postal code:</span>{{$data[0]['city']->postalCode ??""}}</li>
                             </ul>
                         </div>
                         <!-- .col-md-12 end -->

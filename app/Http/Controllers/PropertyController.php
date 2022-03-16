@@ -107,6 +107,11 @@ class PropertyController extends Controller
             $newProperty->str_dir = $request->street_dir;
             $newProperty->unit_no = $request->unit_number;
             $newProperty->period = $request->period;
+            $newProperty->condo_building = $request->condo_building;
+            $newProperty->condo_floor = $request->condo_floor;
+            $newProperty->building_no_floors = $request->building_no_floors;
+            $newProperty->building_name_number = $request->building_name_No;
+            $newProperty->floors_in_unit = $request->floors_in_unit;
             // $newProperty->currency_id = $request->currency_id;
             $newProperty->city_id = $request->city_id;
             $newProperty->image = implode('|',$image);
@@ -152,12 +157,12 @@ class PropertyController extends Controller
                return back()->with('error','image upload empty');
            }
 
-            return back();
-            session()->flash('success','upload done successfully');
+            return back()->with('success','property added successfully');
+            // session()->flash('success','upload done successfully');
 
 
         }else{
-            dd('image does not exist');
+            return back()->with('error','please upload the property image/s');
         }
 
 

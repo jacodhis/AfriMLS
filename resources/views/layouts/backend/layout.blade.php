@@ -367,6 +367,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                    @include('includes.inc.messages')
                     @yield('content')
 
                             </div>

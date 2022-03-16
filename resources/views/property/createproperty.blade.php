@@ -2,11 +2,11 @@
 
 
 @section('title')
-   add {{$data[0]['propertyType']->name}}
+   add {{$data[0]['propertyType']->name ??""}}
 @endsection
 
 @section('content')
-
+ {{-- <head> {{$data[0]['propertyType']->name}}</head> --}}
 <div class="card">
     <form action="{{route('property.store')}}" method="post" enctype="multipart/form-data">
         @csrf
@@ -19,7 +19,7 @@
 
             <p>
                 <label for="pname">property image</label>
-                <input type="file" name="property_images[]" class="form-control" multiple required>
+                <input type="file" name="property_images[]" class="form-control" multiple >
             </p>
             <p>
                 <label for="description">Description</label>
@@ -83,20 +83,20 @@
                 <div class="col-md-6">
                     <p>
                         <label for="">no of bedrooms</label>
-                        <input type="text" name="no_of_bedrooms" class="form-control" placeholder="no of bedrooms" >
+                        <input type="number" min="1" name="no_of_bedrooms" class="form-control" placeholder="no of bedrooms" >
                     </p>
                 </div>
                 <div class="col-md-6">
                     <p>
                         <label for="">no of bathrooms</label>
-                        <input type="text" name="no_of_bathrooms" class="form-control" placeholder="no of bathrooms">
+                        <input type="number" min="1" name="no_of_bathrooms" class="form-control" placeholder="no of bathrooms">
                     </p>
 
                 </div>
                 <div class="col-md-6">
                     <p>
                         <label for="">no of floors</label>
-                        <input type="text" name="no_of_floor" class="form-control" placeholder="no of floors">
+                        <input type="number" min="1" name="no_of_floor" class="form-control" placeholder="no of floors">
                     </p>
 
                 </div>
@@ -104,6 +104,41 @@
                     <p>
                         <label for="">square</label>
                         <input type="text" name="square" class="form-control" placeholder="enter square">
+                    </p>
+
+                </div>
+                <div class="col-md-6">
+                    <p>
+                        <label for="">condo building</label>
+                        <input type="text" name="condo_building" class="form-control" placeholder="condo building">
+                    </p>
+
+                </div>
+                <div class="col-md-6">
+                    <p>
+                        <label for="">condo floor</label>
+                        <input type="text" name="condo_floor" class="form-control" placeholder="condo floor">
+                    </p>
+
+                </div>
+                <div class="col-md-6">
+                    <p>
+                        <label for=""> building no floors</label>
+                        <input type="number" min="1" name="building_no_floors" class="form-control" placeholder="building no floors">
+                    </p>
+
+                </div>
+                <div class="col-md-6">
+                    <p>
+                        <label for=""> building name No</label>
+                        <input type="number" min="1" name="building_name_No" class="form-control" placeholder="building no floors">
+                    </p>
+
+                </div>
+
+                <div class="col-md-6">
+                    <p>floors in Unit</label>
+                        <input type="number" min="1" name="floors_in_unit" class="form-control" placeholder="floors in Unit">
                     </p>
 
                 </div>
@@ -116,37 +151,37 @@
                <div class="col-md-6">
                 <p>
                     <label for="pname">house no</label>
-                    <input type="text" name = "house_number" class="form-control" required>
+                    <input type="number" min="1" name = "house_number" class="form-control" placeholder="house no" >
                 </p>
                </div>
                <div class="col-md-6">
                 <p>
                     <label for="pname">Street  Name</label>
-                    <input type="text" name = "street_name" class="form-control" required>
+                    <input type="text" name = "street_name" class="form-control" placeholder="street name" >
                 </p>
                </div>
                <div class="col-md-6">
                 <p>
                     <label for="pname">Street  Type</label>
-                    <input type="text" name = "street_type" class="form-control" required>
+                    <input type="text" name = "street_type" class="form-control" placeholder="street type" >
                 </p>
                </div>
                <div class="col-md-6">
                 <p>
                     <label for="pname">Street  Dir</label>
-                    <input type="text" name = "street_dir" class="form-control" required>
+                    <input type="text" name = "street_dir" class="form-control"placeholder="street dir" >
                 </p>
                </div>
                <div class="col-md-6">
                 <p>
                     <label for="pname">Unit  number</label>
-                    <input type="text" name = "unit_number" class="form-control" required>
+                    <input type="number" min="1" name = "unit_number" placeholder="unit number" class="form-control" >
                 </p>
                </div>
                <div class="col-md-6">
                 <p>
                     <label for="pname">Period</label>
-                    <input type="text" name = "period" class="form-control" required>
+                    <input type="text" name = "period" class="form-control" placeholder="period" >
                 </p>
                </div>
            </div>

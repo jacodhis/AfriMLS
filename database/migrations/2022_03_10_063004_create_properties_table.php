@@ -17,20 +17,20 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->longText('image')->nullable();
-             $table->string('price')->nullable()->default(4500);
+             $table->string('price')->nullable()->default(0);
 
-            $table->string('number_bedroom')->nullable()->default(2);
-            $table->string('number_bathroom')->nullable()->default(3);
-            $table->string('number_floor')->nullable()->default(5);
+            $table->string('number_bedroom')->nullable()->default(0);
+            $table->string('number_bathroom')->nullable()->default(0);
+            $table->string('number_floor')->nullable()->default(0);
             $table->string('square')->nullable()->default('null');
 
-            $table->string('price_unit')->nullable()->default(200);
+            $table->string('price_unit')->nullable()->default(0);
             $table->string('is_feautured')->nullable()->default('yes');
 
-            $table->string('period')->nullable()->default(5);
-            $table->string('house_no')->nullable()->default(4);
-            $table->string('street_name')->nullable()->default('xyz');
-            $table->string('street_type')->nullable()->default('abc');
+            $table->string('period')->nullable()->default(0);
+            $table->string('house_no')->nullable()->default(0);
+            $table->string('street_name')->nullable()->default('NULL');
+            $table->string('street_type')->nullable()->default('NULL');
             $table->string('str_dir')->nullable();
             $table->string('zip')->nullable();
             $table->string('unit_no')->nullable();
@@ -46,7 +46,7 @@ return new class extends Migration
             $table->longText('description')->nullable();
 
 
-            $table->unsignedBigInteger('location_id')->default(1);
+            $table->unsignedBigInteger('location_id')->default(0);
             $table->index('location_id');
 
 
