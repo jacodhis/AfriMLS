@@ -240,8 +240,8 @@
 
                 <div class="col-md-6">
                     <p>
-                        <label for="taxes">Taxe year</label>
-                        <input type="text" name = "tax_year" class="form-control" placeholder="tax year" >
+                        <label for="taxes">Tax year</label>
+                        <input type="date" name = "tax_year" class="form-control" placeholder="tax year" >
                     </p>
                 </div>
 
