@@ -97,6 +97,16 @@ class PropertyController extends Controller
             $newProperty->description = $request->description;
             $newProperty->category_id = $request->propertyTypeId;
             $newProperty->price = $request->property_price;
+            $newProperty->number_bedroom = $request->no_of_bedrooms;
+            $newProperty->number_bathroom = $request->no_of_bathrooms;
+            $newProperty->number_floor = $request->no_of_floor;
+            $newProperty->square = $request->square;
+            $newProperty->house_no = $request->house_number;
+            $newProperty->street_name = $request->street_name;
+            $newProperty->street_type = $request->street_type;
+            $newProperty->str_dir = $request->street_dir;
+            $newProperty->unit_no = $request->unit_number;
+            $newProperty->period = $request->period;
             // $newProperty->currency_id = $request->currency_id;
             $newProperty->city_id = $request->city_id;
             $newProperty->image = implode('|',$image);
@@ -139,7 +149,7 @@ class PropertyController extends Controller
                 }
 
            }else{
-               return back()->with('error','from empty');
+               return back()->with('error','image upload empty');
            }
 
             return back();

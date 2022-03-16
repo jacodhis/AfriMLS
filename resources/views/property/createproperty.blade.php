@@ -11,7 +11,7 @@
     <form action="{{route('property.store')}}" method="post" enctype="multipart/form-data">
         @csrf
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <p>
                 <label for="pname">property name </label>
                 <input type="text" name = "pname" class="form-control" required>
@@ -29,7 +29,7 @@
 
 
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <p>
                 <label for="">Cities</label>
               <select name="city_id" id="" class="form-control">
@@ -44,11 +44,6 @@
             <label for="pname">property price</label>
             <input type="number" min="1" name="property_price" class="form-control" required>
           </p>
-          {{-- <p>
-            <label for="pname">Location</label>
-            <input type="text" name="location" class="form-control" >
-        </p> --}}
-
           <p>
             <label for="">Type</label>
             <select name="option_id" id="" class="form-control">Type
@@ -58,20 +53,19 @@
                 @endforeach
             </select>
         </p>
-
-
-
-
-
+        {{-- <p>
+            <label for="pname">no of bedrooms</label>
+            <input type="text" name="location" class="form-control" >
+        </p> --}}
             <input type="hidden" value="{{$data[0]['propertyType']->id}}" name ="propertyTypeId">
 
 
 
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-3">
             {{-- <p>
-                <label for="pname">property price</label>
+                <label for="pname">no of bedrooms</label>
                 <input type="number" min="1" name="property_price" class="form-control" required >
               </p> --}}
               {{-- <p>
@@ -83,23 +77,79 @@
                </select>
               </p> --}}
 
-            {{-- <h5>Coordinates</h5>
+
             <div class="row">
 
                 <div class="col-md-6">
                     <p>
-
-                        <input type="text" name="location" class="form-control" placeholder="Latitude" >
+                        <label for="">no of bedrooms</label>
+                        <input type="text" name="no_of_bedrooms" class="form-control" placeholder="no of bedrooms" >
                     </p>
                 </div>
                 <div class="col-md-6">
                     <p>
-
-                        <input type="text" name="location" class="form-control" placeholder="longitude">
+                        <label for="">no of bathrooms</label>
+                        <input type="text" name="no_of_bathrooms" class="form-control" placeholder="no of bathrooms">
                     </p>
 
                 </div>
-            </div> --}}
+                <div class="col-md-6">
+                    <p>
+                        <label for="">no of floors</label>
+                        <input type="text" name="no_of_floor" class="form-control" placeholder="no of floors">
+                    </p>
+
+                </div>
+                <div class="col-md-6">
+                    <p>
+                        <label for="">square</label>
+                        <input type="text" name="square" class="form-control" placeholder="enter square">
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+           <div class="row">
+               <div class="col-md-6">
+                <p>
+                    <label for="pname">house no</label>
+                    <input type="text" name = "house_number" class="form-control" required>
+                </p>
+               </div>
+               <div class="col-md-6">
+                <p>
+                    <label for="pname">Street  Name</label>
+                    <input type="text" name = "street_name" class="form-control" required>
+                </p>
+               </div>
+               <div class="col-md-6">
+                <p>
+                    <label for="pname">Street  Type</label>
+                    <input type="text" name = "street_type" class="form-control" required>
+                </p>
+               </div>
+               <div class="col-md-6">
+                <p>
+                    <label for="pname">Street  Dir</label>
+                    <input type="text" name = "street_dir" class="form-control" required>
+                </p>
+               </div>
+               <div class="col-md-6">
+                <p>
+                    <label for="pname">Unit  number</label>
+                    <input type="text" name = "unit_number" class="form-control" required>
+                </p>
+               </div>
+               <div class="col-md-6">
+                <p>
+                    <label for="pname">Period</label>
+                    <input type="text" name = "period" class="form-control" required>
+                </p>
+               </div>
+           </div>
 
         </div>
 
