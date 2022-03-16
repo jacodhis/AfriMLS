@@ -19,18 +19,37 @@ return new class extends Migration
             $table->longText('image')->nullable();
              $table->string('price')->nullable()->default(0);
 
-            $table->string('number_bedroom')->nullable()->default(0);
-            $table->string('number_bathroom')->nullable()->default(0);
-            $table->string('number_floor')->nullable()->default(0);
-            $table->string('square')->nullable()->default('null');
+            $table->string('number_bedroom')->nullable();
+            $table->string('number_bathroom')->nullable();;
+            $table->string('number_floor')->nullable();
+            $table->string('square')->nullable();
 
-            $table->string('price_unit')->nullable()->default(0);
+            $table->string('price_unit')->nullable();
             $table->string('is_feautured')->nullable()->default('yes');
 
-            $table->string('period')->nullable()->default(0);
-            $table->string('house_no')->nullable()->default(0);
-            $table->string('street_name')->nullable()->default('NULL');
-            $table->string('street_type')->nullable()->default('NULL');
+            $table->string('fireplace')->nullable()->default('no');
+            $table->string('owner_name')->nullable();
+            $table->string('owner_phone')->nullable();
+            $table->string('tenant_name')->nullable();
+            $table->string('tenant_phone')->nullable();
+
+            $table->string('dimensions_studio')->nullable();
+            $table->string('dimensions_livingroom')->nullable();
+            $table->string('dimensions_diningroom')->nullable();
+            $table->string('dimensions_family_room')->nullable();
+            $table->string('dimensions_kitchen')->nullable();
+            $table->string('dimensions_master_bedroom')->nullable();
+            $table->string('dimensions_room2')->nullable();
+            $table->string('dimensions_room3')->nullable();
+            $table->string('dimensions_balcony_porch')->nullable();
+            $table->string('dimensions_balcony_porch2')->nullable();
+            $table->string('dimensions_dinette')->nullable();
+            $table->string('dimensions_bonus_room')->nullable();
+
+            $table->string('period')->nullable();
+            $table->string('house_no')->nullable();
+            $table->string('street_name')->nullable();
+            $table->string('street_type')->nullable();
             $table->string('str_dir')->nullable();
             $table->string('zip')->nullable();
             $table->string('unit_no')->nullable();
@@ -42,27 +61,28 @@ return new class extends Migration
             $table->string('tax_id')->nullable();
             $table->string('taxes')->nullable();
             $table->string('tax_year')->nullable();
+            $table->string('mls_number')->nullable();
 
             $table->longText('description')->nullable();
 
 
-            $table->unsignedBigInteger('location_id')->default(0);
+            $table->unsignedBigInteger('location_id')->nullable();
             $table->index('location_id');
 
 
 
-            $table->unsignedBigInteger('county_id')->default(2);
+            $table->unsignedBigInteger('county_id')->nullable();
             $table->index('county_id');
 
-            $table->unsignedBigInteger('city_id')->default(2);
+            $table->unsignedBigInteger('city_id')->nullable();
             $table->index('city_id');
 
 
-            $table->unsignedBigInteger('option_id')->default(1);
+            $table->unsignedBigInteger('option_id')->nullable();
             $table->index('option_id');
 
 
-            $table->unsignedBigInteger('category_id')->default(2);
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->index('category_id');
             $table->timestamps();
         });

@@ -20,4 +20,5 @@ class location extends Model
     }
 
 
+
 }

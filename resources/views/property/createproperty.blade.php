@@ -30,37 +30,57 @@
 
         </div>
         <div class="col-md-3">
-            <p>
-                <label for="">Cities</label>
-              <select name="city_id" id="" class="form-control">
-                  <option value="" disabled>select city</option>
-                  @foreach ($data[0]['cities'] as $city)
-                   <option value="{{$city->id}}">{{$city->name}}</option>
-                  @endforeach
+          <div class="row">
 
-              </select>
-          </p>
-          <p>
-            <label for="pname">property price</label>
-            <input type="number" min="1" name="property_price" class="form-control" required>
-          </p>
-          <p>
-            <label for="">Type</label>
-            <select name="option_id" id="" class="form-control">Type
-                <option value="" disabled>select option</option>
-                @foreach ($data[0]['options'] as $option)
-                    <option value="{{$option->id}}">{{$option->name}}</option>
-                @endforeach
-            </select>
-        </p>
-        {{-- <p>
-            <label for="pname">no of bedrooms</label>
-            <input type="text" name="location" class="form-control" >
-        </p> --}}
-            <input type="hidden" value="{{$data[0]['propertyType']->id}}" name ="propertyTypeId">
+              <div class="col-md-6">
+                <p>
+                    <label for="">City</label>
+                        <select name="city_id" id="city_id" class="form-control" required onchange="getLocations()">
+                            <option value="" disabled>select city</option>
+                            @foreach ($data[0]['cities'] as $city)
+                            <option value="{{$city->id}}">{{$city->name}}</option>
+                            @endforeach
 
+                        </select>
+                  </p>
 
+              </div>
+              <div class="col-md-6">
+                <p>
+                    <label for="">Type</label>
+                    <select name="option_id" id="" class="form-control">Type
+                        <option value="" disabled>select option</option>
+                        @foreach ($data[0]['options'] as $option)
+                            <option value="{{$option->id}}">{{$option->name}}</option>
+                        @endforeach
+                    </select>
+                 </p>
+              </div>
+              <div class="col-md-6">
+                <p>
+                    {{-- <label for="">Locations</label> --}}
+                    <div id="DynamicLocationsDropdown"></div>
+                  </p>
 
+              </div>
+              <div class="col-md-6">
+                <p>
+                    <label for="pname">property price</label>
+                    <input type="number" min="1" name="property_price" class="form-control" required>
+                  </p>
+
+              </div>
+              <div class="col-md-6">
+                  <p><label for="owner_name">Owner Name</label>
+                    <input type="text" class="form-control" name="owner_name">
+                </p>
+              </div>
+              <div class="col-md-6">
+                <p><label for="owner_name">Owner phone</label>
+                  <input type="number" min="10" class="form-control" name="owner_phone">
+              </p>
+            </div>
+          </div>
         </div>
 
         <div class="col-md-3">
@@ -102,7 +122,7 @@
                 </div>
                 <div class="col-md-6">
                     <p>
-                        <label for="">square</label>
+                        <label for="">Square(m2)</label>
                         <input type="text" name="square" class="form-control" placeholder="enter square">
                     </p>
 
@@ -154,54 +174,84 @@
                     <input type="number" min="1" name = "house_number" class="form-control" placeholder="house no" >
                 </p>
                </div>
+
                <div class="col-md-6">
                 <p>
                     <label for="pname">Street  Name</label>
                     <input type="text" name = "street_name" class="form-control" placeholder="street name" >
                 </p>
                </div>
-               <div class="col-md-6">
-                <p>
-                    <label for="pname">Street  Type</label>
-                    <input type="text" name = "street_type" class="form-control" placeholder="street type" >
-                </p>
-               </div>
-               <div class="col-md-6">
-                <p>
-                    <label for="pname">Street  Dir</label>
-                    <input type="text" name = "street_dir" class="form-control"placeholder="street dir" >
-                </p>
-               </div>
-               <div class="col-md-6">
-                <p>
-                    <label for="pname">Unit  number</label>
-                    <input type="number" min="1" name = "unit_number" placeholder="unit number" class="form-control" >
-                </p>
-               </div>
-               <div class="col-md-6">
-                <p>
-                    <label for="pname">Period</label>
-                    <input type="text" name = "period" class="form-control" placeholder="period" >
-                </p>
-               </div>
+
+                <div class="col-md-6">
+                    <p>
+                        <label for="pname">Street  Type</label>
+                        <input type="text" name = "street_type" class="form-control" placeholder="street type" >
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <p>
+                        <label for="pname">MLS No</label>
+                        <input type="number" min="1" name = "mls_number" class="form-control" placeholder="Mls No" >
+                    </p>
+                </div>
+
+                <div class="col-md-6">
+                    <p>
+                        <label for="street Dir">Street  Dir</label>
+                        <input type="text" name = "street_dir" class="form-control"placeholder="street dir" >
+                    </p>
+                </div>
+
+                <div class="col-md-6">
+                    <p>
+                        <label for="Unit Number">Unit  number</label>
+                        <input type="number" min="1" name = "unit_number" placeholder="unit number" class="form-control" >
+                    </p>
+                </div>
+
+                <div class="col-md-6">
+                    <p>
+                        <label for="period">Period</label>
+                        <input type="text" name = "period" class="form-control" placeholder="period" >
+                    </p>
+                </div>
+
+                <div class="col-md-6">
+                    <p>
+                        <label for="taxId">Tax Id</label>
+                        <input type="number" name = "tax_id" class="form-control" placeholder="tax Id" >
+                    </p>
+                </div>
+
+                <div class="col-md-6">
+                    <p>
+                        <label for="taxes">Taxes</label>
+                        <input type="text" name = "taxes" class="form-control" placeholder="tax Id" >
+                    </p>
+                </div>
+
+                <div class="col-md-6">
+                    <p>
+                        <label for="taxes">Taxe year</label>
+                        <input type="text" name = "tax_year" class="form-control" placeholder="tax year" >
+                    </p>
+                </div>
+
            </div>
 
         </div>
 
     </div>
-    {{-- end of row --}}
-      {{-- <div class="#">
-            @csrf
+    <input type="hidden" value="{{$data[0]['propertyType']->id}}" name ="propertyTypeId">
+ <section id="">
+     <p>
+        <input type="checkbox" name="is_feautured">  is_feautured
+     </p>
+     <p>
+         <input type="checkbox" name="fire_place"> Fire place
+     </p>
 
-              @if(session()->has('success'))
-              <span style="color: blue">{{session('success')}}</span></br>
-              @elseif(session()->has('delete'))
-              <span style="color:red">{{session('delete')}}</span></br>
-              @endif
-
-
-
-      </div> --}}
+ </section>
       <h3>community feautures</h3>
       <div class="container row">
         @foreach ($data[0]['f_communities'] as $c_feauture)
@@ -254,6 +304,29 @@
 
     </form>
 </div>
+
+<script>
+    function getLocations(){
+        var cityId = document.getElementById('city_id').value;
+        var token = $('meta[name="csrf-token"]').attr('content');
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                type:'GET',
+                data:{
+                    'myCity':cityId
+                },
+                url: '/ajaxGetLocations',
+                success:function(data){
+                    $("#DynamicLocationsDropdown").html(data.locationsdropdown);
+                    console.log(data);
+                }
+            });
+    }
+</script>
 
 
 @endsection

@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\currency;
 use App\Models\option;
 use App\Models\city;
+use App\Models\location;
 use App\Models\community_feauture;
 use App\Models\feauture_community;
 use App\Models\exterior_feauture;
@@ -42,6 +43,17 @@ class PropertyController extends Controller
         $property = property::findorFail($id);
         return view('property.showsingleproperty',['property'=>$property]);
         // return $property;
+    }
+    // ajax request to get locations
+    public function getLocations(){
+        $city_id = $_REQUEST["myCity"];
+        $locations = location::where('city_id',$city_id)->get();
+        $locationsdropdown = "<select name='location_id' class='form-control'>";
+        foreach ($locations as $location) {
+            $locationsdropdown .= "<option value='$location->id'>$location->address</option>";
+        }
+        $locationsdropdown .= "</select>";
+        return response()->json(array('locationsdropdown'=> $locationsdropdown), 200);
     }
     //displays form to add property
     public function create($propertyTypeId){
@@ -96,6 +108,7 @@ class PropertyController extends Controller
             $newProperty->option_id = $request->option_id;
             $newProperty->description = $request->description;
             $newProperty->category_id = $request->propertyTypeId;
+            $newProperty->location_id = $request->location_id;
             $newProperty->price = $request->property_price;
             $newProperty->number_bedroom = $request->no_of_bedrooms;
             $newProperty->number_bathroom = $request->no_of_bathrooms;
@@ -112,6 +125,14 @@ class PropertyController extends Controller
             $newProperty->building_no_floors = $request->building_no_floors;
             $newProperty->building_name_number = $request->building_name_No;
             $newProperty->floors_in_unit = $request->floors_in_unit;
+            $newProperty->tax_id = $request->tax_id;
+            $newProperty->taxes = $request->taxes;
+            $newProperty->tax_year = $request->tax_year;
+            $newProperty->mls_number = $request->mls_number;
+            $newProperty->owner_name = $request->owner_name;
+            $newProperty->owner_phone = $request->owner_phone;
+            $newProperty->is_feautured = $request->is_feautured ? 'yes' : "no";
+            $newProperty->fireplace = $request->fire_place ?  'yes' : "no";
             // $newProperty->currency_id = $request->currency_id;
             $newProperty->city_id = $request->city_id;
             $newProperty->image = implode('|',$image);
