@@ -70,18 +70,18 @@
         </div>
 
         <div class="col-md-4">
-            <p>
+            {{-- <p>
                 <label for="pname">property price</label>
                 <input type="number" min="1" name="property_price" class="form-control" required >
-              </p>
-              <p>
+              </p> --}}
+              {{-- <p>
                 <label for="pname">Currency</label>
                <select name="currency_id" id="" class="form-control">
                    @foreach($data[0]['currencies'] as $currency)
                      <option value="{{$currency->id}}">{{$currency->symbol}}</option>
                    @endforeach
                </select>
-              </p>
+              </p> --}}
 
             {{-- <h5>Coordinates</h5>
             <div class="row">

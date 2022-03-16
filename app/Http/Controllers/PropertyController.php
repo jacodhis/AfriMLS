@@ -97,7 +97,7 @@ class PropertyController extends Controller
             $newProperty->description = $request->description;
             $newProperty->category_id = $request->propertyTypeId;
             $newProperty->price = $request->property_price;
-            $newProperty->currency_id = $request->currency_id;
+            // $newProperty->currency_id = $request->currency_id;
             $newProperty->city_id = $request->city_id;
             $newProperty->image = implode('|',$image);
 
@@ -107,29 +107,36 @@ class PropertyController extends Controller
 
                 // dd($request->exeterior_fs);
                 $c_fs = $request->community_fs;
-                foreach($c_fs as $cf){
-                   $community_feauture = new community_feauture;
-                   $community_feauture->community_feauture_id = $cf;
-                   $community_feauture->property_id =  $newProperty->id;
-                   $community_feauture->save();
+                if(!empty($c_fs)){
+                    foreach($c_fs as $cf){
+                        $community_feauture = new community_feauture;
+                        $community_feauture->community_feauture_id = $cf;
+                        $community_feauture->property_id =  $newProperty->id;
+                        $community_feauture->save();
+                     }
+
                 }
+
                 $ext_fs = $request->exeterior_fs;
-                foreach($ext_fs as $ext_f){
-                    $exterior_feauture = new exterior_property_feauture;
-                    $exterior_feauture->property_id = $newProperty->id;
-                    $exterior_feauture->exterior_feauture_id = $ext_f;
-                    $exterior_feauture->save();
+                if(!empty($ext_fs)){
+                    foreach($ext_fs as $ext_f){
+                        $exterior_feauture = new exterior_property_feauture;
+                        $exterior_feauture->property_id = $newProperty->id;
+                        $exterior_feauture->exterior_feauture_id = $ext_f;
+                        $exterior_feauture->save();
+                    }
                 }
+
                 $utilities_data_feautures = $request->utilities_feauture;
-                foreach($utilities_data_feautures as $ut_data_f){
-                    $utilities_data_feauture = new utility_property_feature;
-                    $utilities_data_feauture->property_id = $newProperty->id;
-                    $utilities_data_feauture->utility_data_id = $ut_data_f;
-                    $utilities_data_feauture->save();
+                if(!empty($utilities_data_feautures)){
+                    foreach($utilities_data_feautures as $ut_data_f){
+                        $utilities_data_feauture = new utility_property_feature;
+                        $utilities_data_feauture->property_id = $newProperty->id;
+                        $utilities_data_feauture->utility_data_id = $ut_data_f;
+                        $utilities_data_feauture->save();
+                    }
 
                 }
-
-
 
            }else{
                return back()->with('error','from empty');
