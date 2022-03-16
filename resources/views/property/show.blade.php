@@ -2,7 +2,7 @@
 
 
 @section('title')
-   Posted {{$data[0]['propertyData']->name}}
+Afri MLS {{$data[0]['propertyData']->name}}s
 @endsection
 
 @section('content')

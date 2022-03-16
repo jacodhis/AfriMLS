@@ -2,12 +2,13 @@
 
 
 @section('title')
-   add {{$data[0]['propertyType']->name ??""}}
+  Afri MLS add {{$data[0]['propertyType']->name ??""}}
 @endsection
 
 @section('content')
  {{-- <head> {{$data[0]['propertyType']->name}}</head> --}}
 <div class="card">
+    <small>Add {{$data[0]['propertyType']->name ??""}}</small>
     <form action="{{route('property.store')}}" method="post" enctype="multipart/form-data">
         @csrf
     <div class="row">

@@ -2,7 +2,7 @@
 
 
 @section('title')
-   add {{$property->name}}
+Afri MLS add {{$property->name}}
 @endsection
 
 @section('content')

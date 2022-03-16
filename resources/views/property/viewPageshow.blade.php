@@ -45,7 +45,7 @@
                 <div class="property-single-gallery-info">
                     <div class="property--info clearfix">
                         <div class="pull-left">
-                            <h5 class="property--title">1220 Petersham Town</h5>
+                            {{-- <h5 class="property--title">1220 Petersham Town</h5> --}}
                             <p class="property--location"><i class="fa fa-map-marker"></i>{{$data[0]['location']->address}} ,{{$data[0]['city']->name}} , - {{$data[0]['country']->name}}</p>
                         </div>
                         <div class="pull-right">
