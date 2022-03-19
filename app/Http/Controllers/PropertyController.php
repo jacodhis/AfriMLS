@@ -26,7 +26,7 @@ class PropertyController extends Controller
         // dd('hi');
         $data = [];
 
-        $propertyData = category::findorFail($propertyTypeId);
+        // $propertyData = category::findorFail($propertyTypeId);
         $properties = property::where('category_id',$propertyTypeId)->simplePaginate(8);
 
         array_push($data,['propertyData'=>$propertyData,'properties' => $properties]);
