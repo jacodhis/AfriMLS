@@ -23,7 +23,7 @@ class PropertyController extends Controller
 
 // shows all propertis with the propertyType id in variable
     public function show( $propertyTypeId){
-        dd('hi');
+        // dd('hi');
         $data = [];
 
         $propertyData = category::findorFail($propertyTypeId);
