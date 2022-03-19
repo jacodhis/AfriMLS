@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\property;
-use App\Models\Category;
+use App\Models\category;
 use App\Models\currency;
 use App\Models\option;
 use App\Models\city;
