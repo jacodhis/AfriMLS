@@ -201,6 +201,19 @@ class PropertyController extends Controller
 
        $data = [];
        $property = property::findorFail($id);
+
+       //feautured properties
+       $feautured_properties = property::where('is_feautured','yes')->inRandomOrder()->take(3)->get();
+    //    dd($feautured_properties);
+
+       $similar_properties = [];
+        $similars_p = property::where('category_id',$property->category_id)->get();
+        foreach($similars_p as $similar_p){
+            array_push($similar_properties,['similar_props'=>$similar_p]);
+        }
+        // dd($similar_properties);
+
+
        //community feautures fetch
        $cfs = $property->community_feautures;
        $feauture_communities = [];
@@ -243,7 +256,8 @@ class PropertyController extends Controller
               'exterior_feautures' =>$exterior_feautures,
               'utilities_data' =>$utilities_data,
               'currency' =>$currency,
-
+              'similar_properties'=>$similar_properties,
+              'feautured_properties'=>$feautured_properties,
             ]);
     //   dd($data[0]['currency']->symbol);
 

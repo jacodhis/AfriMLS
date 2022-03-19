@@ -27,8 +27,9 @@ class IndexController extends Controller
         $cities = city::inRandomOrder()->limit(5) ->get();
 
 
-        $properties = property::inRandomOrder()->take(3)->get();
-
+        // $properties = property::inRandomOrder()->take(3)->get();
+        $properties = property::where('is_feautured','=','yes')->inRandomOrder()->get();
+    //    dd($properties);
 
 
 

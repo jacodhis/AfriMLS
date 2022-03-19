@@ -2,8 +2,8 @@
 
                         <div class="property-item">
                            <div class="property--img">
-                               {{-- <a href="{{route('property',[$property->id])}}"> --}}
-                                <a href="/properties/{{$property->id}}">
+                                {{-- <a href="/properties/{{$property->id}}"> --}}
+                                <a href="{{route('propertyShow',[$property->id])}}">
                                    @php
                                     $images = explode('|',$property->image);
                                    @endphp
@@ -33,3 +33,4 @@
                            </div>
                        </div>
                         @endforeach
+

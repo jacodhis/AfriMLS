@@ -4,6 +4,10 @@
   @include('includes.otherpagesnavigation')
 @endsection
 
+@section('title')
+property show page
+@endsection
+
 @section('content')
 
 <section id="page-title" class="page-title bg-overlay bg-overlay-dark2">
@@ -41,7 +45,8 @@
                 <div class="property-single-gallery-info">
                     <div class="property--info clearfix">
                         <div class="pull-left">
-                            <h5 class="property--title">1220 Petersham Town</h5>
+                            {{-- <h5 class="property--title">1220 Petersham Town</h5> --}}
+                            <h5 class="property--title">{{$data[0]['city']->name}} ,  {{$data[0]['country']->name}}</h5>
                             <p class="property--location"><i class="fa fa-map-marker"></i>{{$data[0]['location']->address ?? ""}} ,{{$data[0]['city']->name}} , - {{$data[0]['country']->name}}</p>
                         </div>
                         <div class="pull-right">
@@ -140,9 +145,17 @@
                         <!-- feature-panel end -->
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="property--details">
-                                {{$data[0]['property']->description}}
-                                {{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in volupte velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                                <p>Duis aute irure dolor in reprehenderit in volupte velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis.</p> --}}
+                               <div class="row">
+
+                                    {{-- <div class="col-md-4">
+                                        <ul>
+
+                                        </ul>
+                                    </div> --}}
+
+                               </div>
+                                {{$data[0]['property']->description ?? ""}}
+
                             </div>
                             <!-- .property-details end -->
                         </div>
@@ -168,7 +181,7 @@
 
                                 <p>
                                     @foreach($feauture['real_c_feautures'] as $cf)
-                                     {{$cf->c_feautures}}
+                                     {{$cf->c_feautures ?? ""}}
                                     @endforeach
                                 </p>
                             </div>
@@ -526,53 +539,32 @@
                     <div class="widget--content">
                         <div class="carousel carousel-dots" data-slide="1" data-slide-rs="1" data-autoplay="true" data-nav="false" data-dots="true" data-space="25" data-loop="true" data-speed="800">
                             <!-- .property-item #1 -->
-                            <div class="property-item">
-                                <div class="property--img">
-                                    <img src="assets/images/properties/13.jpg" alt="property image" class="img-responsive">
-                                    <span class="property--status">For Rent</span>
-                                </div>
-                                <div class="property--content">
-                                    <div class="property--info">
-                                        <h5 class="property--title">House in Chicago</h5>
-                                        <p class="property--location">1445 N State Pkwy, Chicago, IL 60610</p>
-                                        <p class="property--price">$1200<span class="time">month</span></p>
+                            @foreach($data[0]['feautured_properties'] as $featured_property)
+                                <div class="property-item">
+                                    @php
+                                     $images = explode('|',$featured_property->image);
+                                     @endphp
+
+                                    <a href="{{route('propertyShow',[$featured_property->id])}}">
+                                        <div class="property--img">
+                                            <img src="{{URL::to($images[0])}}" alt="property image" class="img-responsive">
+                                            <span class="property--status">{{$featured_property->option->name ?? ""}}</span>
+                                        </div>
+                                    </a>
+
+                                    <div class="property--content">
+                                        <div class="property--info">
+                                            <h5 class="property--title">{{$featured_property->name}}</h5>
+                                            <p class="property--location">{{$featured_property->location->address ?? ""}}, {{$featured_property->city->name ?? ""}}, {{$featured_property->city->country->name ?? ""}}</p>
+                                            <p class="property--price">${{$featured_property->price ?? ""}}</p>
+                                        </div>
+                                        <!-- .property-info end -->
                                     </div>
-                                    <!-- .property-info end -->
                                 </div>
-                            </div>
-                            <!-- .property item end -->
-                            <!-- .property-item #2 -->
-                            <div class="property-item">
-                                <div class="property--img">
-                                    <img src="assets/images/properties/2.jpg" alt="property image" class="img-responsive">
-                                    <span class="property--status">For Rent</span>
-                                </div>
-                                <div class="property--content">
-                                    <div class="property--info">
-                                        <h5 class="property--title"><a href="#">Villa in Oglesby Ave</a></h5>
-                                        <p class="property--location">1035 Oglesby Ave, Chicago, IL 60617</p>
-                                        <p class="property--price">$130,000<span class="time">month</span></p>
-                                    </div>
-                                    <!-- .property-info end -->
-                                </div>
-                            </div>
-                            <!-- .property item end -->
-                            <!-- .property-item #3 -->
-                            <div class="property-item">
-                                <div class="property--img">
-                                    <img src="assets/images/properties/3.jpg" alt="property image" class="img-responsive">
-                                    <span class="property--status">For Sale</span>
-                                </div>
-                                <div class="property--content">
-                                    <div class="property--info">
-                                        <h5 class="property--title"><a href="#">Apartment in Long St.</a></h5>
-                                        <p class="property--location">34 Long St, Jersey City, NJ 07305</p>
-                                        <p class="property--price">$70,000</p>
-                                    </div>
-                                    <!-- .property-info end -->
-                                </div>
-                            </div>
-                            <!-- .property item end -->
+                            @endforeach
+
+
+
                         </div>
                         <!-- .carousel end -->
                     </div>
@@ -619,5 +611,96 @@
     </div>
     <!-- .container -->
 </section>
+
+
+<!-- properties-carousel
+============================================= -->
+<section id="properties-carousel" class="properties-carousel pt-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="heading heading-2  mb-70">
+                    <h2 class="heading--title">Similar Properties</h2>
+                </div>
+                <!-- .heading-title end -->
+            </div>
+            <!-- .col-md-12 end -->
+        </div>
+        <!-- .row end -->
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="carousel carousel-dots" data-slide="3" data-slide-rs="1" data-autoplay="true" data-nav="false" data-dots="true" data-space="25" data-loop="true" data-speed="800">
+                    <!-- .property-item #1 -->
+                   @foreach($data[0]['similar_properties'] as $simila_property)
+                   {{-- {{$simila_property['similar_props']->name}} --}}
+                   @php
+                    $images = explode('|',$simila_property['similar_props']->image);
+                   @endphp
+
+                   <div class="property-item">
+                    <div class="property--img">
+                        {{-- <a href="/properties/{{$simila_property['similar_props']->id}}"> --}}
+                            <a href="{{route('propertyShow',[$simila_property['similar_props']->id])}}">
+                            <img src="{{URL::to($images[0])}}" alt="property image" class="img-responsive">
+                            <span class="property--status">{{$simila_property['similar_props']->option->name ?? ""}}</span>
+                      </a>
+                    </div>
+                    <div class="property--content">
+                        <div class="property--info">
+                            <h5 class="property--title"><a href="#"> {{$simila_property['similar_props']->name ?? ""}}</a></h5>
+                            <p class="property--location">{{$simila_property['similar_props']->location->address ?? ""}},{{$simila_property['similar_props']->city->name ?? ""}} city, {{$simila_property['similar_props']->city->country->name ?? ""}}</p>
+                            <p class="property--price">${{$simila_property['similar_props']->price ?? ""}}</p>
+                        </div>
+                        <!-- .property-info end -->
+                        <div class="property--features">
+                            <ul class="list-unstyled mb-0">
+                                {{-- <li><span class="feature">Beds:</span><span class="feature-num">2</span></li>
+                                <li><span class="feature">Baths:</span><span class="feature-num">1</span></li>
+                                <li><span class="feature">Area:</span><span class="feature-num">200 sq ft</span></li> --}}
+                            </ul>
+                        </div>
+                        <!-- .property-features end -->
+                    </div>
+                </div>
+
+                   @endforeach
+
+
+                            <!-- .property-features end -->
+                        </div>
+                    </div>
+                    <!-- .property item end -->
+
+                    <!-- .property-item #6 -->
+
+                    <!-- .property item end -->
+
+                </div>
+                <!-- .carousel end -->
+            </div>
+            <!-- .col-md-12 -->
+        </div>
+        <!-- .row -->
+    </div>
+    <!-- .container -->
+</section>
+<!-- #properties-carousel  end  -->
+
+<section id="cta" class="cta cta-1 text-center bg-overlay bg-overlay-dark pt-90">
+    <div class="bg-section"><img src="assets/images/cta/bg-1.jpg" alt="Background"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
+                <h3>Join our professional team & agents to start selling your house</h3>
+                <a href="#" class="btn btn--primary">Contact</a>
+            </div>
+            <!-- .col-md-6 -->
+        </div>
+        <!-- .row -->
+    </div>
+    <!-- .container -->
+</section>
+<!-- #cta1 end -->
+
 
 @endsection
