@@ -72,7 +72,7 @@ class PropertyController extends Controller
          $utilities_data_feautures = utility_data::get();
          $currencies = currency::get();
          $garage_feautures = garage_feauture::get();
-        //  dd($garage_properties);
+        //  dd($garage_feautures);
 
 
         array_push($data,

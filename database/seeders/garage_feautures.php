@@ -30,22 +30,22 @@ class garage_feautures extends Seeder
 
         //
         $features = [
-            ['id'=>'1','garage_feautures' => 'Assigned Parking','property_id'=>1],
-            ['id'=>'2','garage_feautures' => 'Attached','property_id'=>2],
-            ['id'=>'3','garage_feautures' => 'Bath in Garage','property_id'=>30],
-            ['id'=>'4','garage_feautures' => 'Circular Drive','property_id'=>4],
-            ['id'=>'5','garage_feautures' => 'Detached','property_id'=>1],
-            ['id'=>'6','garage_feautures' => 'Door Opener','property_id'=>50],
-            ['id'=>'7','garage_feautures' => 'Guest Parking','property_id'=>1],
-            ['id'=>'8','garage_feautures' => 'None','property_id'=>2],
-            ['id'=>'9','garage_feautures' => 'Open Parking','property_id'=>16],
-            ['id'=>'10','garage_feautures' => 'Oversized','property_id'=>17],
-            ['id'=>'11','garage_feautures' => 'Packing Pad','property_id'=>54],
-            ['id'=>'12','garage_feautures' => 'Secure Parking','property_id'=>60],
-            ['id'=>'13','garage_feautures' => 'Side Rear Entry','property_id'=>20],
-            ['id'=>'14','garage_feautures' => 'Street Parking','property_id'=>30],
-            ['id'=>'15','garage_feautures' => 'Washer/Dryier hookup','property_id'=>100],
-            ['id'=>'16','garage_feautures' => 'Workshop','property_id'=>26],
+            ['id'=>'1','garage_feautures' => 'Assigned Parking'],
+            ['id'=>'2','garage_feautures' => 'Attached'],
+            ['id'=>'3','garage_feautures' => 'Bath in Garage'],
+            ['id'=>'4','garage_feautures' => 'Circular Drive'],
+            ['id'=>'5','garage_feautures' => 'Detached'],
+            ['id'=>'6','garage_feautures' => 'Door Opener'],
+            ['id'=>'7','garage_feautures' => 'Guest Parking'],
+            ['id'=>'8','garage_feautures' => 'None'],
+            ['id'=>'9','garage_feautures' => 'Open Parking'],
+            ['id'=>'10','garage_feautures' => 'Oversized'],
+            ['id'=>'11','garage_feautures' => 'Packing Pad'],
+            ['id'=>'12','garage_feautures' => 'Secure Parking'],
+            ['id'=>'13','garage_feautures' => 'Side Rear Entry'],
+            ['id'=>'14','garage_feautures' => 'Street Parking'],
+            ['id'=>'15','garage_feautures' => 'Washer/Dryier hookup'],
+            ['id'=>'16','garage_feautures' => 'Workshop'],
 ];
       foreach($features as $feature){
         garage_feauture::create($feature);

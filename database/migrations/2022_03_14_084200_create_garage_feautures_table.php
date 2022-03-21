@@ -17,10 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('garage_feautures');
 
-            $table->unsignedBigInteger('property_id');
-            $table->index('property_id');
-
-
             $table->timestamps();
         });
     }
