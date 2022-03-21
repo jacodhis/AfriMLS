@@ -61,6 +61,7 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
+                        {{-- @livewire('property-data') --}}
                         {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
                         @php
                          $propertyTypes =  \App\Models\category::get() ;
@@ -449,8 +450,6 @@
 
     <!-- Page level custom scripts -->
     <script src="{{asset('assetss/js/demo/datatables-demo.js')}}"></script>
-
-    @livewireScripts
 
 </body>
 

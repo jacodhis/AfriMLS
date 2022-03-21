@@ -13,10 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('garage_carports', function (Blueprint $table) {
+        Schema::create('architectural_styles', function (Blueprint $table) {
             $table->id();
-            $table->string('garage_carpot')->nullable();
-
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('garage_carports');
+        Schema::dropIfExists('architectural_styles');
     }
 };

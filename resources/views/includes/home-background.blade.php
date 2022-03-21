@@ -5,7 +5,6 @@
                 <div class="slider--content">
                     <div class="text-center">
                         <h1>Find/Sell your Property Today</h1>
-
                     </div>
 
                 </div>

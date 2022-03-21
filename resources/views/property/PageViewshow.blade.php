@@ -46,12 +46,12 @@ property show page
                     <div class="property--info clearfix">
                         <div class="pull-left">
                             {{-- <h5 class="property--title">1220 Petersham Town</h5> --}}
-                            <h5 class="property--title">{{$data[0]['city']->name}} ,  {{$data[0]['country']->name}}</h5>
-                            <p class="property--location"><i class="fa fa-map-marker"></i>{{$data[0]['location']->address ?? ""}} ,{{$data[0]['city']->name}} , - {{$data[0]['country']->name}}</p>
+                            <h5 class="property--title">{{$data[0]['city']->name ??""}} ,  {{$data[0]['country']->name ??""}}</h5>
+                            <p class="property--location"><i class="fa fa-map-marker"></i>{{$data[0]['location']->address ?? ""}} ,{{$data[0]['city']->name ??""}} , - {{$data[0]['country']->name}}</p>
                         </div>
                         <div class="pull-right">
-                            <span class="property--status">{{$data[0]['propertyOption']->name}}</span>
-                            <p class="property--price">{{$data[0]['currency']->symbol ?? "ksh"}} {{$data[0]['property']->price}}</p>
+                            <span class="property--status">{{$data[0]['propertyOption']->name ?? ""}}</span>
+                            <p class="property--price">{{$data[0]['currency']->symbol ?? "ksh"}} {{$data[0]['property']->price ??"NULL"}}</p>
                         </div>
                     </div>
                     <!-- .property-info end -->
@@ -59,7 +59,7 @@ property show page
                         <div class="pull-left">
                             <ul class="list-unstyled list-inline mb-0">
                                 <li>
-                                    Property ID:<span class="value">{{$data[0]['property']->id}}</span>
+                                    Property ID:<span class="value">{{$data[0]['property']->id ??""}}</span>
                                 </li>
                                 <li>
                                     Add to favorites:<span class="value"> <i class="fa fa-heart-o"></i></span>
@@ -170,7 +170,7 @@ property show page
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="heading">
-                                <h2 class="heading--title">community Feutures <small></small></h2>
+                                <h2 class="heading--title">Community Feutures <small></small></h2>
                             </div>
                         </div>
                         <!-- feature-item #1 -->
@@ -194,19 +194,26 @@ property show page
                     </div>
                 </div>
 
-                    @foreach($data[0]['exterior_feautures'] as $feauture)
+                    @forelse ($data[0]['exterior_feautures'] as $feauture )
                     <div class="col-xs-6 col-sm-4 col-md-4">
                         <div class="feature-item">
 
                             <p>
-                                @foreach($feauture['real_ext_feautures'] as $ext_feauture)
-                                {{$ext_feauture->exterior_features}}
+                                @forelse ( $feauture['real_ext_feautures'] as $ext_feauture )
+                                {{$ext_feauture->exterior_features ??""}}
 
-                                @endforeach
+                                @empty
+                                    N/A
+                                @endforelse
+
                             </p>
                         </div>
                     </div>
-                   @endforeach
+
+                    @empty
+
+                   @endforelse
+
 
 
                    <div class="col-xs-12 col-sm-12 col-md-12">
@@ -229,6 +236,26 @@ property show page
                     </div>
                    @endforeach
 
+
+                   <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="heading">
+                        <h2 class="heading--title">Garage Feautures<small></small></h2>
+                    </div>
+                </div>
+
+                    @foreach($data[0]['garage_data_feautures'] as $feauture)
+                    <div class="col-xs-6 col-sm-4 col-md-4">
+                        <div class="feature-item">
+
+                            <p>
+                                @foreach($feauture['real_garage_data_feautures'] as $garage_data_feauture)
+                                {{$garage_data_feauture->garage_feautures ?? ""}}
+
+                                @endforeach
+                            </p>
+                        </div>
+                    </div>
+                   @endforeach
 
 
 
@@ -554,7 +581,7 @@ property show page
 
                                     <div class="property--content">
                                         <div class="property--info">
-                                            <h5 class="property--title">{{$featured_property->name}}</h5>
+                                            <h5 class="property--title">{{$featured_property->name ??""}}</h5>
                                             <p class="property--location">{{$featured_property->location->address ?? ""}}, {{$featured_property->city->name ?? ""}}, {{$featured_property->city->country->name ?? ""}}</p>
                                             <p class="property--price">${{$featured_property->price ?? ""}}</p>
                                         </div>

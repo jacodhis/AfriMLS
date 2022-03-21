@@ -27,11 +27,12 @@ class DatabaseSeeder extends Seeder
         $this->call(cities::class);
        //garage
         $this->call(garage_feautures::class);
-        $this->call(garage_carports::class);
+        // $this->call(garage_carports::class);
         $this->call(feauture_communities::class);
         $this->call(exterior_feautures::class);
         $this->call(utility_datas::class);
         $this->call(currencies::class);
+        $this->call(architectural_styles::class);
 
 
         // \App\Models\User::factory(10)->create();

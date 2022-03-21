@@ -46,6 +46,7 @@ Route::get('/AfriMLSdashboard', 'BackendDashboardController@dashboard')->name('b
 
 Route::get('/propertyType/{propertyTypeId}','PropertyController@show')->name('properTypeShow');
 
+// Route::get('/propertyType/{propertyTypeId}', [App\Http\Livewire\PropertyData::class,'render'])->name('properTypeShow');
 
 
 

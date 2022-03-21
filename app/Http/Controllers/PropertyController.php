@@ -2,21 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\property;
-use App\Models\category;
-use App\Models\currency;
-use App\Models\option;
-use App\Models\city;
-use App\Models\location;
-use App\Models\community_feauture;
-use App\Models\feauture_community;
-use App\Models\exterior_feauture;
-use App\Models\exterior_property_feauture;
-use App\Models\utility_data;
-use App\Models\utility_property_feature;
 use DB;
 use Image;
+use App\Models\city;
+use App\Models\option;
+use App\Models\category;
+use App\Models\currency;
+use App\Models\location;
+use App\Models\property;
+use App\Models\utility_data;
+use Illuminate\Http\Request;
+use App\Models\garage_feauture;
+use App\Models\exterior_feauture;
+use App\Models\community_feauture;
+use App\Models\feauture_community;
+use App\Models\garage_property_feature;
+use App\Models\utility_property_feature;
+use App\Models\exterior_property_feauture;
 
 class PropertyController extends Controller
 {
@@ -27,7 +29,9 @@ class PropertyController extends Controller
         $data = [];
 
         $propertyData = category::findorFail($propertyTypeId);
-        $properties = property::where('category_id',$propertyTypeId)->simplePaginate(8);
+        // dd($propertyData);
+        $properties = property::where('category_id',$propertyTypeId)->get();
+        // dd($properties);
 
         array_push($data,['propertyData'=>$propertyData,'properties' => $properties]);
         if(empty($data)){
@@ -67,6 +71,8 @@ class PropertyController extends Controller
          $exterior_feautures = exterior_feauture::get();
          $utilities_data_feautures = utility_data::get();
          $currencies = currency::get();
+         $garage_feautures = garage_feauture::get();
+        //  dd($garage_properties);
 
 
         array_push($data,
@@ -77,11 +83,13 @@ class PropertyController extends Controller
         'f_communities'=>$f_communities,
         'exterior_feautures'=>$exterior_feautures,
         'utilities_data_feautures'=>$utilities_data_feautures,
+        'garage_feautures'=>$garage_feautures,
         'currencies'=>$currencies
         ]);
         // dd();
 
-        return view('property.createproperty',['data'=>$data]);
+        // return view('property.createproperty',['data'=>$data]);
+        return view('property.createp',['data'=>$data]);
 
     }
     //stores property
@@ -174,6 +182,17 @@ class PropertyController extends Controller
                     }
 
                 }
+                $garage_property_feautures = $request->garage_feautures;
+                if(!empty($garage_property_feautures)){
+                    foreach($garage_property_feautures as $garage_property_feauture_id){
+                        $garage_f = new garage_property_feature;
+                        $garage_f->property_id = $newProperty->id;
+                        $garage_f->garage_feauture_id = $garage_property_feauture_id;
+                        $garage_f->save();
+                    }
+
+                }
+
 
            }else{
                return back()->with('error','image upload empty');
@@ -228,6 +247,15 @@ class PropertyController extends Controller
         $f_commuities = exterior_feauture::where('id',$ext_f->exterior_feauture_id)->get();
        array_push($exterior_feautures,['real_ext_feautures'=>$f_commuities]);
      }
+     //garage feautures data fetch
+     $garage_data_feautures = [];
+     $garage_data_fss = $property->garage_property_feautures;
+     foreach($garage_data_fss as $garage_data_fs){
+        $garageData_feautures = garage_feauture::where('id',$garage_data_fs->garage_feauture_id)->get();
+       array_push($garage_data_feautures,['real_garage_data_feautures'=>$garageData_feautures]);
+     }
+    //  dd($garage_data_feautures);
+
      //utilities data fetch
      $utilities_data = [];
      $utilities_data_fs = $property->utility_property_feautures;
@@ -258,6 +286,7 @@ class PropertyController extends Controller
               'currency' =>$currency,
               'similar_properties'=>$similar_properties,
               'feautured_properties'=>$feautured_properties,
+              'garage_data_feautures'=>$garage_data_feautures
             ]);
     //   dd($data[0]['currency']->symbol);
 

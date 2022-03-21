@@ -101,7 +101,7 @@ class property extends Seeder
 
                 'name' => 'Property '.$count,
                 'image' => 'image'.mt_rand(1,4).'.jpg',
-                'category_id' => mt_rand(1,5),
+                'category_id' => mt_rand(1,3),
                 'county_id' => mt_rand(1,47),
                 'option_id' => mt_rand(1,3),
                  'price' => mt_rand(10000,5000000),

@@ -12,7 +12,7 @@
     <form action="{{route('property.store')}}" method="post" enctype="multipart/form-data">
         @csrf
     <div class="row">
-        <div class="col-md-3">
+        {{-- <div class="col-md-3">
             <p>
                 <label for="pname">property name </label>
                 <input type="text" name = "pname" class="form-control" required>
@@ -29,12 +29,12 @@
 
 
 
-        </div>
+        </div> --}}
         <div class="col-md-3">
           <div class="row">
 
               <div class="col-md-6">
-                <p>
+                {{-- <p>
                     <label for="">City</label>
                         <select name="city_id" id="city_id" class="form-control" required onchange="getLocations()">
                             <option value="" disabled>select city</option>
@@ -43,11 +43,11 @@
                             @endforeach
 
                         </select>
-                  </p>
+                  </p> --}}
 
               </div>
               <div class="col-md-6">
-                <p>
+                {{-- <p>
                     <label for="">Type</label>
                     <select name="option_id" id="" class="form-control">Type
                         <option value="" disabled>select option</option>
@@ -55,31 +55,31 @@
                             <option value="{{$option->id}}">{{$option->name}}</option>
                         @endforeach
                     </select>
-                 </p>
+                 </p> --}}
               </div>
               <div class="col-md-6">
-                <p>
-                    {{-- <label for="">Locations</label> --}}
+                {{-- <p>
+                    <label for="">Locations</label>
                     <div id="DynamicLocationsDropdown"></div>
-                  </p>
+                  </p> --}}
 
               </div>
               <div class="col-md-6">
-                <p>
+                {{-- <p>
                     <label for="pname">property price</label>
                     <input type="number" min="1" name="property_price" class="form-control" required>
-                  </p>
+                  </p> --}}
 
               </div>
               <div class="col-md-6">
-                  <p><label for="owner_name">Owner Name</label>
+                  {{-- <p><label for="owner_name">Owner Name</label>
                     <input type="text" class="form-control" name="owner_name">
-                </p>
+                </p> --}}
               </div>
               <div class="col-md-6">
-                <p><label for="owner_name">Owner phone</label>
+                {{-- <p><label for="owner_name">Owner phone</label>
                   <input type="number" min="10" class="form-control" name="owner_phone">
-              </p>
+              </p> --}}
             </div>
           </div>
         </div>
@@ -103,38 +103,38 @@
 
                 @if($data[0]['propertyType']->name == 'House')
                 <div class="col-md-6">
-                    <p>
+                    {{-- <p>
                         <label for="">no of bedrooms</label>
                         <input type="number" min="1" name="no_of_bedrooms" class="form-control" placeholder="no of bedrooms" >
-                    </p>
+                    </p> --}}
                 </div>
                 <div class="col-md-6">
-                    <p>
+                    {{-- <p>
                         <label for="">no of bathrooms</label>
                         <input type="number" min="1" name="no_of_bathrooms" class="form-control" placeholder="no of bathrooms">
-                    </p>
+                    </p> --}}
 
                 </div>
                 <div class="col-md-6">
-                    <p>
+                    {{-- <p>
                         <label for="">no of floors</label>
                         <input type="number" min="1" name="no_of_floor" class="form-control" placeholder="no of floors">
-                    </p>
+                    </p> --}}
 
                 </div>
                 <div class="col-md-6">
-                    <p>
+                    {{-- <p>
                         <label for="">Square(m2)</label>
                         <input type="text" name="square" class="form-control" placeholder="enter square">
-                    </p>
+                    </p> --}}
 
                 </div>
                 <div class="col-md-6">
-                    <p>
+                    {{-- <p>
                         <label for="pname">house no</label>
                         <input type="number" min="1" name = "house_number" class="form-control" placeholder="house no" >
                     </p>
-                   </div>
+                   </div> --}}
                 @endif
                 <div class="col-md-6">
                     <p>
@@ -175,74 +175,74 @@
            <div class="row">
 
             <div class="col-md-6">
-                <p>floors in Unit</label>
+                {{-- <p>floors in Unit</label>
                     <input type="number" min="1" name="floors_in_unit" class="form-control" placeholder="floors in Unit">
-                </p>
+                </p> --}}
 
             </div>
 
 
 
                <div class="col-md-6">
-                <p>
+                {{-- <p>
                     <label for="pname">Street  Name</label>
                     <input type="text" name = "street_name" class="form-control" placeholder="street name" >
-                </p>
+                </p> --}}
                </div>
 
                 <div class="col-md-6">
-                    <p>
+                    {{-- <p>
                         <label for="pname">Street  Type</label>
                         <input type="text" name = "street_type" class="form-control" placeholder="street type" >
-                    </p>
+                    </p> --}}
                 </div>
                 <div class="col-md-6">
-                    <p>
+                    {{-- <p>
                         <label for="pname">MLS No</label>
                         <input type="number" min="1" name = "mls_number" class="form-control" placeholder="Mls No" >
-                    </p>
+                    </p> --}}
                 </div>
 
                 <div class="col-md-6">
-                    <p>
+                    {{-- <p>
                         <label for="street Dir">Street  Dir</label>
                         <input type="text" name = "street_dir" class="form-control"placeholder="street dir" >
-                    </p>
+                    </p> --}}
                 </div>
 
                 <div class="col-md-6">
-                    <p>
+                    {{-- <p>
                         <label for="Unit Number">Unit  number</label>
                         <input type="number" min="1" name = "unit_number" placeholder="unit number" class="form-control" >
-                    </p>
+                    </p> --}}
                 </div>
 
                 <div class="col-md-6">
-                    <p>
+                    {{-- <p>
                         <label for="period">Period</label>
                         <input type="text" name = "period" class="form-control" placeholder="period" >
-                    </p>
+                    </p> --}}
                 </div>
 
                 <div class="col-md-6">
-                    <p>
+                    {{-- <p>
                         <label for="taxId">Tax Id</label>
                         <input type="number" name = "tax_id" class="form-control" placeholder="tax Id" >
-                    </p>
+                    </p> --}}
                 </div>
 
                 <div class="col-md-6">
-                    <p>
+                    {{-- <p>
                         <label for="taxes">Taxes</label>
                         <input type="text" name = "taxes" class="form-control" placeholder="tax Id" >
-                    </p>
+                    </p> --}}
                 </div>
 
                 <div class="col-md-6">
-                    <p>
+                    {{-- <p>
                         <label for="taxes">Tax year</label>
                         <input type="date" name = "tax_year" class="form-control" placeholder="tax year" >
-                    </p>
+                    </p> --}}
                 </div>
 
            </div>
@@ -250,22 +250,22 @@
         </div>
 
     </div>
-    <input type="hidden" value="{{$data[0]['propertyType']->id}}" name ="propertyTypeId">
+    {{-- <input type="hidden" value="{{$data[0]['propertyType']->id}}" name ="propertyTypeId"> --}}
 
  <section id="">
 
-     <p>
+     {{-- <p>
         <input type="checkbox" name="is_feautured">  is_feautured
      </p>
 
      <p>
          <input type="checkbox" name="fire_place"> Fire place
-     </p>
+     </p> --}}
 
  </section>
       <h3>community feautures</h3>
       <div class="container row">
-        @foreach ($data[0]['f_communities'] as $c_feauture)
+        {{-- @foreach ($data[0]['f_communities'] as $c_feauture)
           <div class=" col-md-2">
             <ul class="list-unstyled">
 
@@ -275,12 +275,12 @@
             </ul>
 
           </div>
-          @endforeach
+          @endforeach --}}
         </div>
         {{-- exterior feautures --}}
         <h3>  Exterior feautures</h3>
         <div class="container row">
-            @foreach ($data[0]['exterior_feautures'] as $exterior_feauture)
+            {{-- @foreach ($data[0]['exterior_feautures'] as $exterior_feauture)
               <div class=" col-md-2">
                 <ul class="list-unstyled">
                     <li><input type="checkbox" name="exeterior_fs[]" value="{{$exterior_feauture->id}}" >{{$exterior_feauture->exterior_features}}</li>
@@ -289,9 +289,9 @@
                 </ul>
 
               </div>
-              @endforeach
+              @endforeach --}}
             </div>
-            <h3>Utilities Data</h3>
+            {{-- <h3>Utilities Data</h3>
             <div class="container row">
               @foreach ($data[0]['utilities_data_feautures'] as $ut_data_feauture)
                 <div class=" col-md-2">
@@ -304,12 +304,12 @@
 
                 </div>
                 @endforeach
-              </div>
+              </div> --}}
 
 
       <p>
 
-        <input type="submit" class="form-control btn btn-primary" >
+        {{-- <input type="submit" class="form-control btn btn-primary" > --}}
     </p>
 
 

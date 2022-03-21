@@ -50,6 +50,10 @@ class property extends Model
     public function utility_property_feautures(){
         return $this->hasMany('App\Models\utility_property_feature');
     }
+    public function garage_property_feautures(){
+        return $this->hasMany('App\Models\garage_property_feature');
+    }
+
 
 
 
