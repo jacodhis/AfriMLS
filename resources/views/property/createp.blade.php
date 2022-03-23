@@ -17,7 +17,7 @@
       <div class="card-header" id="headingOne">
         <h5 class="mb-0">
           <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            Basic Information (Click the section to add Information)
+            <span style="color: GREEN">BASIC INFORMATION</span> Click the section to add Information
           </button>
         </h5>
       </div>
@@ -354,10 +354,10 @@
   <input type="hidden" value="{{$data[0]['propertyType']->id}}" name ="propertyTypeId">
 
 
- <div class="col-md-8 mx-auto py-4">
+ <div class="col-md-4 mx-auto py-4">
     <p>
 
-        <input type="submit" class="form-control btn btn-primary">
+        <input type="submit" class="form-control btn btn-primary" value="Save Unit Details ">
     </p>
  </div>
 </form>
