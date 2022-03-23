@@ -108,9 +108,12 @@ class PropertyController extends Controller
                 $upload_path = 'images/propertyImages/';
                 $file->move(public_path($upload_path), $image_full_name);
                 $image_url = $upload_path.$image_full_name;
-                // $size = Image::make($file)->resize(500,500)->save($upload_path.$image_full_name);
+                // $size = Image::make($file)->resize(500,500)->save($image_url,80);
+
                 array_push($image,$image_url);
             }
+
+            // dd($image);
             $newProperty = new property;
             $newProperty->name = $request->pname;
             $newProperty->category_id = $request->propertyId;

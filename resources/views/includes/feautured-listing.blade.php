@@ -15,7 +15,7 @@
                                <div class="property--info">
                                    {{-- <h5 class="property--title"><a href="#">3 Bedroomed in Runda</a></h5> --}}
                                    <p class="property--location">{{$property->city->name??""}},  {{$property->city->country->name??""}}</p>
-                                   <p class="property--price">{{$property->city->country->currency->symbol ??"ksh"}} {{$property->price??""}}</p>
+                                   <p class="property--price">{{$property->city->country->currency->symbol ??"Ksh"}} {{$property->price??""}}</p>
                                </div>
                                <!-- .property-info end -->
                                <div class="property--features">

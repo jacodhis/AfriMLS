@@ -1,10 +1,10 @@
 <section id="heroSearch" class="hero-search mtop-100 pt-0 pb-0">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-12 col-md-12 py-4">
                 <div class="slider--content">
                     <div class="text-center">
-                        <h1>Find/Sell your Property Today</h1>
+                        <h1 class="p-4">Find/Sell your Property Today</h1>
                     </div>
 
                 </div>

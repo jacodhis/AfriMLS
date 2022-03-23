@@ -51,7 +51,7 @@ property show page
                         </div>
                         <div class="pull-right">
                             <span class="property--status">{{$data[0]['propertyOption']->name ?? ""}}</span>
-                            <p class="property--price">{{$data[0]['currency']->symbol ?? "ksh"}} {{$data[0]['property']->price ??"NULL"}}</p>
+                            <p class="property--price">{{$data[0]['currency']->symbol ?? "Ksh"}} {{$data[0]['property']->price ??"NULL"}}</p>
                         </div>
                     </div>
                     <!-- .property-info end -->

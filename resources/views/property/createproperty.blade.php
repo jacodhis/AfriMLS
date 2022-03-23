@@ -2,7 +2,7 @@
 
 
 @section('title')
-  Afri MLS add {{$data[0]['propertyType']->name ??""}}
+  AfriMLS Add {{$data[0]['propertyType']->name ??""}}
 @endsection
 
 @section('content')

@@ -2,7 +2,7 @@
 
 
 @section('title')
-  Afri MLS add {{$data[0]['propertyType']->name ??""}}
+  Afri MLS Add {{$data[0]['propertyType']->name ??""}}
 @endsection
 
 @section('content')
@@ -17,7 +17,7 @@
       <div class="card-header" id="headingOne">
         <h5 class="mb-0">
           <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            Basic Information
+            Basic Information (Click the section to add Information)
           </button>
         </h5>
       </div>
@@ -28,13 +28,13 @@
             <div class="row">
                 <div class="col-md-3">
                     <p>
-                        <label for="pname">property name </label>
+                        <label for="pname">Property Name </label>
                         <input type="text" name = "pname" class="form-control" required>
                     </p>
                 </div>
                 <div class="col-md-3">
                     <p>
-                        <label for="pname">property image</label>
+                        <label for="pname">Property Image</label>
                         <input type="file" name="property_images[]" class="form-control" multiple >
                     </p>
                 </div>
@@ -78,19 +78,19 @@
                 <div class="col-md-4">
                     <p>
                         <label for="taxId">Tax Id</label>
-                        <input type="number" name = "tax_id" class="form-control" placeholder="tax Id" >
+                        <input type="number" name = "tax_id" class="form-control" placeholder="Tax Id" >
                     </p>
                 </div>
                 <div class="col-md-4">
                     <p>
                         <label for="taxes">Taxes</label>
-                        <input type="text" name = "taxes" class="form-control" placeholder="taxes" >
+                        <input type="text" name = "taxes" class="form-control" placeholder="Taxes" >
                     </p>
                 </div>
                 <div class="col-md-4">
                     <p>
                         <label for="taxes">Tax year</label>
-                        <input type="date" name = "tax_year" class="form-control" placeholder="tax year" >
+                        <input type="date" name = "tax_year" class="form-control" placeholder="Tax Year" >
                     </p>
                 </div>
 
@@ -136,37 +136,37 @@
               <div class="row">
                   <div class="col-md-4">
                     <p>
-                        <label for="">no of bedrooms</label>
-                        <input type="number" min="1" name="no_of_bedrooms" class="form-control" placeholder="no of bedrooms" >
+                        <label for="">No. of Bedrooms</label>
+                        <input type="number" min="1" name="no_of_bedrooms" class="form-control" placeholder="No. of Bedrooms" >
                     </p>
                   </div>
                   <div class="col-md-4">
                     <p>
-                        <label for="">no of bathrooms</label>
-                        <input type="number" min="1" name="no_of_bathrooms" class="form-control" placeholder="no of bathrooms">
+                        <label for="">No. of Bathrooms</label>
+                        <input type="number" min="1" name="no_of_bathrooms" class="form-control" placeholder="No. of Bathrooms  ">
                     </p>
                   </div>
                   <div class="col-md-4">
                     <p>
-                        <label for="">no of floors</label>
-                        <input type="number" min="1" name="no_of_floor" class="form-control" placeholder="no of floors">
+                        <label for="">No. of Floors</label>
+                        <input type="number" min="1" name="no_of_floor" class="form-control" placeholder="No. of Floors">
                     </p>
                   </div>
                   <div class="col-md-4">
                     <p>
                         <label for="">Square(m2)</label>
-                        <input type="text" name="square" class="form-control" placeholder="enter square">
+                        <input type="text" name="square" class="form-control" placeholder="Enter Square">
                     </p>
                   </div>
                   <div class="col-md-4">
                     <p>
-                        <label for="pname">house no</label>
-                        <input type="number" min="1" name = "house_number" class="form-control" placeholder="house no" >
+                        <label for="pname">House No</label>
+                        <input type="number" min="1" name = "house_number" class="form-control" placeholder="House No" >
                     </p>
                    </div>
                    <div class="col-md-4">
-                    <p>floors in Unit</label>
-                        <input type="number" min="1" name="floors_in_unit" class="form-control" placeholder="floors in Unit">
+                    <p>Floors in Unit</label>
+                        <input type="number" min="1" name="floors_in_unit" class="form-control" placeholder="Floors in Unit">
                     </p>
 
                    </div>
@@ -195,7 +195,7 @@
                     </p>
                  </div>
                  <div class="col-md-6">
-                    <p><label for="owner_name">Owner phone</label>
+                    <p><label for="owner_name">Owner Phone</label>
                         <input type="number" min="10" class="form-control" name="owner_phone" placeholder="owner's phone number">
                     </p>
                  </div>

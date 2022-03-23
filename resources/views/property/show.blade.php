@@ -25,7 +25,7 @@ Afri MLS {{$data[0]['propertyData']->name}}s
                         <th>Price</th>
                         <th>Owner</th>
                         <th>Phone</th>
-                        <th>city</th>
+                        <th>City</th>
 
                     </tr>
                 </thead>
@@ -43,7 +43,7 @@ Afri MLS {{$data[0]['propertyData']->name}}s
 
 
                     @empty
-                       No properties Available
+                       No Properties Available
                     @endforelse
 
 

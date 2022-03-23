@@ -31,6 +31,7 @@ Route::get('/agents-profile', 'AgentsController@agentsProfile')->name('agentsPro
 
 
 Route::get('/propertyType/create/{id}','PropertyController@create')->name('addProperty');
+Route::get('/propertyType/{propertyTypeId}','PropertyController@show')->name('properTypeShow');
 Route::post('/property/store','PropertyController@store')->name('property.store');
 Route::get('showsingleproperty/{id}','PropertyController@showoneproperty')->name('showsingleproperty');
 Route::get('/my-properties', 'PropertyController@myproperties')->name('myproperties');
@@ -44,7 +45,6 @@ Route::GET('/ajaxGetLocations','PropertyController@getLocations');
 Route::get('/AfriMLSdashboard', 'BackendDashboardController@dashboard')->name('backendDashboard');
 //from dashboard backend
 
-Route::get('/propertyType/{propertyTypeId}','PropertyController@show')->name('properTypeShow');
 
 // Route::get('/propertyType/{propertyTypeId}', [App\Http\Livewire\PropertyData::class,'render'])->name('properTypeShow');
 
