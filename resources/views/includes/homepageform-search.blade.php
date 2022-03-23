@@ -23,12 +23,13 @@
             <div class="col-xs-12 col-sm-6 col-md-3">
                 <div class="form-group">
                     <div class="select--box">
-                        <i class="fa fa-angle-down"></i>
-                        <select name="select-location" id="select-location">
+                        {{-- <i class="fa fa-angle-down"></i> --}}
+                        <input type="text" name="neighbourhood" id="" placeholder="Enter Neighbourhood" class="form-control">
+                        {{-- <select name="select-location" id="select-location">
                             <option>City/Neighbourhood</option>
                             @foreach($data[0]['cities'] as $city)
                               <option value="{{$city->id}}">{{$city->name}}</option>
-                            @endforeach
+                            @endforeach --}}
                             {{-- <option>Westlands,Nairobi</option>
                             <option>Westlands,Nairobi</option>
                             <option>Westlands,Nairobi</option> --}}
