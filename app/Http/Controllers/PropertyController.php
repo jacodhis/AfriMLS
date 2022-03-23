@@ -42,12 +42,13 @@ class PropertyController extends Controller
          return view('property.show',['data'=>$data]);
         }
     }
-    //   shows a single property
+    //   shows a single property to view page
     public function showoneproperty($id){
         $property = property::findorFail($id);
         return view('property.showsingleproperty',['property'=>$property]);
         // return $property;
     }
+
     // ajax request to get locations
     public function getLocations(){
         $city_id = $_REQUEST["myCity"];
@@ -216,7 +217,22 @@ class PropertyController extends Controller
 
 
     public function myproperties(){
-        return view('property.myproperties');
+
+        return view('property.frontend.myproperties');
+    }
+
+      //display properties to view page
+      public function allProperties(){
+        $data = [];
+        $propertyTypes = category::get();
+        $options = option::get();
+        $cities = city::paginate(4);
+        $feautured_properties = property::where('is_feautured','yes')->inRandomOrder()->take(3)->get();
+        array_push($data,['propertyTypes'=>$propertyTypes,'options'=>$options,'cities'=>$cities,'feautured_properties'=>$feautured_properties]);
+        if(!empty($data)){
+            return view('property.frontend.allProperties',['data'=>$data]);
+        }return ;
+
     }
 
     public function viewPageshow($id){
@@ -297,7 +313,7 @@ class PropertyController extends Controller
              dd('empty');
          }else{
 
-            return view('property.PageViewshow',['data'=>$data]);
+            return view('property.frontend.PageViewshow',['data'=>$data]);
 
 
             // return view('property.viewPageshow',['data'=>$data]);

@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 py-4">
                 <div class="slider--content">
-                    <div class="text-center">
-                        <h1 class="p-4">Find/Sell your Property Today</h1>
+                    <div class="text-center" >
+                        <h1 class="p-4" id="text">Find/Sell your Property Today</h1>
                     </div>
 
                 </div>
@@ -13,6 +13,14 @@
         </div>
         <!-- .slider-text end -->
     </div>
+    <style>
+        #text{
+            /* height: 200px; */
+            line-height: 200px;
+            }
+    </style>
+
+    {{-- vertical-align: middle;  --}}
     <div class="carousel slider-navs" data-slide="1" data-slide-rs="1" data-autoplay="true" data-nav="true"
         data-dots="false" data-space="0" data-loop="true" data-speed="800">
         <!-- Slide #1 -->

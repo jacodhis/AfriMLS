@@ -36,7 +36,7 @@ Route::post('/property/store','PropertyController@store')->name('property.store'
 Route::get('showsingleproperty/{id}','PropertyController@showoneproperty')->name('showsingleproperty');
 Route::get('/my-properties', 'PropertyController@myproperties')->name('myproperties');
 Route::get('/properties/{id}', 'PropertyController@viewPageshow')->name('propertyShow');
-
+Route::get('/all-properties/show','PropertyController@allProperties')->name('properties');
 //ajax get locations
 Route::GET('/ajaxGetLocations','PropertyController@getLocations');
 

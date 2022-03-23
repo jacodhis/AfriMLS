@@ -74,7 +74,7 @@
             <a href="#" data-toggle="dropdown" class="dropdown-toggle">Properties grid</a>
             <ul class="dropdown-menu">
                 <li>
-                    <a href="properties-grid.html">properties grid</a>
+                    <a href="{{ route('properties')}}">properties grid</a>
                 </li>
                 <li>
                     <a href="properties-grid-split.html">properties grid split</a>
