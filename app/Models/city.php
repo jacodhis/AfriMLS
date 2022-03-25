@@ -18,7 +18,7 @@ class city extends Model
     }
 
     public function properties(){
-        return $this->belongsTo('App\Models\properties');
+        return $this->hasMany('App\Models\property');
     }
 
 

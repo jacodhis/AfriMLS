@@ -54,7 +54,7 @@ properties show page
                        @forelse ($data[0]['propertyTypes'] as $propertyType)
                        <ul class="list-unstyled mb-0">
                         <li>
-                            <a href="#">{{$propertyType->name}} <span>(13)</span></a>
+                            <a href="#">{{$propertyType->name}} <span>({{$propertyType->properties->count()??""}})</span></a>
                         </li>
                        </ul>
 
@@ -77,7 +77,7 @@ properties show page
                         @forelse ($data[0]['options'] as $option)
                         <ul class="list-unstyled mb-0">
                             <li>
-                                <a href="#">{{$option->name ?? ""}} <span>(25)</span></a>
+                                <a href="#">{{$option->name ?? ""}} <span>({{$option->properties->count() ?? ""}})</span></a>
                             </li>
                         </ul>
                         @empty
@@ -99,7 +99,7 @@ properties show page
                        @forelse ($data[0]['cities'] as $city)
                        <ul class="list-unstyled mb-0">
                         <li>
-                            <a href="#">{{$city->name ??""}} <span>(5)</span></a>
+                            <a href="#">{{$city->name ??""}} <span>({{$city->properties->count()??""}})</span></a>
                         </li>
 
                     </ul>
