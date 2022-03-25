@@ -93,7 +93,7 @@ properties show page
                 <div class="widget widget-property">
                     <div class="widget--title">
                         <h5>Property By City</h5>
-                        <input type="search" class="form-control"  id="search-bar">
+                        <input type="text" class="form-control"  id="searchCity">
                     </div>
                     <div class="widget--content">
                        @forelse ($data[0]['cities'] as $city)
@@ -399,10 +399,11 @@ properties show page
     <!-- .container -->
 </section>
 <!-- #properties-grid  end  -->
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-    $('#search-bar').keyup(function(){
+    $('#searchCity').keyup(function(){
         var value = $(this).val().toLowerCase();
+        // alert(value);
         $('#list li a').each(function(){
             var search = $(this).text().toLowerCase();
             if(search.indexOf(value) > -1){
