@@ -93,11 +93,11 @@ properties show page
                 <div class="widget widget-property">
                     <div class="widget--title">
                         <h5>Property By City</h5>
-                        <input type="search" class="form-control" >
+                        <input type="search" class="form-control"  id="search-bar">
                     </div>
                     <div class="widget--content">
                        @forelse ($data[0]['cities'] as $city)
-                       <ul class="list-unstyled mb-0">
+                       <ul class="list-unstyled mb-0" id="list">
                         <li>
                             <a href="#">{{$city->name ??""}} <span>({{$city->properties->count()??""}})</span></a>
                         </li>
@@ -400,6 +400,18 @@ properties show page
 </section>
 <!-- #properties-grid  end  -->
 
-
+<script>
+    $('#search-bar').keyup(function(){
+        var value = $(this).val().toLowerCase();
+        $('#list li a').each(function(){
+            var search = $(this).text().toLowerCase();
+            if(search.indexOf(value) > -1){
+                $(this).show();
+            }else{
+                $(this).hide();
+            }
+        });
+    })
+</script>
 
 @endsection
