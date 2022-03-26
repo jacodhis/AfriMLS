@@ -220,6 +220,19 @@ class PropertyController extends Controller
 
         return view('property.frontend.myproperties');
     }
+     public function searchLike(){
+        $searchLike = $_REQUEST["searchLike"];
+        $city = $_REQUEST["city"];
+    //    if($city){
+    //        $cit =  city::where('name',$searchLike)->first();
+    //         return response()->json(['cit'=> $cit, 200]);
+    //    }
+       //return response()->json(['city'=>$searchLike]);
+    // return response()-   >json(['city'=>$searchLike]);
+
+   return $searchLike;
+
+     }
 
       //display properties to view page
       public function allProperties(){

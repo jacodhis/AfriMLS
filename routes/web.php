@@ -39,7 +39,7 @@ Route::get('/properties/{id}', 'PropertyController@viewPageshow')->name('propert
 Route::get('/all-properties/show','PropertyController@allProperties')->name('properties');
 //ajax get locations
 Route::GET('/ajaxGetLocations','PropertyController@getLocations');
-
+Route::GET('/ajaxGetsearchLike','PropertyController@searchLike');
 
 
 Route::get('/AfriMLSdashboard', 'BackendDashboardController@dashboard')->name('backendDashboard');
