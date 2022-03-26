@@ -99,7 +99,7 @@
                             @forelse ($data[0]['cities'] as $city)
                                 <ul class="querySearch list-unstyled mb-0" id="list">
                                     <li>
-                                        <a href="#" id="search{{ $city->id }}">{{ $city->name ?? '' }}</a>
+                                        <a href="#" id="{{ $city->id }}">{{ $city->name ?? '' }}</a>
                                         {{-- <span style="inline">({{$city->properties->count()??""}})</span> --}}
                                     </li>
 
@@ -453,21 +453,14 @@
         })
     </script>
     <script>
-        var items = document.getElementsByClassName('querySearch');
-        var cities = @json($data[0]['cities']->toArray());
+        // var items = document.getElementsByClassName('querySearch');
+        // var cities = @json($data[0]['cities']->toArray());
+        // var citys = cities.data;
 
-        for (var i = 0; i < items.length; i++) {
-
-
-            $(items[i]).on('click', function() {
-                var citUl =$(this).text();
-
-                var citys = cities.data;
-               // console.log(citys)
-
-                // var searchLike = document.getElementById(1).textContent;
-                // console.log(searchLike)
-                var token = $('meta[name="csrf-token"]').attr('content');
+        $("#list > li a").each(function() {
+           $(this).on('click',function(){
+               var searchLike = $(this).text();
+               var token = $('meta[name="csrf-token"]').attr('content');
                 $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -485,10 +478,33 @@
                         console.log(data);
                     }
                 });
+           })
+        });
+        // console.log(optionTexts);
 
 
-            });
+        // for (var i = 0; i < items.length; i++) {
+        //     $(items[i]).on('click', function() {
+        //         var citUl =$(this).text().toLowerCase();
+        //         // console.log(citUl);
+        //         // console.log(citys);
+        //     //    if(  citys.indexOf(citUl) === -1){
+        //     //        console.log();
+        //     //    }else{
+        //     //        console.log('no');
+        //     //    }
+        //     citynames = [];
+        //         citys.forEach(city => {
+        //             cityName = city.name.toLowerCase();
+        //             citynames.push(cityName);
+        //         });
+        //         let result = citynames.indexOf(citUl);
+        //         console.log(result);
 
-        }
+        //     });
+
+
+
+        // }
     </script>
 @endsection
