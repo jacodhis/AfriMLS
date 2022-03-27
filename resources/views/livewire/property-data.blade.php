@@ -95,7 +95,7 @@
                             </ul>
                         @empty
                         @endforelse
-                        {{-- {{$data[0]['cities']->links()}} --}}
+                        {{$cities->links()}}
                     </div>
                 </div>
                 <!-- . widget property city end -->
