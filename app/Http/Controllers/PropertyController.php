@@ -220,31 +220,26 @@ class PropertyController extends Controller
 
         return view('property.frontend.myproperties');
     }
-     public function searchLike(){
-        $searchLike = $_REQUEST["searchLike"];
-        $city = $_REQUEST["city"];
-       if($city){
-           $cit =  city::where('name',$searchLike)->first();
-            return response()->json(['cit'=> $cit, 200]);
-       }
-       //return response()->json(['city'=>$searchLike]);
-    // return response()-   >json(['city'=>$searchLike]);
+    //  public function searchLike(){
+    //     $searchLike = $_REQUEST["searchLike"];
+    //     $city = $_REQUEST["city"];
+    //     return $city;
 
-   return $searchLike;
-
-     }
+    //  }
 
       //display properties to view page
       public function allProperties(){
-        $data = [];
-        $propertyTypes = category::get();
-        $options = option::get();
-        $cities = city::paginate(4);
-        $feautured_properties = property::where('is_feautured','yes')->inRandomOrder()->take(3)->get();
-        array_push($data,['propertyTypes'=>$propertyTypes,'options'=>$options,'cities'=>$cities,'feautured_properties'=>$feautured_properties]);
-        if(!empty($data)){
-            return view('property.frontend.allProperties',['data'=>$data]);
-        }return ;
+        //   dd('hello again');
+        return view('property.frontend.allProperties');
+        // $data = [];
+        // $propertyTypes = category::get();
+        // $options = option::get();
+        // $cities = city::paginate(4);
+        // $feautured_properties = property::where('is_feautured','yes')->inRandomOrder()->take(3)->get();
+        // array_push($data,['propertyTypes'=>$propertyTypes,'options'=>$options,'cities'=>$cities,'feautured_properties'=>$feautured_properties]);
+        // if(!empty($data)){
+        //     return view('property.frontend.allProperties',['data'=>$data]);
+        // }return ;
 
     }
 

@@ -2,29 +2,43 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\city;
+use App\Models\option;
 use Livewire\Component;
 use \App\Models\category;
 use \App\Models\property;
+
 class PropertyData extends Component
 {
-    public $datas;
 
-    public function mount($propertyTypeId){
+    public $properties;
 
-        $propertyData = category::findorFail($propertyTypeId);
-        $properties = property::where('category_id',$propertyTypeId)->simplePaginate(8);
-        array_push($data,['propertyData'=>$propertyData,'properties' => $properties]);
-        if(!empty($data)){
-            dd('empty');
-        }
-        $this->datas = $data;
-
+    public function searchCityProp($cityId){
+            $properties = property::where('city_id',$cityId)->get();
+            $this->properties = $properties;
+    }
+    public function searchPropTypeProp($propTypeId){
+        $properties = property::where('category_id',$propTypeId)->get();
+        $this->properties = $properties;
+    }
+    public function searchOptionProp($optionProp){
+        $properties = property::where('option_id',$optionProp)->get();
+        $this->properties = $properties;
+    }
+    public function mount(){
+      $properties = property::inRandomOrder()->limit(4) ->get();
+      $this->properties = $properties;
     }
 
     public function render()
     {
-        dd($this->datas);
-        // dd($data);
-        return view('livewire.property-data');
+    //    dd( property::get()->take(4));
+        return view('livewire.property-data',[
+            'propertyTypes'=>category::get(),
+            'options'=> option::get(),
+            'cities'=>city::paginate(4),
+            'feautured_properties'=>property::where('is_feautured','yes')->inRandomOrder()->take(3)->get(),
+        ]);
     }
 }
+

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\PropertyData;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,17 +37,17 @@ Route::post('/property/store','PropertyController@store')->name('property.store'
 Route::get('showsingleproperty/{id}','PropertyController@showoneproperty')->name('showsingleproperty');
 Route::get('/my-properties', 'PropertyController@myproperties')->name('myproperties');
 Route::get('/properties/{id}', 'PropertyController@viewPageshow')->name('propertyShow');
+
+// Route::get('/all-properties/show',[PropertyData::class,'render'])->name('properties');
 Route::get('/all-properties/show','PropertyController@allProperties')->name('properties');
 //ajax get locations
 Route::GET('/ajaxGetLocations','PropertyController@getLocations');
-Route::GET('/ajaxGetsearchLike','PropertyController@searchLike');
+// Route::GET('/ajaxGetsearchLike','PropertyController@searchLike');
 
 
 Route::get('/AfriMLSdashboard', 'BackendDashboardController@dashboard')->name('backendDashboard');
 //from dashboard backend
 
-
-// Route::get('/propertyType/{propertyTypeId}', [App\Http\Livewire\PropertyData::class,'render'])->name('properTypeShow');
 
 
 
