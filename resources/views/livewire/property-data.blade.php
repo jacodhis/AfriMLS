@@ -1,8 +1,8 @@
 
 <div>
-<section id="page-title" class="page-title bg-overlay bg-overlay-dark2">
+{{-- <section id="page-title" class="page-title bg-overlay bg-overlay-dark2">
     <div class="bg-section">
-        <img src="assets/images/page-titles/1.jpg" alt="Background" />
+        <img src="{{ asset('assets/images/page-titles/1.jpg')}}" alt="Background" />
     </div>
     <div class="container">
         <div class="row">
@@ -26,7 +26,7 @@
         <!-- .row end -->
     </div>
     <!-- .container end -->
-</section>
+</section> --}}
 
 <section id="properties-grid">
     <div class="container">
@@ -112,6 +112,28 @@
                         <div class="carousel carousel-dots" data-slide="1" data-slide-rs="1" data-autoplay="false"
                             data-nav="false" data-dots="true" data-space="0" data-loop="true" data-speed="800">
                             <!-- .property-item #1 -->
+                            @forelse ($feautured_properties as $property)
+                            <div class="property-item">
+                                <div class="property--img">
+                                    <a href="{{route('propertyShow',[$property->id])}}">
+                                        @php
+                                         $images = explode('|',$property->image);
+                                        @endphp
+                                         <img src="{{URL::to($images[0])}}" alt="property image"
+                                         class="img-responsive" >
+                                    </a>
+                                        <span class="property--status">{{$property->option->name??""}}</span>
+                                </div>
+                                <div class="property--content">
+                                    <div class="property--info">
+                                        <h5 class="property--title"><a href="property-single-gallery.html">{{$property->location->address??""}}</a></h5>
+                                        <p class="property--location">{{$property->city->name??""}},{{$property->city->country->name??""}}</p>
+                                        <p class="property--price">Ksh{{$property->price??""}}</p>
+                                    </div>
+                                    <!-- .property-info end -->
+                                </div>
+                            </div>
+                            @empty
                             <div class="property-item">
                                 <div class="property--img">
                                     <img src="assets/images/properties/13.jpg" alt="property image"
@@ -128,43 +150,12 @@
                                     <!-- .property-info end -->
                                 </div>
                             </div>
+
+                            @endforelse
+
                             <!-- .property item end -->
-                            <!-- .property-item #2 -->
-                            <div class="property-item">
-                                <div class="property--img">
-                                    <img src="assets/images/properties/2.jpg" alt="property image"
-                                        class="img-responsive">
-                                    <span class="property--status">For Rent</span>
-                                </div>
-                                <div class="property--content">
-                                    <div class="property--info">
-                                        <h5 class="property--title"><a href="property-single-gallery.html">Villa in
-                                                Oglesby Ave</a></h5>
-                                        <p class="property--location">1035 Oglesby Ave, Chicago, IL 60617</p>
-                                        <p class="property--price">$130,000<span class="time">month</span></p>
-                                    </div>
-                                    <!-- .property-info end -->
-                                </div>
-                            </div>
-                            <!-- .property item end -->
-                            <!-- .property-item #3 -->
-                            <div class="property-item">
-                                <div class="property--img">
-                                    <img src="assets/images/properties/3.jpg" alt="property image"
-                                        class="img-responsive">
-                                    <span class="property--status">For Sale</span>
-                                </div>
-                                <div class="property--content">
-                                    <div class="property--info">
-                                        <h5 class="property--title"><a href="property-single-gallery.html">Apartment in
-                                                Long St.</a></h5>
-                                        <p class="property--location">34 Long St, Jersey City, NJ 07305</p>
-                                        <p class="property--price">$70,000</p>
-                                    </div>
-                                    <!-- .property-info end -->
-                                </div>
-                            </div>
-                            <!-- .property item end -->
+
+
                         </div>
                         <!-- .carousel end -->
                     </div>
@@ -186,11 +177,11 @@
                 <label>Sort by:</label>
                 <i class="fa fa-angle-up"></i>
                 <i class="fa fa-angle-down"></i>
-                <select>
-                    <option selected="" value="Default">Default Sorting</option>
-                    <option value="Larger">Newest Items</option>
-                    <option value="Larger">oldest Items</option>
-                    <option value="Larger">Hot Items</option>
+                <select  >
+                    <option selected=""wire:model="sortBy"  value="Default">Default Sorting</option>
+                    <option value="Larger">Feautured Items</option>
+                    {{-- <option value="Larger">oldest Items</option>
+                    <option value="Larger">Hot Items</option> --}}
                     <option value="Small">Highest Price</option>
                     <option value="Medium">Lowest Price</option>
                 </select>

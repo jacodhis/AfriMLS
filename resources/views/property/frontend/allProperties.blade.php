@@ -4,10 +4,10 @@
 @endsection
 
 @section('title')
-    properties show page
+    All Properties
 @endsection
 @livewireStyles
-@section('content')
-  @livewire('property-data')
-@livewireScripts
+    @section('content')
+     @livewire('property-data')
+    @livewireScripts
 @endsection

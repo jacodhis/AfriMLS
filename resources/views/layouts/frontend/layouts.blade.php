@@ -10,7 +10,7 @@
     <meta name="author" content="zytheme" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="Real Estate html5 template">
-    <link href="assets/images/favicon/favicon.png" rel="icon">
+    <link href="{{ asset('assets/images/favicon/favicon.png')}}" rel="icon">
 
     <!-- Fonts
     ============================================= -->
