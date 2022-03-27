@@ -33,8 +33,8 @@ class PropertyData extends Component
     //     $this->properties = $properties;
     // }
     public function mount(){
-      $properties = property::orderBy('price','ASC')->get();
-      $this->properties = $properties;
+        $properties = property::inRandomOrder()->take(4)->get();
+        $this->properties = $properties;
     }
 
     public function render()
