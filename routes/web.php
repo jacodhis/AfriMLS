@@ -49,7 +49,7 @@ Route::get('/AfriMLSdashboard', 'BackendDashboardController@dashboard')->name('b
 //from dashboard backend
 
 
-
+Route::get('/innerJoin','InnerJoinController@innerJoin');
 
 
 
