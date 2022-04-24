@@ -1,6 +1,7 @@
 <?php
-
+use Illuminate\Http\Request;
 use App\Http\Livewire\PropertyData;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,11 +14,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/all-properties/show',[PropertyData::class,'render'])->name('properties');
 
 Route::get('/welcome',function(){
     return view('welcome');
 });
 
+Route::post('search','SearchController@search')->name('search-form');
 
 // navigation routes
 Route::get('/', 'IndexController@landingPage')->name('landingPage');
@@ -38,7 +41,7 @@ Route::get('showsingleproperty/{id}','PropertyController@showoneproperty')->name
 Route::get('/my-properties', 'PropertyController@myproperties')->name('myproperties');
 Route::get('/properties/{id}', 'PropertyController@viewPageshow')->name('propertyShow');
 
-// Route::get('/all-properties/show',[PropertyData::class,'render'])->name('properties');
+
 Route::get('/all-properties/show','PropertyController@allProperties')->name('properties');
 //ajax get locations
 Route::GET('/ajaxGetLocations','PropertyController@getLocations');

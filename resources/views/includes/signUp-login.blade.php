@@ -1,7 +1,11 @@
 <div class="module module-login pull-left">
-    <a class="btn-popup" data-toggle="modal" data-target="#signupModule">Login</a>
 
 
+@auth
+    <a href="{{ url('/home') }} data-toggle="modal" data-target="#signupModule">Home</a>
+@else
+<a class="btn-popup" data-toggle="modal" data-target="#signupModule">Login</a>
+@endif
     <div class="modal register-login-modal fade" tabindex="-1" role="dialog" id="signupModule">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">

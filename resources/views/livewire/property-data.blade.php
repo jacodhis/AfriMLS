@@ -1,33 +1,5 @@
 
 <div>
-{{-- <section id="page-title" class="page-title bg-overlay bg-overlay-dark2">
-    <div class="bg-section">
-        <img src="{{ asset('assets/images/page-titles/1.jpg')}}" alt="Background" />
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
-                <div class="title title-1 text-center">
-                    <div class="title--content">
-                        <div class="title--heading">
-                            <h1> Properties List</h1>
-                        </div>
-                        <ol class="breadcrumb">
-                            <li><a href="{{ route('landingPage') }}">Home</a></li>
-                            <li class="active"> Properties</li>
-                        </ol>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <!-- .title end -->
-            </div>
-            <!-- .col-md-12 end -->
-        </div>
-        <!-- .row end -->
-    </div>
-    <!-- .container end -->
-</section> --}}
-
 <section id="properties-grid">
     <div class="container">
         <div class="row">
@@ -166,10 +138,7 @@
             <!-- .col-md-4 end -->
 
              <div class="col-xs-12 col-sm-12 col-md-8">
-<div id="properties">
 
-
-</div>
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="properties-filter clearfix">
@@ -193,11 +162,13 @@
             </div>
         </div>
     </div>
+
     <div class="properties properties-grid">
-        <!-- .col-md-12 end -->
+
         @forelse ($properties as $property )
 
         <div class="col-xs-12 col-sm-6 col-md-6">
+
             <!-- .property-item #1 -->
             <div class="property-item">
                 <div class="property--img">
@@ -217,6 +188,7 @@
                         <p class="property--location">{{$property->city->name??""}},{{$property->city->country->name??""}}</p>
                         <p class="property--price">Ksh{{$property->price??""}}</p>
                     </div>
+                    @if($property->category_id == 1)
                     <!-- .property-info end -->
                     <div class="property--features">
                         <ul class="list-unstyled mb-0">
@@ -229,63 +201,22 @@
                         </ul>
                     </div>
                     <!-- .property-features end -->
+                    @endif
                 </div>
             </div>
         </div>
+
+
         @empty
          0
         @endforelse
-        <!-- .property item end -->
-
-        <!-- .property-item #2 -->
-        {{-- <div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="property-item">
-                <div class="property--img">
-                    <a href="property-single-gallery.html">
-                        <img src="assets/images/properties/6.jpg" alt="property image"
-                            class="img-responsive">
-                    </a>
-                    <span class="property--status">For Rent</span>
-                </div>
-                <div class="property--content">
-                    <div class="property--info">
-                        <h5 class="property--title"><a href="property-single-gallery.html">Apartment For
-                                Rent</a></h5>
-                        <p class="property--location">1609 N Richmond St, Chicago, IL 60647</p>
-                        <p class="property--price">$900<span class="time">month</span></p>
-                    </div>
-                    <!-- .property-info end -->
-                    <div class="property--features">
-                        <ul class="list-unstyled mb-0">
-                            <li><span class="feature">Beds:</span><span
-                                    class="feature-num">1</span></li>
-                            <li><span class="feature">Baths:</span><span
-                                    class="feature-num">1</span></li>
-                            <li><span class="feature">Area:</span><span
-                                    class="feature-num">500 sq ft</span></li>
-                        </ul>
-                    </div>
-                    <!-- .property-features end -->
-                </div>
-            </div>
-        </div> --}}
-        <!-- .property item end -->
 
     </div>
-    {{-- <div class="col-xs-12 col-sm-12 col-md-12 text-center mt-50">
-        <ul class="pagination">
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">...</a></li>
-            <li>
-                <a href="#" aria-label="Next">
-                    <span aria-hidden="true"><i class="fa fa-angle-right"></i></span>
-                </a>
-            </li>
-        </ul>
-    </div> --}}
-    <!-- .col-md-12 end -->
+<div class="col-md-12">
+
+</div>
+
+
 </div>
 <!-- .row -->
 </div>
