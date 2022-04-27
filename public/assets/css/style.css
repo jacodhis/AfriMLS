@@ -2975,7 +2975,7 @@ table tbody tr td {
 .navbar-nav > li > a:focus,
 .navbar-nav > li > a:hover {
 	background-color: transparent;
-	color: #ffffff;
+	color: #000000;
 }
 
 /* Menu Level #1 */
