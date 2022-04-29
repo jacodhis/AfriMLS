@@ -12,7 +12,7 @@
 
 
 @section('content')
-
+{{-- <example-component> --}}
 <style>
     #search-container{
         margin-top: 3.0%;

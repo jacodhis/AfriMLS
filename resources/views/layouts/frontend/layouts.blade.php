@@ -9,7 +9,7 @@
     <meta name="author" content="zytheme" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="Real Estate html5 template">
-    <link href="{{ asset('assets/images/favicon/favicon.png')}}" rel="icon">
+    {{-- <link href="{{ asset('assets/images/favicon/favicon.png')}}" rel="icon"> --}}
 
     <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i%7CPoppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
@@ -52,35 +52,27 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse pull-right" id="navbar-collapse-1">
                         <ul class="nav navbar-nav nav-pos-center navbar-left">
-
-
-                            <!-- li end -->
                            @yield('landingPage-nav')
-
-                           @yield('otherLandingPages-nav')
+                          
                         </ul>
-                        <!-- Module Signup  -->
+                       
                         @include('includes.signUp-login')
 
-                        <!-- Module Consultation  -->
-                        <div class="module module-property pull-left">
-                            {{-- <a href="{{ route('property') }}" target="_blank" class="btn"><i
-                                    class="fa fa-plus"></i>  property</a> --}}
-                        </div>
                     </div>
 
-                    <!-- /.navbar-collapse -->
                 </div>
-                <!-- /.container-fluid -->
+              
             </nav>
 
 
         </header>
         @yield('content')
-    <!-- #cta1 end -->
+   
 
 <section id="cta" class="cta cta-1 text-center bg-overlay bg-overlay-dark pt-90">
-    <div class="bg-section"><img src="assets/images/cta/bg-1.jpg" alt="Background"></div>
+    <div class="bg-section">
+        {{-- <img src="assets/images/cta/bg-1.jpg" alt="Background"> --}}
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">

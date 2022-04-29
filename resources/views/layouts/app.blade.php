@@ -36,16 +36,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <li class="has-dropdown active">
-                            <a href="#" data-toggle="dropdown" class="dropdown-toggle menu-item">home</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{{ route('landingPage')}}">home search</a></li>
-                                <li><a href="home-map.html">home map</a></li>
-                                <li><a href="home-property.html">home property</a></li>
-                                <li><a href="home-splash.html">home splash</a></li>
-                            </ul>
-                        </li>
-
+                       
                     </ul>
 
                     <!-- Right Side Of Navbar -->

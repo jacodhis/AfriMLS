@@ -68,7 +68,7 @@
                   <div class="col-md-3">
                     <p>
                         <label for="description">Description</label>
-                        <textarea name="description" id="" cols="20" rows="5" class="form-control" required></textarea>
+                        <textarea name="description" id="" cols="50" rows="3" required></textarea>
                     </p >
                 </div>
             </div>

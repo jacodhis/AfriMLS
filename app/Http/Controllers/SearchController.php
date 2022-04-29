@@ -11,6 +11,11 @@ class SearchController extends Controller
 {
     //
     public function search(Request $request){
+
+      // Property::with('user')
+      // ->when(request('name'),function(){
+          
+      // });
         $result = property::query();
         $locationQuery = location::query();
         //checks the search for seleceted neighbourhood
@@ -126,7 +131,7 @@ class SearchController extends Controller
         if($result->count() == 0){
             return back()->with('error','No results Found');
          }
-         $properties = $result->get();
+         $properties = $result->paginate(20);
 
          Session::put('properties',$properties);
          return redirect()->route('properties');
