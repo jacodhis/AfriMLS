@@ -1,6 +1,7 @@
 <?php
-
+use Illuminate\Http\Request;
 use App\Http\Livewire\PropertyData;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,11 +14,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/all-properties/show',[PropertyData::class,'render'])->name('properties');
 
 Route::get('/welcome',function(){
     return view('welcome');
 });
 
+Route::post('search','SearchController@search')->name('search-form');
 
 // navigation routes
 Route::get('/', 'IndexController@landingPage')->name('landingPage');
@@ -30,31 +33,34 @@ Route::get('/agents-profile', 'AgentsController@agentsProfile')->name('agentsPro
 
 //property routes
 
-
-Route::get('/propertyType/create/{id}','PropertyController@create')->name('addProperty');
-Route::get('/propertyType/{propertyTypeId}','PropertyController@show')->name('properTypeShow');
-Route::post('/property/store','PropertyController@store')->name('property.store');
-Route::get('showsingleproperty/{id}','PropertyController@showoneproperty')->name('showsingleproperty');
-Route::get('/my-properties', 'PropertyController@myproperties')->name('myproperties');
 Route::get('/properties/{id}', 'PropertyController@viewPageshow')->name('propertyShow');
-
-// Route::get('/all-properties/show',[PropertyData::class,'render'])->name('properties');
 Route::get('/all-properties/show','PropertyController@allProperties')->name('properties');
 //ajax get locations
 Route::GET('/ajaxGetLocations','PropertyController@getLocations');
 // Route::GET('/ajaxGetsearchLike','PropertyController@searchLike');
 
 
-Route::get('/AfriMLSdashboard', 'BackendDashboardController@dashboard')->name('backendDashboard');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/AfriMLSdashboard', 'BackendDashboardController@dashboard')->name('backendDashboard');
+    Route::get('/propertyType/create/{id}','PropertyController@create')->name('addProperty');
+    Route::get('/propertyType/{propertyTypeId}','PropertyController@show')->name('properTypeShow');
+    Route::post('/property/store','PropertyController@store')->name('property.store');
+    Route::get('/my-properties', 'PropertyController@myproperties')->name('myproperties');  
+    Route::get('showsingleproperty/{id}','PropertyController@showoneproperty')->name('showsingleproperty');
+    Route::get('/user-profile', 'UserController@userProfile')->name('userProfile');
+});
+
+  
+
 //from dashboard backend
 
 
-
+Route::get('/innerJoin','InnerJoinController@innerJoin');
 
 
 
 //user route
-Route::get('/user-profile', 'UserController@userProfile')->name('userProfile');
+
 
 Auth::routes();
 

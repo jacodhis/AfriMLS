@@ -8,7 +8,7 @@ use App\Models\county;
 use App\Models\country;
 use App\Models\category;
 use App\Models\city;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
@@ -16,44 +16,38 @@ class IndexController extends Controller
 
         $data = [];
         $options = DB::table('options')->select(['id','name'])->get();//goes to search
-        // $countries = country::inRandomOrder()->limit(5) ->get();//goes to search
-        $countries = country::where('id',109)
-                           ->orWhere('id',225)
-                           ->orWhere('id',213)
-                           ->orWhere('id',79)
-                           ->orWhere('id',5)
-                           ->get();
+        $counties = county::inRandomOrder()->limit(5)->get();//goes to search
+        // dd($counties);
+
+        // $countries = country::where('id',109)
+        //                    ->orWhere('id',225)
+        //                    ->orWhere('id',213)
+        //                    ->orWhere('id',79)
+        //                    ->orWhere('id',5)
+        //                    ->get();
         // dd($countries);
-        $cities = city::inRandomOrder()->limit(5) ->get();
+        $cities = city::inRandomOrder()->limit(5) ->get(); //goesToSearch
 
-
-        // $properties = property::inRandomOrder()->take(3)->get();
-        $properties = property::where('is_feautured','=','yes')->inRandomOrder()->get();
-    //    dd($properties);
-
-
+        $properties = property::query()
+                                ->where('is_feautured','=','yes')
+                                ->latest()
+                                ->inRandomOrder()->simplePaginate(12);
 
        $categories = category::get();
 
        array_push($data,[
            'properties'=>$properties,
-        //    'counties' => $counties,
+           'counties' => $counties,
            'cities' => $cities,
-           'countries' => $countries,
+        //    'countries' => $countries,
            'categories' =>$categories,
            'options' =>$options
         ]);
-
-
-       if(empty($data)){
-           dd('empty');
-           //echo default landing page
-        //    return view('pages.index',['properties'=>$properties]);
-       }else{
-        //    dd($data);
-
+       if(!empty($data)){
         return view('pages.index',['data'=>$data]);
        }
+       return ;
+
 
     }
 

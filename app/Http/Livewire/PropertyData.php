@@ -7,12 +7,12 @@ use App\Models\option;
 use Livewire\Component;
 use \App\Models\category;
 use \App\Models\property;
+use Livewire\WithPagination;
+use Illuminate\Support\Facades\Session;
 
 class PropertyData extends Component
 {
-
-    public $properties;
-    public $sortBy;
+    use WithPagination;
 
     public function searchCityProp($cityId){
             $properties = property::where('city_id',$cityId)->get();
@@ -26,25 +26,28 @@ class PropertyData extends Component
         $properties = property::where('option_id',$optionProp)->get();
         $this->properties = $properties;
     }
-    // public function sortBy(){
-    //     dd('hi');
-    //     $properties = property::where('option_id',$optionProp)->get();
-    //     dd($properties);
-    //     $this->properties = $properties;
-    // }
-    public function mount(){
-        $properties = property::inRandomOrder()->take(4)->get();
-        $this->properties = $properties;
-    }
 
     public function render()
     {
-        return view('livewire.property-data',[
-            'propertyTypes'=>category::get(),
-            'options'=> option::get(),
-            'cities'=>city::simplePaginate(6),
-            'feautured_properties'=>property::where('is_feautured','yes')->inRandomOrder()->take(3)->get(),
-        ]);
+        if(Session::has('properties')){
+            return view('livewire.property-data',[
+               'properties' =>Session::get('properties'),
+               'propertyTypes'=>category::get(),
+                'options'=> option::get(),
+                'cities'=>city::simplePaginate(6),
+                'feautured_properties'=>property::where('is_feautured','yes')->inRandomOrder()->take(3)->get(),
+            ]);
+        }
+            return view('livewire.property-data',[
+                'properties'=> property::paginate(3),
+                'propertyTypes'=>category::get(),
+                'options'=> option::get(),
+                'cities'=>city::simplePaginate(6),
+                'feautured_properties'=>property::where('is_feautured','yes')->inRandomOrder()->take(3)->get(),
+            ]);
+
+
+
     }
 }
 

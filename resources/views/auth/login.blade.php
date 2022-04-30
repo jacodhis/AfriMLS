@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -70,4 +70,13 @@
         </div>
     </div>
 </div>
+@endsection --}}
+
+
+@extends('auth.layouts.auth')
+@section('title')
+    Sign In
+@endsection
+@section('content')
+@include('includes.auth.login')
 @endsection
