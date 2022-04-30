@@ -15,6 +15,7 @@ class IndexController extends Controller
     public function landingPage(){
 
         $data = [];
+     
         $options = DB::table('options')->select(['id','name'])->get();//goes to search
         $counties = county::inRandomOrder()->limit(5)->get();//goes to search
         // dd($counties);

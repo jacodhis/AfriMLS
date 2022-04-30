@@ -131,7 +131,8 @@ class SearchController extends Controller
         if($result->count() == 0){
             return back()->with('error','No results Found');
          }
-         $properties = $result->paginate(20);
+         $properties = $result->paginate(10);
+         
 
          Session::put('properties',$properties);
          return redirect()->route('properties');

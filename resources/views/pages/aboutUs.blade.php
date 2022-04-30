@@ -2,7 +2,7 @@
 
 @section('landingPage-nav')
 @include('includes.homePageNavigation')
-  {{-- @include('includes.otherpagesnavigation') --}}
+ 
 @endsection
 
 @section('content')

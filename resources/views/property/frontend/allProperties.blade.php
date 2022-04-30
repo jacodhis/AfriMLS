@@ -1,6 +1,7 @@
 @extends('layouts.frontend.layouts')
-@section('otherLandingPages-nav')
-    @include('includes.otherpagesnavigation')
+@section('landingPage-nav')
+@include('includes.homePageNavigation')
+  
 @endsection
 
 @section('title')
