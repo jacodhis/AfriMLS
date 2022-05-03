@@ -39,7 +39,7 @@ class PropertyData extends Component
             ]);
         }
             return view('livewire.property-data',[
-                'properties'=> property::paginate(3),
+                'properties'=> property::paginate(2),
                 'propertyTypes'=>category::get(),
                 'options'=> option::get(),
                 'cities'=>city::simplePaginate(6),

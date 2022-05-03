@@ -14,26 +14,37 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/all-properties/show',[PropertyData::class,'render'])->name('properties');
 
 Route::get('/welcome',function(){
     return view('welcome');
 });
-
-Route::post('search','SearchController@search')->name('search-form');
-
 // navigation routes
-Route::get('/', 'IndexController@landingPage')->name('landingPage');
-Route::get('/about-us', 'IndexController@aboutUs')->name('aboutUs');
-Route::get('/contact-Us', 'IndexController@contactPage')->name('contactPage');
+Route::get('/', 'Frontend\IndexController@landingPage')->name('landingPage');
+Route::get('/about-us', 'Frontend\IndexController@aboutUs')->name('aboutUs');
+Route::get('/contact-Us', 'Frontend\IndexController@contactPage')->name('contactPage');
+
+//frontend controllers
+Route::get('/for-sale/{id}','Frontend\propertiesController@showNavForSale')->name('showNavForSale');
+Route::get('/for-rent/{id}', 'Frontend\propertiesController@showNavForent')->name('showNavForent');
+Route::get('/to-let/{id}', 'Frontend\propertiesController@showNavToLet')->name('showNavToLet');
+
+Route::get('/properties/{id}', 'Frontend\propertiesController@viewPageshow')->name('propertyShow');
+// receives data from search form
+Route::get('search','Frontend\SearchController@search')->name('search-form');
+
+
+// sends data from serach controller to the propertyData class 
+// Route::get('/all-properties/show',[PropertyData::class,'render'])->name('properties');
+
+
 
 //agents routes
-Route::get('/agents', 'AgentsController@agents')->name('agents');
-Route::get('/agents-profile', 'AgentsController@agentsProfile')->name('agentsProfile');
+Route::get('/agents', 'Frontend\AgentsController@agents')->name('agents');
+Route::get('/agents-profile', 'Frontend\AgentsController@agentsProfile')->name('agentsProfile');
 
 //property routes
 
-Route::get('/properties/{id}', 'PropertyController@viewPageshow')->name('propertyShow');
+
 Route::get('/all-properties/show','PropertyController@allProperties')->name('properties');
 //ajax get locations
 Route::GET('/ajaxGetLocations','PropertyController@getLocations');
@@ -51,11 +62,6 @@ Route::middleware(['auth'])->group(function () {
 });
 
   
-
-//from dashboard backend
-
-
-Route::get('/innerJoin','InnerJoinController@innerJoin');
 
 
 

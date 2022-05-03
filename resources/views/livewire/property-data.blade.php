@@ -208,7 +208,7 @@
 
 
         @empty
-         0
+         No Property
         @endforelse
 
     </div>

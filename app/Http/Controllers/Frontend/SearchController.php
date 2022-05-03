@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Frontend;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 use App\Models\location;
 use App\Models\property;
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Session;
 
 class SearchController extends Controller
@@ -130,12 +133,15 @@ class SearchController extends Controller
 
         if($result->count() == 0){
             return back()->with('error','No results Found');
-         }
-         $properties = $result->paginate(10);
-         
+         }else{
+             $properties = $result->latest()->paginate(20);
+             // return $properties;
 
-         Session::put('properties',$properties);
-         return redirect()->route('properties');
+              return view('frontend.properties',compact('properties'));
+           // Session::put('properties',$properties);
+             // return redirect()->route('properties');
+         }
+       
 
 
     }

@@ -12,7 +12,7 @@
 
 
 @section('content')
-{{-- <example-component> --}}
+
 <style>
     #search-container{
         margin-top: 3.0%;
@@ -34,9 +34,11 @@
            @include('includes.feautured-listing')
         </div>
         <!-- .row end -->
-        <center>
-            {{$data[0]['properties']->links()}}
-        </center>
+         <div class="row mb-50">
+            <center>
+                {{$data[0]['properties']->links()}}
+            </center>
+        </div>
         <!-- .row end -->
     </div>
     <!-- .container end -->
