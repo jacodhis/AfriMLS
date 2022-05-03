@@ -23,23 +23,23 @@
       </div>
 
       <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-        <div class="card-body">
+        <div class="card-body" style="padding: 1px; margin: 1px">
             <p style="color: red">Property Details</p>
-            <div class="row">
-                <div class="col-md-3">
+            <div class="row" style="padding: 1px; margin: 1px">
+                <div class="col-md-3" style="padding: 1px; margin: 1px">
                     <p>
                         <label for="pname">Property Name </label>
-                        <input type="text" name = "pname" class="form-control" required>
+                        <input type="text" name="pname" class="form-control" required>
                     </p>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3" style="padding: 1px; margin: 1px">
                     <p>
                         <label for="pname">Property Image</label>
                         <input type="file" name="property_images[]" class="form-control" multiple >
                     </p>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-3" style="padding: 1px; margin: 1px">
                     <p>
                         <label for="">City</label>
                             <select name="city_id" id="city_id" class="form-control" required onchange="getLocations()">
@@ -52,45 +52,43 @@
                       </p>
 
                   </div>
-                  <div class="col-md-3 py-3">
+                  <div class="col-md-3 py-3" style="padding: 1px; margin: 1px">
                     <p>
                         {{-- <label for="">Locations</label> --}}
-                        <div " id="DynamicLocationsDropdown"></div>
+                        <div id="DynamicLocationsDropdown"></div>
                       </p>
 
                   </div>
-                  <div class="col-md-3">
+                  <div class="col-md-3" style="padding: 1px; margin: 1px">
                     <p>
-                        <label for="pname">property price</label>
-                        <input type="number" min="1" name="property_price" class="form-control" required>
+                        <input type="number" min="1" name="property_price" class="form-control" required placeholder="Property Price">
                     </p>
                   </div>
-                  <div class="col-md-3">
+                  <div class="col-md-3" style="padding: 1px; margin: 1px">
                     <p>
-                        <label for="description">Description</label>
-                        <textarea name="description" id="" cols="50" rows="3" required></textarea>
+                        <textarea name="description" id="" cols="60" rows="1" required placeholder="Description"></textarea>
                     </p >
                 </div>
             </div>
             <hr>
             <p style="color: red">Taxes</p>
-            <div class="row">
-                <div class="col-md-4">
+            <div class="row" style="padding: 1px; margin: 1px">
+                <div class="col-md-3" style="padding: 1px; margin: 1px">
                     <p>
                         <label for="taxId">Tax Id</label>
-                        <input type="number" name = "tax_id" class="form-control" placeholder="Tax Id" >
+                        <input type="number" name="tax_id" class="form-control" placeholder="Tax Id" >
                     </p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3" style="padding: 1px; margin: 1px">
                     <p>
                         <label for="taxes">Taxes</label>
-                        <input type="text" name = "taxes" class="form-control" placeholder="Taxes" >
+                        <input type="text" name="taxes" class="form-control" placeholder="Taxes" >
                     </p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3" style="padding: 1px; margin: 1px">
                     <p>
                         <label for="taxes">Tax year</label>
-                        <input type="date" name = "tax_year" class="form-control" placeholder="Tax Year" >
+                        <input type="date" name="tax_year" class="form-control" placeholder="Tax Year" >
                     </p>
                 </div>
 
@@ -98,9 +96,8 @@
             <hr>
 
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4" style="padding: 1px; margin: 1px">
                     <p>
-                        <label for="">Type</label>
                         <select name="option_id" id="" class="form-control">Type
                             <option value="" disabled>select option</option>
                             @foreach ($data[0]['options'] as $option)
@@ -109,11 +106,15 @@
                         </select>
                      </p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <p>
-                        <input type="checkbox" name="is_feautured">  is_feautured
+                        <input type="checkbox" name="is_feautured">  Is Feautured
                      </p>
-                     <p>
+
+
+                </div>
+                <div class="col-md-2">
+                    <p>
                         <input type="checkbox" name="fire_place"> Fire place
                     </p>
 
@@ -134,40 +135,33 @@
         <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
           <div class="card-body">
               <div class="row">
-                  <div class="col-md-4">
+                  <div class="col-md-4" style="padding: 1px; margin: 1px">
                     <p>
-                        <label for="">No. of Bedrooms</label>
                         <input type="number" min="1" name="no_of_bedrooms" class="form-control" placeholder="No. of Bedrooms" >
                     </p>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-4" style="padding: 1px; margin: 1px">
                     <p>
-                        <label for="">No. of Bathrooms</label>
                         <input type="number" min="1" name="no_of_bathrooms" class="form-control" placeholder="No. of Bathrooms  ">
                     </p>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-4" style="padding: 1px; margin: 1px">
                     <p>
-                        <label for="">No. of Floors</label>
                         <input type="number" min="1" name="no_of_floor" class="form-control" placeholder="No. of Floors">
                     </p>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-4" style="padding: 1px; margin: 1px">
                     <p>
-                        <label for="">Square(m2)</label>
-                        <input type="text" name="square" class="form-control" placeholder="Enter Square">
+                        <input type="text" name="square" class="form-control" placeholder="Enter Square Metre area">
                     </p>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-4" style="padding: 1px; margin: 1px">
                     <p>
-                        <label for="pname">House No</label>
-                        <input type="number" min="1" name = "house_number" class="form-control" placeholder="House No" >
+                        <input type="number" min="1" name="house_number" class="form-control" placeholder="House No" >
                     </p>
                    </div>
-                   <div class="col-md-4">
-                    <p>Floors in Unit</label>
+                   <div class="col-md-4" style="padding: 1px; margin: 1px">
                         <input type="number" min="1" name="floors_in_unit" class="form-control" placeholder="Floors in Unit">
-                    </p>
 
                    </div>
                   </div>
@@ -190,14 +184,10 @@
           <div class="card-body">
              <div class="row">
                  <div class="col-md-6">
-                    <p><label for="owner_name">Owner Name</label>
                         <input type="text" class="form-control" name="owner_name" placeholder=" property owners name">
-                    </p>
                  </div>
                  <div class="col-md-6">
-                    <p><label for="owner_name">Owner Phone</label>
                         <input type="number" min="10" class="form-control" name="owner_phone" placeholder="owner's phone number">
-                    </p>
                  </div>
              </div>
           </div>
@@ -216,41 +206,37 @@
         <div id="collapseLocation" class="collapse" aria-labelledby="headingLocation" data-parent="#accordionExample">
           <div class="card-body">
               <div class="row">
-                  <div class="col-md-4">
+                  <div class="col-md-3" style="padding: 1px; margin: 1px">
                     <p>
-                        <label for="pname">Street  Name</label>
-                        <input type="text" name = "street_name" class="form-control" placeholder="street name" >
+                        <input type="text" name="street_name" class="form-control" placeholder="street name" >
                     </p>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-3" style="padding: 1px; margin: 1px">
                     <p>
-                        <label for="pname">Street  Type</label>
-                        <input type="text" name = "street_type" class="form-control" placeholder="street type" >
+                        <input type="text" name="street_type" class="form-control" placeholder="street type" >
                     </p>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-3" style="padding: 1px; margin: 1px">
                     <p>
-                        <label for="pname">MLS No</label>
-                        <input type="number" min="1" name = "mls_number" class="form-control" placeholder="Mls No" >
+                        <input type="number" min="1" name="mls_number" class="form-control" placeholder="Mls No" >
                     </p>
                   </div>
-                  <div class="col-md-4">
-                    <p>
-                        <label for="street Dir">Street  Dir</label>
-                        <input type="text" name = "street_dir" class="form-control"placeholder="street dir" >
-                    </p>
+              </div>
+              <div class="row">
+                  <div class="col-md-3" style="padding: 1px; margin: 1px">
+                      <p>
+                          <input type="text" name="street_dir" class="form-control"placeholder="Street Direction" >
+                      </p>
                   </div>
-                  <div class="col-md-4">
-                    <p>
-                        <label for="Unit Number">Unit  number</label>
-                        <input type="number" min="1" name = "unit_number" placeholder="unit number" class="form-control" >
-                    </p>
+                  <div class="col-md-3" style="padding: 1px; margin: 1px">
+                      <p>
+                          <input type="number" min="1" name="unit_number" placeholder="unit number" class="form-control" >
+                      </p>
                   </div>
-                  <div class="col-md-4">
-                    <p>
-                        <label for="period">Period</label>
-                        <input type="text" name = "period" class="form-control" placeholder="period" >
-                    </p>
+                  <div class="col-md-3" style="padding: 1px; margin: 1px">
+                      <p>
+                          <input type="text" name="period" class="form-control" placeholder="period" >
+                      </p>
                   </div>
               </div>
           </div>
