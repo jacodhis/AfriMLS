@@ -2,7 +2,7 @@
 
 
 @section('title')
-  Afri MLS Add {{$data[0]['propertyType']->name ??""}}
+  Afri MLS Add  {{$data[0]['propertyType']->name ??""}}
 @endsection
 
 @section('content')
@@ -52,13 +52,7 @@
                       </p>
 
                   </div>
-                  <div class="col-md-3 py-3" style="padding: 1px; margin: 1px">
-                    <p>
-                        {{-- <label for="">Locations</label> --}}
-                        <div id="DynamicLocationsDropdown"></div>
-                      </p>
-
-                  </div>
+                
                   <div class="col-md-3" style="padding: 1px; margin: 1px">
                     <p>
                         <input type="number" min="1" name="property_price" class="form-control" required placeholder="Property Price">
@@ -70,6 +64,13 @@
                     </p >
                 </div>
             </div>
+              <div id="loc" class="col-md-3 py-3" style="padding: 1px; margin: 1px; display:none;">
+                    <p>
+                       
+                        <div id="DynamicLocationsDropdown"></div>
+                      </p>
+
+                  </div>
             <hr>
             <p style="color: red">Taxes</p>
             <div class="row" style="padding: 1px; margin: 1px">
@@ -342,7 +343,6 @@
 
  <div class="col-md-4 mx-auto py-4">
     <p>
-
         <input type="submit" class="form-control btn btn-primary" value="Save Unit Details ">
     </p>
  </div>
@@ -367,9 +367,13 @@
                 url: '/ajaxGetLocations',
                 success:function(data){
                     $("#DynamicLocationsDropdown").html(data.locationsdropdown);
-                    console.log(data);
+                   var loc = document.getElementById('loc');
+                   loc.style.display = "block";
                 }
             });
+            
     }
+
+  
 </script>
 @endsection

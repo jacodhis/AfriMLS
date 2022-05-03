@@ -11,7 +11,7 @@ property show page
 
 @section('content')
 
-<section id="page-title" class="page-title bg-overlay bg-overlay-dark2">
+<!-- <section id="page-title" class="page-title bg-overlay bg-overlay-dark2">
     <div class="bg-section">
         <img src="assets/images/page-titles/1.jpg" alt="Background" />
     </div>
@@ -30,14 +30,14 @@ property show page
                     </div>
                     <div class="clearfix"></div>
                 </div>
-                <!-- .title end -->
+            
             </div>
-            <!-- .col-md-12 end -->
+           
         </div>
-        <!-- .row end -->
+       
     </div>
-    <!-- .container end -->
-</section>
+ 
+</section> -->
 
 <section id="property-single-gallery" class="property-single-gallery">
     <div class="container">
