@@ -89,7 +89,7 @@ class PropertyController extends Controller
         ]);
         // dd();
 
-        // return view('property.createproperty',['data'=>$data]);
+        // return view('property.frontend.samplecollapse');
         return view('property.createp',['data'=>$data]);
 
     }

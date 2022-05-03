@@ -16,13 +16,13 @@
     <div class="card">
       <div class="card-header" id="headingOne">
         <h5 class="mb-0">
-          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
             <span style="color: GREEN">BASIC INFORMATION</span> Click the section to add Information
           </button>
         </h5>
       </div>
 
-      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample" >
         <div class="card-body" style="padding: 1px; margin: 1px">
             <p style="color: red">Property Details</p>
             <div class="row" style="padding: 1px; margin: 1px">
@@ -97,7 +97,7 @@
             <hr>
 
             <div class="row">
-                <div class="col-md-4" style="padding: 1px; margin: 1px">
+                <div class="col-md-4" >
                     <p>
                         <select name="option_id" id="" class="form-control">Type
                             <option value="" disabled>select option</option>
@@ -128,7 +128,7 @@
     <div class="card">
         <div class="card-header" id="headingSix">
           <h5 class="mb-0">
-            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+            <button class="btn btn-link collapsed " type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
            Property Style
             </button>
           </h5>
