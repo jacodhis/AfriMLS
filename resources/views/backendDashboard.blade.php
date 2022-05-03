@@ -58,7 +58,7 @@
                                 $properties =  \App\Models\property::get()->count() ;
                                 @endphp
                                @if($properties < 0)
-                                 0
+                                 No PropertyType
 
                                @else
                                {{$properties}}

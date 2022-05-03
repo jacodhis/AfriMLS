@@ -15,24 +15,26 @@
 @section('content')
 
 <style>
-    #search-container{
-        margin-top: 3.0%;
-        /* background-color: blue */
-    }
     section{
-        margin-top: -3.5%
+        margin-top: -4.5%
     }
 </style>
 
-<div class="container " id="search-container">
+
+
+<section id="blog" class="blog blog-grid">
+    <div class="container " id="search-container">
 
     @include('includes.homepageform-search')
 
 </div>
-
-<section id="blog" class="blog blog-grid">
     <div class="container">
         <div class="row mb-50">
+            <div class="container">
+                   <center>
+                      <h2 class="heading--title">Properties Listing</h2>
+                   </center>
+                </div>
           <!--  -->
           @foreach($properties as $property)
 

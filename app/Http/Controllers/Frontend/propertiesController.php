@@ -15,8 +15,10 @@ class propertiesController extends Controller
 {
     //
     public function showNavForSale($id){
+
         $properties = property::where('category_id',$id)
-                               ->where('option_id',3)->latest()->paginate(20);                
+                               ->where('option_id',3)->latest()->paginate(20);
+                              
            if($properties->isEmpty()){
                return redirect('/');
           }
