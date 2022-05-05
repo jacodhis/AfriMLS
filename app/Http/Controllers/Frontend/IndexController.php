@@ -18,18 +18,10 @@ class IndexController extends Controller
      public function landingPage(){
 
         $data = [];
-     
-        
-        // $cities = city::inRandomOrder()->limit(5) ->get(); //goesToSearch
-
-        $properties = property::query()
-                                ->where('is_feautured','=','yes')
-                                ->latest()
-                                ->inRandomOrder()->paginate(20);
-
-       array_push($data,[
-           'properties'=>$properties,
-        ]);
+        $properties = property::where('is_feautured','=','yes')->take(12)->orderBy('created_at','desc')->get();
+        array_push($data,[
+            'properties'=>$properties,
+            ]);
        if(!empty($data)){
         return view('pages.index',['data'=>$data]);
        }
