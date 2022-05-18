@@ -108,7 +108,6 @@ class PropertyController extends Controller
                 $file->move(public_path($upload_path), $image_full_name);
                 $image_url = $upload_path.$image_full_name;
                 // $size = Image::make($file)->resize(500,500)->save($image_url,80);
-
                 array_push($image,$image_url);
             }
 

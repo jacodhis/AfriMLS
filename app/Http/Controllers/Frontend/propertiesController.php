@@ -31,17 +31,8 @@ class propertiesController extends Controller
                return redirect('/');
           }
            return view('frontend.properties',compact('properties'));
-        
     }
-      public function showNavToLet($id){
-         $properties = property::where('category_id',$id)
-                               ->where('option_id',2)->latest()->paginate(20);
-        if($properties->isEmpty()){
-                  return redirect('/');
-          }
-           return view('frontend.properties',compact('properties'));
-    }
-    //
+  
      public function viewPageshow($id){
        $data = [];
        $property = property::findorFail($id);

@@ -26,8 +26,6 @@ Route::get('/contact-Us', 'Frontend\IndexController@contactPage')->name('contact
 //frontend controllers
 Route::get('/for-sale/{id}','Frontend\propertiesController@showNavForSale')->name('showNavForSale');
 Route::get('/for-rent/{id}', 'Frontend\propertiesController@showNavForent')->name('showNavForent');
-Route::get('/to-let/{id}', 'Frontend\propertiesController@showNavToLet')->name('showNavToLet');
-
 Route::get('/properties/{id}', 'Frontend\propertiesController@viewPageshow')->name('propertyShow');
 // receives data from search form
 Route::get('search','Frontend\SearchController@search')->name('search-form');

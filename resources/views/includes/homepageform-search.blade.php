@@ -3,6 +3,9 @@
         margin-right: 5.0%;
         margin-left: 5.0%
     }
+    .form-box{
+        background-color:rgb(40,40,40)
+    }
 </style>
 
 @php
