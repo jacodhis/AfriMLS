@@ -14,7 +14,7 @@ class SearchController extends Controller
 {
     //
     public function search(Request $request){
-
+  
       // Property::with('user')
       // ->when(request('name'),function(){
           
@@ -135,11 +135,8 @@ class SearchController extends Controller
             return back()->with('error','No results Found');
          }else{
              $properties = $result->latest()->paginate(20);
-             // return $properties;
-
               return view('frontend.properties',compact('properties'));
-           // Session::put('properties',$properties);
-             // return redirect()->route('properties');
+          
          }
        
 

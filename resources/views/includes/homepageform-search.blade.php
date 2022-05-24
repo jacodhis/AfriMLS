@@ -11,7 +11,11 @@
 @php
   $counties = \App\Models\county::get();
   $categories = \App\Models\category::get();
-  $options = \App\Models\option::get();
+ 
+  $option_rent = \App\Models\option::where('id','=',1)->first();  // 1 represents for sale
+  $option_sale = \App\Models\option::where('id','=',3)->first(); //3 represents for rent
+                               
+                
 @endphp
 
 <form class="mb-0" method="get" action="{{route('search-form')}}">
@@ -65,9 +69,11 @@
                         <i class="fa fa-angle-down"></i>
                         <select name="select_status" id="select-status">
                             <option value="empty">Select Status</option>
-                            @foreach($options as $option)
+                            <option value="{{$option_rent->id}}">{{$option_rent->name}}</option>
+                            <option value="{{$option_sale->id}}">{{$option_sale->name}}</option>
+                            {{-- @foreach($options as $option)
                                 <option value='{{$option->id}}'>{{$option->name}}</option>
-                            @endforeach
+                            @endforeach --}}
                        </select>
                     </div>
                 </div>
