@@ -20,6 +20,7 @@ Route::get('/welcome',function(){
 });
 // navigation routes
 Route::get('/', 'Frontend\IndexController@landingPage')->name('landingPage');
+Route::get('/newhome', 'Frontend\IndexController@newlandingPage')->name('newlandingPage');
 Route::get('/about-us', 'Frontend\IndexController@aboutUs')->name('aboutUs');
 Route::get('/contact-Us', 'Frontend\IndexController@contactPage')->name('contactPage');
 
@@ -31,7 +32,7 @@ Route::get('/properties/{id}', 'Frontend\propertiesController@viewPageshow')->na
 Route::get('search','Frontend\SearchController@search')->name('search-form');
 
 
-// sends data from serach controller to the propertyData class 
+// sends data from serach controller to the propertyData class
 // Route::get('/all-properties/show',[PropertyData::class,'render'])->name('properties');
 
 
@@ -54,12 +55,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/propertyType/create/{id}','PropertyController@create')->name('addProperty');
     Route::get('/propertyType/{propertyTypeId}','PropertyController@show')->name('properTypeShow');
     Route::post('/property/store','PropertyController@store')->name('property.store');
-    Route::get('/my-properties', 'PropertyController@myproperties')->name('myproperties');  
+    Route::get('/my-properties', 'PropertyController@myproperties')->name('myproperties');
     Route::get('showsingleproperty/{id}','PropertyController@showoneproperty')->name('showsingleproperty');
     Route::get('/user-profile', 'UserController@userProfile')->name('userProfile');
 });
 
-  
+
 
 
 
