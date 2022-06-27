@@ -19,8 +19,10 @@ Route::get('/welcome',function(){
     return view('welcome');
 });
 // navigation routes
-Route::get('/', 'Frontend\IndexController@landingPage')->name('landingPage');
-Route::get('/newhome', 'Frontend\IndexController@newlandingPage')->name('newlandingPage');
+//Route::get('/', 'Frontend\IndexController@landingPage')->name('landingPage');
+Route::get('/', 'Frontend\IndexController@newlandingPage')->name('landingPage');
+
+//Route::get('/', 'Frontend\IndexController@newlandingPage')->name('newlandingPage');
 Route::get('/about-us', 'Frontend\IndexController@aboutUs')->name('aboutUs');
 Route::get('/contact-Us', 'Frontend\IndexController@contactPage')->name('contactPage');
 
