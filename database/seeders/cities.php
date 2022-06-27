@@ -17,18 +17,21 @@ class cities extends Seeder
      */
     public function run()
     {
-        //
-        $data = 200;
-        $count = 0;
-        for ($i=0; $i < $data; $i++) {
-            $count ++;
-            DB::table('cities')->insert([
-                'name' => 'City '.$count,
-                'postalCode' => mt_rand(10000,55555),
-                'country_id' => mt_rand(1,200),
-
-            ]);
-
+       
+        // start
+        $counties = [
+             'Nairobi',
+             'Mombasa',
+             'Bungoma'
+       ];
+        foreach ($counties as $county) {
+          City::create([
+            'name'=>$county,
+             'postalCode' => mt_rand(10000,55555),
+            'country_id'=> 1
+          ]);
         }
+
+        //end
     }
 }

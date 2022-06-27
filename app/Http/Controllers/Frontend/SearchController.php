@@ -45,7 +45,7 @@ class SearchController extends Controller
          }
          // check if all the search fields are empty
          if(empty($request->neighbourhood) && $request->select_county == "empty" && $request->select_type  == "empty"  && $request->select_status  == "empty"){
-           return back()->with('error','please enter a such');
+           return back()->with('error','please enter a search');
          }
          //checks the search for if all selected fields are not empty
          if(!empty($request->neighbourhood) && $request->select_county != "empty" && $request->select_type  != "empty"  && $request->select_status  != "empty"){

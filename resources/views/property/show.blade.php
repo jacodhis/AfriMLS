@@ -35,7 +35,7 @@ Afri MLS {{$data[0]['propertyData']->name}}s
                     @forelse ( $data[0]['properties'] as $property  )
                     <tr>
 
-                        <td>{{$property->name ??""}}</td>
+                        <td>{{$property->name ?? ""}}</td>
                         <td>{{$property->price ?? ""}}</td>
                         <td>{{$property->owner_name ?? ""}}</td>
                         <td>{{$property->owner_phone ?? ""}}</td>
