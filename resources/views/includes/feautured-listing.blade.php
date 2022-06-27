@@ -1,7 +1,7 @@
 
 
 @foreach($data[0]['properties'] as $property)
-    <div class="row">
+    <div class="col row pb-3 mb-3" style="margin-bottom: 15px">
         <div class="property-item">
            <div class="property--img col-md-4">
                 {{-- <a href="/properties/{{$property->id}}"> --}}
