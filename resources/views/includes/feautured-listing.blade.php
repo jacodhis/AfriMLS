@@ -16,7 +16,8 @@
            <div class="property--content col-md-8">
                <div class="property--info">
                    {{-- <h5 class="property--title"><a href="#">3 Bedroomed in Runda</a></h5> --}}
-                   <p class="property--location">{{$property->description ?? ""}},{{$property->location->address ?? ""}},{{$property->city->name??""}}</p>
+                   <p class="property--description">{{$property->name ?? ""}}</p>
+                   <p class="property--location">{{ucwords($property->location->address) ?? ""}},{{$property->city->name??""}}</p>
                    <p class="property--price">{{$property->city->country->currency->symbol ??"Ksh"}} {{$property->price??""}}</p>
                </div>
                <!-- .property-info end -->

@@ -27,14 +27,7 @@
 
                 {{-- </div> --}}
 
-               <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="heading heading-2 text-center mb-20">
-                        <h2 class="heading--title">Featured Listing</h2>
-                        <!-- <p class="heading--desc">Duis aute irure dolor in reprehed in volupted velit esse dolore</p>-->
-                    </div>
-                    <!-- .heading-title end -->
-                </div>
-                <!-- .col-md-12 end -->
+
             </div>
             <!-- .row end -->
             <div class="row">
