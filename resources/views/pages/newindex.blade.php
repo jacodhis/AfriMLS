@@ -20,7 +20,7 @@
 
 
 
-    <section id="properties-carousel" class="properties-carousel pt-90 pb-90">
+    <section id="properties-carousel" class="properties-carousels pt-90 pb-90">
         <div class="container">
             <div class="row">
                 {{-- <div class="container " id="search-container"> --}}
