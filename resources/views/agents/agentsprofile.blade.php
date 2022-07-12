@@ -21,7 +21,7 @@
                             <h1>Agent Profile</h1>
                         </div>
                         <ol class="breadcrumb">
-                            <li><a href="{{route('landingPage')}}">Home</a></li>
+                            <li><a href="{{route('newhome')}}">Home</a></li>
                             <li class="active">Agent Profile</li>
                         </ol>
                     </div>

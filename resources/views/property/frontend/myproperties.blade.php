@@ -21,7 +21,7 @@
                             <h1>my properties</h1>
                         </div>
                         <ol class="breadcrumb">
-                            <li><a href="{{route('landingPage')}}">Home</a></li>
+                            <li><a href="{{route('newhome')}}">Home</a></li>
                             <li class="active">my properties</li>
                         </ol>
                     </div>

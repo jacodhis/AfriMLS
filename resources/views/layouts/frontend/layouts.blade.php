@@ -40,7 +40,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="logo" href="{{route('landingPage')}}">
+                        <a class="logo" href="{{route('newhome')}}">
 
                                 <img class="logo-light" src="{{asset('assets/images/logo/AfriMLS-logo-web.jpg')}}" height="60"
                                 alt="Afri MLS Logo">
@@ -100,7 +100,7 @@
                         </div>
                         <div class="widget--content">
                             <ul class="list-unstyled mb-0">
-                                <li><a href="{{route('landingPage')}}">Home</a></li>
+                                <li><a href="{{route('newhome')}}">Home</a></li>
                                 <li><a href="#">About Us</a></li>
                                 {{-- <li><a href="#">To Let</a></li> --}}
                                 <li><a href="#">For Sale</a></li>

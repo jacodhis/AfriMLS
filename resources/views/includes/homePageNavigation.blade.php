@@ -19,8 +19,8 @@
 	<a href="#" data-toggle="dropdown" class="dropdown-toggle menu-item">For Rent</a>
 	<ul class="dropdown-menu">
 		@foreach($propertyTypes as $category_nav)
-		<li><a onclick="location.href='/for-rent/{{$category_nav->id}}';" data-toggle="dropdown" class="dropdown-toggle">{{$category_nav->name}} </a></li>
-		 @endforeach
+			<li><a onclick="location.href='/for-rent/{{$category_nav->id}}';" data-toggle="dropdown" class="dropdown-toggle">{{$category_nav->name}} </a></li>
+		@endforeach
 	</ul>
 </li>
 

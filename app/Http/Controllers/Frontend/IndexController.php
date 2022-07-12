@@ -44,6 +44,10 @@ class IndexController extends Controller
         return redirect('/');
     }
 
+    public function home() {
+        return view('pages.home');
+    }
+
 
     public function contactPage(){
         return view('pages.contactpage');

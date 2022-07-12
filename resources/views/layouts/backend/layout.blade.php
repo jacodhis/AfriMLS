@@ -347,7 +347,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="{{route('landingPage')}}">
+                                <a class="dropdown-item" href="{{route('newhome')}}">
                                     <i class="fas fa-home fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Home Page
                                 </a>

@@ -20,7 +20,9 @@ Route::get('/welcome',function(){
 });
 // navigation routes
 //Route::get('/', 'Frontend\IndexController@landingPage')->name('landingPage');
-Route::get('/', 'Frontend\IndexController@newlandingPage')->name('landingPage');
+//Route::get('/', 'Frontend\IndexController@newlandingPage')->name('landingPage');
+Route::get('/', 'Frontend\IndexController@home')->name('newhome');
+
 
 //Route::get('/', 'Frontend\IndexController@newlandingPage')->name('newlandingPage');
 Route::get('/about-us', 'Frontend\IndexController@aboutUs')->name('aboutUs');
