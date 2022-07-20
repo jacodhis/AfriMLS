@@ -2,61 +2,26 @@
 @section('content')
 <section class="py-4">
     <div class="container">
-      <h3><b>Our Featured Properties</b></h3>
+      <h4><b>Our Featured Properties</b></h4>
         <div class="row">
             <div class="col-md-8">
-              <div class="row mx-0 item bg-white shadow-sm mb-3 py-2">
+              <div class="row mx-0 item bg-white shadow-sm mb-1 py-1">
                   <div class="col-md-5">
-
-                    <div class="tab-content" id="myTabContent">
-                      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                      <div class="row">
-                          <img src="https://imgs.search.brave.com/q0S9RCJHS77w3UbbflKz4WPPmt7p-v5staJ2vmRUi3o/rs:fit:1024:684:1/g:ce/aHR0cDovL3d3dy5y/ZWFsZXN0YXRlc3Ry/dWN0dXJlZC5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTgv/MDkvUmVhbC1Fc3Rh/dGUtaXMtdGhlLUJl/c3QtSW5kdXN0cnkt/VGhlcmUtaXMtMTAy/NHg2ODQuanBn" alt="" class="w-100">
-                      </div>
-                    </div>
-                      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                      <div class="row">
-                          <img src="https://s.hdnux.com/photos/32/05/43/6838515/5/rawImage.jpg" alt="" class="w-100">
-                      </div>
-                    </div>
-                      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                      <div class="row">
-                          <img src="http://dannybatista.com/wp-content/uploads/2017/09/austin-photo-real-estate-twilight-photography-cold-springs-4.jpg" alt="" class="w-100">
-                      </div>
-                    </div>
-                      <div class="mt-1">
-                      <ul class="nav scroll nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                          <a class="nav-link p-0 border-0 active" id="home-tab" data-bs-toggle="tab" data-bs-target="#contact" type="a" role="tab" aria-controls="contact" aria-selected="false">
-                            <img src="https://imgs.search.brave.com/q0S9RCJHS77w3UbbflKz4WPPmt7p-v5staJ2vmRUi3o/rs:fit:1024:684:1/g:ce/aHR0cDovL3d3dy5y/ZWFsZXN0YXRlc3Ry/dWN0dXJlZC5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTgv/MDkvUmVhbC1Fc3Rh/dGUtaXMtdGhlLUJl/c3QtSW5kdXN0cnkt/VGhlcmUtaXMtMTAy/NHg2ODQuanBn" alt="" class=""></a>
-                       </li>
-                        <li class="nav-item" role="presentation">
-                          <a class="nav-link p-0 border-0" id="profile-tab" data-bs-toggle="tab" data-bs-target="#contact" type="a" role="tab" aria-controls="contact" aria-selected="false">
-                            <img src="https://s.hdnux.com/photos/32/05/43/6838515/5/rawImage.jpg" alt="" class=""></a>
-                        </li>
-                        <li class="nav-item p-0 border-0" role="presentation">
-                          <a class="nav-link p-0 border-0" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="a" role="tab" aria-controls="contact" aria-selected="false">
-                            <img src="http://dannybatista.com/wp-content/uploads/2017/09/austin-photo-real-estate-twilight-photography-cold-springs-4.jpg" alt="" class=""></a>
-                        </li>
-                      </ul>
-                      </div>
-                    </div>
-
+                    <img src="https://imgs.search.brave.com/q0S9RCJHS77w3UbbflKz4WPPmt7p-v5staJ2vmRUi3o/rs:fit:1024:684:1/g:ce/aHR0cDovL3d3dy5y/ZWFsZXN0YXRlc3Ry/dWN0dXJlZC5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTgv/MDkvUmVhbC1Fc3Rh/dGUtaXMtdGhlLUJl/c3QtSW5kdXN0cnkt/VGhlcmUtaXMtMTAy/NHg2ODQuanBn" alt="" class="w-100">
                   </div>
-                  <div class="col-md-7 ">
-                    <div class="align-self-center h210">
+                  <div class="col-md-7">
+                    <div class="align-self-center">
                         <h5>Single Family House For Rent Karen</h5>
-                        <h6 class="text-danger my-3"><b>Ksh. 350,000</b></h6>
+                        <h6 class="text-danger my-2"><b>Ksh. 350,000</b></h6>
                     <div class="w-100 my-1">
                       <span><img src="https://img.icons8.com/ios-filled/15/000000/bed.png" class="mx-0"/> 4</span>
                       <span><img src="https://img.icons8.com/ios-filled/15/000000/bath.png" class="mx-2"/>6 </span>
                     </div>
-                    <small class="text-muted my-2 mb-2 pb-2">
+                    <small class="text-muted my-1 mb-1 pb-1">
 
                         <img src="https://img.icons8.com/ios-filled/15/000000/place-marker.png" class=""/> Karen</small>
                    </small>
-                   <br>
-                   <p style="font-size:small; padding-top: 8px">Single Family house available.</p>
+                   <p style="font-size:small; padding-top: 4px">Single Family house available.</p>
 
                     </div>
 
@@ -75,55 +40,22 @@
               <div class="row mx-0 item bg-white shadow-sm mb-3 py-2">
                   <div class="col-md-5">
 
-                    <div class="tab-content" id="myTabContent">
-                      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                      <div class="row">
-                          <img src="https://imgs.search.brave.com/4IchPNelUIj4BRfvqcRWSdmNverYEQbuYKFAJgz_P-E/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly93d3cu/dGhlcGlubmFjbGVs/aXN0LmNvbS93cC1j/b250ZW50L3VwbG9h/ZHMvMjAyMC8wOC8w/NTYtTHV4dXJ5LVJl/YWwtRXN0YXRlLTgw/Ny1DaW50aGlhLVN0/LUJldmVybHktSGls/bHMtQ0EtVVNBLmpw/Zw" alt="" class="w-100">
-                      </div>
-                    </div>
-                      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                      <div class="row">
-                          <img src="https://s.hdnux.com/photos/32/05/43/6838515/5/rawImage.jpg" alt="" class="w-100">
-                      </div>
-                    </div>
-                      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                      <div class="row">
-                          <img src="http://dannybatista.com/wp-content/uploads/2017/09/austin-photo-real-estate-twilight-photography-cold-springs-4.jpg" alt="" class="w-100">
-                      </div>
-                    </div>
-                      <div class="mt-1">
-                      <ul class="nav scroll nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                          <a class="nav-link p-0 border-0 active" id="home-tab" data-bs-toggle="tab" data-bs-target="#contact" type="a" role="tab" aria-controls="contact" aria-selected="false">
-                            <img src="https://imgs.search.brave.com/q0S9RCJHS77w3UbbflKz4WPPmt7p-v5staJ2vmRUi3o/rs:fit:1024:684:1/g:ce/aHR0cDovL3d3dy5y/ZWFsZXN0YXRlc3Ry/dWN0dXJlZC5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTgv/MDkvUmVhbC1Fc3Rh/dGUtaXMtdGhlLUJl/c3QtSW5kdXN0cnkt/VGhlcmUtaXMtMTAy/NHg2ODQuanBn" alt="" class=""></a>
-                       </li>
-                        <li class="nav-item" role="presentation">
-                          <a class="nav-link p-0 border-0" id="profile-tab" data-bs-toggle="tab" data-bs-target="#contact" type="a" role="tab" aria-controls="contact" aria-selected="false">
-                            <img src="https://s.hdnux.com/photos/32/05/43/6838515/5/rawImage.jpg" alt="" class=""></a>
-                        </li>
-                        <li class="nav-item p-0 border-0" role="presentation">
-                          <a class="nav-link p-0 border-0" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="a" role="tab" aria-controls="contact" aria-selected="false">
-                            <img src="http://dannybatista.com/wp-content/uploads/2017/09/austin-photo-real-estate-twilight-photography-cold-springs-4.jpg" alt="" class=""></a>
-                        </li>
-                      </ul>
-                      </div>
-                    </div>
+                    <img src="https://s.hdnux.com/photos/32/05/43/6838515/5/rawImage.jpg" alt="" class="w-100">
 
                   </div>
                   <div class="col-md-7 ">
-                    <div class="align-self-center h210">
+                    <div class="align-self-center">
                         <h5>Multi family house for rent in Parklands</h5>
                         <h6 class="text-danger my-3"><b>Ksh. 50,000</b></h6>
                     <div class="w-100 my-1">
                       <span><img src="https://img.icons8.com/ios-filled/15/000000/bed.png" class="mx-0"/> 4</span>
                       <span><img src="https://img.icons8.com/ios-filled/15/000000/bath.png" class="mx-2"/>6 </span>
                     </div>
-                    <small class="text-muted my-2 mb-2 pb-2">
+                    <small class="text-muted my-1 mb-1 pb-1">
 
                         <img src="https://img.icons8.com/ios-filled/15/000000/place-marker.png" class=""/> Parklands</small>
                    </small>
-                   <br>
-                   <p style="font-size:small; padding-top: 8px">Multi family house for rent in Parklands</p>
+                   <p style="font-size:small; padding-top: 4px">Multi family house for rent in Parklands</p>
 
                     </div>
 
@@ -142,55 +74,23 @@
               <div class="row mx-0 item bg-white shadow-sm mb-3 py-2">
                   <div class="col-md-5">
 
-                    <div class="tab-content" id="myTabContent">
-                      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                      <div class="row">
-                          <img src="https://pictures-kenya.jijistatic.com/18390245_oakland1_960x720.webp" alt="" class="w-100">
-                      </div>
-                    </div>
-                      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                      <div class="row">
-                          <img src="https://pictures-kenya.jijistatic.com/18390245_oakland1_960x720.webp" alt="" class="w-100">
-                      </div>
-                    </div>
-                      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                      <div class="row">
-                          <img src="https://pictures-kenya.jijistatic.com/18390238_oakland2_960x720.webp" alt="" class="w-100">
-                      </div>
-                    </div>
-                      <div class="mt-1">
-                      <ul class="nav scroll nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                          <a class="nav-link p-0 border-0 active" id="home-tab" data-bs-toggle="tab" data-bs-target="#contact" type="a" role="tab" aria-controls="contact" aria-selected="false">
-                            <img src="https://pictures-kenya.jijistatic.com/18390245_oakland1_960x720.webp" alt="" class=""></a>
-                       </li>
-                        <li class="nav-item" role="presentation">
-                          <a class="nav-link p-0 border-0" id="profile-tab" data-bs-toggle="tab" data-bs-target="#contact" type="a" role="tab" aria-controls="contact" aria-selected="false">
-                            <img src="https://pictures-kenya.jijistatic.com/34936065_MTAwMC03NTAtYTRmY2YzMzgzNw.webp" alt="" class=""></a>
-                        </li>
-                        <li class="nav-item p-0 border-0" role="presentation">
-                          <a class="nav-link p-0 border-0" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="a" role="tab" aria-controls="contact" aria-selected="false">
-                            <img src="https://pictures-kenya.jijistatic.com/18390250_oakland_960x720.webp" alt="" class=""></a>
-                        </li>
-                      </ul>
-                      </div>
-                    </div>
+                    <img src="https://pictures-kenya.jijistatic.com/18390245_oakland1_960x720.webp" alt="" class="w-100">
 
                   </div>
                   <div class="col-md-7 ">
-                    <div class="align-self-center h210">
+                    <div class="align-self-center">
                         <h5>2 Acres in Ongata Rongai Rongai</h5>
                         <h6 class="text-danger my-3"><b>Ksh. 50,000</b></h6>
                     <div class="w-100 my-1 invisible">
                       <span><img src="https://img.icons8.com/ios-filled/15/000000/bed.png" class="mx-0"/> 4</span>
                       <span><img src="https://img.icons8.com/ios-filled/15/000000/bath.png" class="mx-2"/>6 </span>
                     </div>
-                    <small class="text-muted my-2 mb-2 pb-2">
+                    <small class="text-muted my-1 mb-1 pb-1">
 
                         <img src="https://img.icons8.com/ios-filled/15/000000/place-marker.png" class=""/>Ongata Rongai</small>
                    </small>
-                   <br>
-                   <p style="font-size:small; padding-top: 8px">2 Acres in Ongata Rongai Rongai</p>
+
+                   <p style="font-size:small; padding-top: 4px">2 Acres in Ongata Rongai Rongai</p>
 
                     </div>
 
