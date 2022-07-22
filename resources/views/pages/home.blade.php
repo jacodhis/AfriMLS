@@ -3,7 +3,7 @@
 <section class="py-4">
     <div class="container">
       <h4><b>Our Featured Properties</b></h4>
-        <div class="row">
+        <div class="row g-5">
             <div class="col-md-8">
               <div class="row mx-0 item bg-white shadow-sm mb-1 py-1">
                   <div class="col-md-5">
@@ -12,15 +12,17 @@
                   <div class="col-md-7">
                     <div class="align-self-center">
                         <h5>Single Family House For Rent Karen</h5>
-                        <h6 class="text-danger my-2"><b>Ksh. 350,000</b></h6>
-                    <div class="w-100 my-1">
+                        <h6 class="text-danger my-1"><b>Ksh. 350,000</b></h6>
+                        <div class="d-flex justify-content-between">
+                    <div class="w-100 mt-1">
                       <span><img src="https://img.icons8.com/ios-filled/15/000000/bed.png" class="mx-0"/> 4</span>
                       <span><img src="https://img.icons8.com/ios-filled/15/000000/bath.png" class="mx-2"/>6 </span>
                     </div>
-                    <small class="text-muted my-1 mb-1 pb-1">
+                    <small class="text-muted mb-1 pb-1 d-flex">
 
-                        <img src="https://img.icons8.com/ios-filled/15/000000/place-marker.png" class=""/> Karen</small>
+                        <img src="https://img.icons8.com/ios-filled/15/000000/place-marker.png" class=""/> Karen
                    </small>
+                        </div>
                    <p style="font-size:small; padding-top: 4px">Single Family house available.</p>
 
                     </div>
@@ -30,9 +32,9 @@
                         <img src="https://i.pinimg.com/originals/c2/9b/d0/c29bd095d495c6aa7d068080a13c7038.png" alt="" class="client-logo">
                       </div>
                       <div class="float-end">
-                        <img src="https://img.icons8.com/ios-filled/30/25d366/whatsapp.png" class="mx-2"/>
-                        <img src="https://img.icons8.com/ios-filled/30/dc3545/phone.png" class="mx-2"/>
-                        <img src="https://img.icons8.com/ios-filled/30/dc3545/mail.png" class="mx-2"/>
+                        <img src="https://img.icons8.com/ios-filled/20/25d366/whatsapp.png" class="mx-2"/>
+                        <img src="https://img.icons8.com/ios-filled/20/dc3545/phone.png" class="mx-2"/>
+                        <img src="https://img.icons8.com/ios-filled/20/dc3545/mail.png" class="mx-2"/>
                       </div>
                     </div>
                   </div>
@@ -46,15 +48,16 @@
                   <div class="col-md-7 ">
                     <div class="align-self-center">
                         <h5>Multi family house for rent in Parklands</h5>
-                        <h6 class="text-danger my-3"><b>Ksh. 50,000</b></h6>
-                    <div class="w-100 my-1">
+                        <h6 class="text-danger my-1"><b>Ksh. 50,000</b></h6>
+                        <div class="d-flex justify-content-between">
+                        <div class="w-100 my-1">
                       <span><img src="https://img.icons8.com/ios-filled/15/000000/bed.png" class="mx-0"/> 4</span>
                       <span><img src="https://img.icons8.com/ios-filled/15/000000/bath.png" class="mx-2"/>6 </span>
                     </div>
-                    <small class="text-muted my-1 mb-1 pb-1">
+                    <small class="text-muted mb-1 pb-1 d-flex">
 
                         <img src="https://img.icons8.com/ios-filled/15/000000/place-marker.png" class=""/> Parklands</small>
-                   </small>
+                        </div>
                    <p style="font-size:small; padding-top: 4px">Multi family house for rent in Parklands</p>
 
                     </div>
@@ -64,9 +67,9 @@
                         <img src="https://i.pinimg.com/originals/c2/9b/d0/c29bd095d495c6aa7d068080a13c7038.png" alt="" class="client-logo">
                       </div>
                       <div class="float-end">
-                        <img src="https://img.icons8.com/ios-filled/30/25d366/whatsapp.png" class="mx-2"/>
-                        <img src="https://img.icons8.com/ios-filled/30/dc3545/phone.png" class="mx-2"/>
-                        <img src="https://img.icons8.com/ios-filled/30/dc3545/mail.png" class="mx-2"/>
+                        <img src="https://img.icons8.com/ios-filled/20/25d366/whatsapp.png" class="mx-2"/>
+                        <img src="https://img.icons8.com/ios-filled/20/dc3545/phone.png" class="mx-2"/>
+                        <img src="https://img.icons8.com/ios-filled/20/dc3545/mail.png" class="mx-2"/>
                       </div>
                     </div>
                   </div>
@@ -80,17 +83,18 @@
                   <div class="col-md-7 ">
                     <div class="align-self-center">
                         <h5>2 Acres in Ongata Rongai Rongai</h5>
-                        <h6 class="text-danger my-3"><b>Ksh. 50,000</b></h6>
-                    <div class="w-100 my-1 invisible">
+                        <h6 class="text-danger my-1"><b>Ksh. 50,000</b></h6>
+                        <div class="d-flex justify-content-between">
+                    <div class="w-100 mt-1">
                       <span><img src="https://img.icons8.com/ios-filled/15/000000/bed.png" class="mx-0"/> 4</span>
                       <span><img src="https://img.icons8.com/ios-filled/15/000000/bath.png" class="mx-2"/>6 </span>
                     </div>
-                    <small class="text-muted my-1 mb-1 pb-1">
+                    <small class="text-muted mb-1 pb-1 d-flex">
 
                         <img src="https://img.icons8.com/ios-filled/15/000000/place-marker.png" class=""/>Ongata Rongai</small>
-                   </small>
+                        </div>
 
-                   <p style="font-size:small; padding-top: 4px">2 Acres in Ongata Rongai Rongai</p>
+                   <p style="font-size:small; padding-top: 4px" class="mb-1">2 Acres in Ongata Rongai Rongai</p>
 
                     </div>
 
@@ -99,9 +103,9 @@
                         <img src="https://i.pinimg.com/originals/c2/9b/d0/c29bd095d495c6aa7d068080a13c7038.png" alt="" class="client-logo">
                       </div>
                       <div class="float-end">
-                        <img src="https://img.icons8.com/ios-filled/30/25d366/whatsapp.png" class="mx-2"/>
-                        <img src="https://img.icons8.com/ios-filled/30/dc3545/phone.png" class="mx-2"/>
-                        <img src="https://img.icons8.com/ios-filled/30/dc3545/mail.png" class="mx-2"/>
+                        <img src="https://img.icons8.com/ios-filled/20/25d366/whatsapp.png" class="mx-2"/>
+                        <img src="https://img.icons8.com/ios-filled/20/dc3545/phone.png" class="mx-2"/>
+                        <img src="https://img.icons8.com/ios-filled/20/dc3545/mail.png" class="mx-2"/>
                       </div>
                     </div>
                   </div>
@@ -109,36 +113,37 @@
             </div>
             <div class="col-md-4">
               <div class="sticky-top">
-                  <div class="card bg-dark py-3">
+                  <div class="card bg-dark py-1">
                     <div class="card-body">
                       <form action="">
-                        <select name="" id="" class="form-control w-100 mb-3">
+                        <select name="" id="" class="form-control p-1 px-3 w-100 mb-2">
                           <option value="">Chose Counties</option>
                           <option value="">Nairobi</option>
                           <option value="">Mombasa</option>
                           <option value="">Kisumu</option>
                         </select>
-                        <input type="text" placeholder="Choose Neighborhood" class="form-control w-100 mb-3">
+                        <input type="text" placeholder="Choose Neighborhood" class="form-control p-1 px-3 w-100 mb-2">
 
-                        <select name="" id="" class="form-control w-100 mb-3">
+                        <select name="" id="" class="form-control p-1 px-3 w-100 mb-2">
                           <option value="">Property Type</option>
                           <option value="">Single Family Unit</option>
                           <option value="">Multi Tenant Unit</option>
                           <option value="">Land</option>
                         </select>
 
-                        <select name="" id="" class="form-control w-100 mb-3">
+                        <select name="" id="" class="form-control w-100 mb-2 p-1 px-3">
                             <option value="">Select Status</option>
                             <option value="">Single Family Unit</option>
                             <option value="">Multi Tenant Unit</option>
                             <option value="">Land</option>
                           </select>
 
-                        <button class="w-100 form-control btn-danger">Submit</button>
+                        <button class="w-100 form-control btn-danger p-1">Submit</button>
                     </form>
                     </div>
                 </div>
-                <div class="bg-white rounded p-3 mt-4">
+                    <div class="m-4"><span>&nbsp;</span></div>
+                  <div class="bg-white rounded p-2 mt-5">
 
                     <figure class="figure">
                         <img src="https://pictures-kenya.jijistatic.com/18849782_MzAwLTIyNS00MzIwY2E3NWRmLTE.webp" class="w-100" alt="House for sale - Karen">
