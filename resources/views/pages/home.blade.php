@@ -2,7 +2,8 @@
 @section('content')
 <section class="py-4">
     <div class="container">
-      <h4><b>Our Featured Properties</b></h4>
+
+        <span><h5><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Our Featured Properties</b></h5></span>
         <div class="row g-5">
             <div class="col-md-8">
               <div class="row mx-0 item bg-white shadow-sm mb-1 py-1">
@@ -14,14 +15,15 @@
                         <h5>Single Family House For Rent Karen</h5>
                         <h6 class="text-danger my-1"><b>Ksh. 350,000</b></h6>
                         <div class="d-flex justify-content-between">
-                    <div class="w-100 mt-1">
+                    <div class="w-75 mt-1">
                       <span><img src="https://img.icons8.com/ios-filled/15/000000/bed.png" class="mx-0"/> 4</span>
                       <span><img src="https://img.icons8.com/ios-filled/15/000000/bath.png" class="mx-2"/>6 </span>
                     </div>
-                    <small class="text-muted mb-1 pb-1 d-flex">
-
+                            <div class="w-25">
+                    <small class="text-muted mb-1 pb-1">
                         <img src="https://img.icons8.com/ios-filled/15/000000/place-marker.png" class=""/> Karen
                    </small>
+                            </div>
                         </div>
                    <p style="font-size:small; padding-top: 4px">Single Family house available.</p>
 
@@ -39,7 +41,7 @@
                     </div>
                   </div>
               </div>
-              <div class="row mx-0 item bg-white shadow-sm mb-3 py-2">
+              <div class="row mx-0 item bg-white shadow-sm mb-1 py-1">
                   <div class="col-md-5">
 
                     <img src="https://s.hdnux.com/photos/32/05/43/6838515/5/rawImage.jpg" alt="" class="w-100">
@@ -50,13 +52,15 @@
                         <h5>Multi family house for rent in Parklands</h5>
                         <h6 class="text-danger my-1"><b>Ksh. 50,000</b></h6>
                         <div class="d-flex justify-content-between">
-                        <div class="w-100 my-1">
+                        <div class="w-75 my-1">
                       <span><img src="https://img.icons8.com/ios-filled/15/000000/bed.png" class="mx-0"/> 4</span>
                       <span><img src="https://img.icons8.com/ios-filled/15/000000/bath.png" class="mx-2"/>6 </span>
                     </div>
-                    <small class="text-muted mb-1 pb-1 d-flex">
-
-                        <img src="https://img.icons8.com/ios-filled/15/000000/place-marker.png" class=""/> Parklands</small>
+                            <div class="w-25">
+                                <small class="text-muted mb-1 pb-1">
+                                    <img src="https://img.icons8.com/ios-filled/15/000000/place-marker.png" class=""/> Parklands
+                                </small>
+                            </div>
                         </div>
                    <p style="font-size:small; padding-top: 4px">Multi family house for rent in Parklands</p>
 
@@ -74,7 +78,7 @@
                     </div>
                   </div>
               </div>
-              <div class="row mx-0 item bg-white shadow-sm mb-3 py-2">
+              <div class="row mx-0 item bg-white shadow-sm mb-1 py-1">
                   <div class="col-md-5">
 
                     <img src="https://pictures-kenya.jijistatic.com/18390245_oakland1_960x720.webp" alt="" class="w-100">
@@ -85,16 +89,18 @@
                         <h5>2 Acres in Ongata Rongai Rongai</h5>
                         <h6 class="text-danger my-1"><b>Ksh. 50,000</b></h6>
                         <div class="d-flex justify-content-between">
-                    <div class="w-100 mt-1">
+                    <div class="w-75 mt-1">
                       <span><img src="https://img.icons8.com/ios-filled/15/000000/bed.png" class="mx-0"/> 4</span>
                       <span><img src="https://img.icons8.com/ios-filled/15/000000/bath.png" class="mx-2"/>6 </span>
                     </div>
-                    <small class="text-muted mb-1 pb-1 d-flex">
-
-                        <img src="https://img.icons8.com/ios-filled/15/000000/place-marker.png" class=""/>Ongata Rongai</small>
+                            <div class="w-25">
+                                <small class="text-muted mb-1 pb-1">
+                                    <img src="https://img.icons8.com/ios-filled/15/000000/place-marker.png" class=""/> Ongata Rongai
+                                </small>
+                            </div>
                         </div>
 
-                   <p style="font-size:small; padding-top: 4px" class="mb-1">2 Acres in Ongata Rongai Rongai</p>
+                   <p style="font-size:small; padding-top: 4px" class="mb-1">2 Acres in Ongata Rongai</p>
 
                     </div>
 
