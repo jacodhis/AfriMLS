@@ -149,7 +149,7 @@
                     </div>
                 </div>
                     <div class="m-4"><span>&nbsp;</span></div>
-                  <div class="bg-white rounded p-2 mt-5">
+                  <div class="bg-white rounded p-2 mt-2">
 
                     <figure class="figure">
                         <img src="https://pictures-kenya.jijistatic.com/18849782_MzAwLTIyNS00MzIwY2E3NWRmLTE.webp" class="w-100" alt="House for sale - Karen">
