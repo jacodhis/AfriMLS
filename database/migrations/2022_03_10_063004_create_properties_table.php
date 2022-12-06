@@ -78,12 +78,12 @@ return new class extends Migration
             $table->index('city_id');
 
 
-            $table->unsignedBigInteger('option_id')->nullable();
-            $table->index('option_id');
+            $table->string('property_type')->nullable();
+            $table->index('property_type');
 
 
-            $table->unsignedBigInteger('category_id')->nullable();
-            $table->index('category_id');
+            $table->string('category')->nullable();
+            $table->index('category');
             $table->timestamps();
         });
     }

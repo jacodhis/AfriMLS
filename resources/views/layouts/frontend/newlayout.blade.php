@@ -1,3 +1,5 @@
+@php(extract($data))
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -9,12 +11,10 @@
     <link rel="stylesheet" href="{{ asset('assets-bs5/css/style.css')}}">
 </head>
   <body>
-  @php
-   $propertyTypes =  \App\Models\category::get();
-@endphp
+
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
     <div class="container">
-      <a class="navbar-brand mr-5" href="#"><img src="http://174.138.7.221/assets/images/logo/AfriMLS-logo-web.jpg" class="logo" alt=""></a>
+      <a class="navbar-brand mr-5" href="{{route('newhome')}}"><img src="{{asset('assets/images/logo/AfriMLS-logo-web.jpg')}}" class="logo" alt=""></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -31,8 +31,8 @@
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">Something else here</a></li>
 			  -->
-			  @foreach($propertyTypes as $category_nav)
-				<li><a onclick="location.href='/for-sale/{{$category_nav->id}}';" data-toggle="dropdown" class="dropdown-toggle">{{$category_nav->name}} </a></li>
+              @foreach($getSearchParams['property_types'] as $category_nav)
+				<li><a onclick="location.href='/for-sale/';" data-toggle="dropdown" class="dropdown-toggle"></a></li>
 			  @endforeach
             </ul>
           </li>
@@ -47,9 +47,7 @@
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">Something else here</a></li>
 			  -->
-			  @foreach($propertyTypes as $category_nav)
-				<li><a onclick="location.href='/for-rent/{{$category_nav->id}}';" data-toggle="dropdown" class="dropdown-toggle">{{$category_nav->name}} </a></li>
-			 @endforeach
+
             </ul>
           </li>
         </ul>
@@ -76,7 +74,7 @@
           <div class="col-md-5">
             <h5>
               <b>
-                About Us
+
             </b>
           </h5>
           <p>
@@ -114,10 +112,9 @@
         </div>
         <div class="row text-center bg-light py-2 mx-0">
           <p class="mb-0">
-            © 2022 AfriLMS, All Rights Reserved. <a href="" class="text-dark">Privacy Policy</a> | <a href="" class="text-dark">Terms</a>
+            © 2022 - 2023 AfriLMS, All Rights Reserved. <a href="" class="text-dark">Privacy Policy</a> | <a href="" class="text-dark">Terms</a>
           </p>
         </div>
-      </div>
     </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <script src="{{ asset('assets-bs5/js/main.js')}}"></script>

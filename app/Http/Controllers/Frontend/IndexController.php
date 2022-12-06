@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Models\property;
-use App\Models\county;
+use App\Models\Property;
+use App\Models\County;
 use App\Models\country;
 use App\Models\category;
 use App\Models\city;
@@ -45,7 +45,33 @@ class IndexController extends Controller
     }
 
     public function home() {
-        return view('pages.home');
+         $data['getSearchParams'] = self::getSearchParams();
+         return view('pages.home',  ['data' => $data]);
+    }
+
+    public function search(Request $request) {
+
+
+        $properties = Property::where([
+             ['county_id', '=', $request->county_id],
+             ['property_type', '=', $request->property_type],
+             ['category', '=', $request->category],
+            ]
+         )->get();
+
+        $data['properties'] = $properties;
+        $getSearchParams = self::getSearchParams();
+
+        $data['getSearchParams'] = $getSearchParams;
+
+
+        $county = County::where('id','=',$request->county_id)->first();
+
+        $data['search_property_type'] = $getSearchParams['property_types'][$request->property_type];
+        $data['search_county'] = ucwords(strtolower($county->name));
+        $data['search_category'] = $getSearchParams['categories'][$request->category];
+
+        return view('pages.search-results',  ['data' => $data]);
     }
 
 
@@ -56,5 +82,11 @@ class IndexController extends Controller
         return view('pages.aboutUs');
     }
 
+    public static function getSearchParams() {
+         $return['counties'] = County::get(['id','name']);
+         $return['property_types'] = config('settings.property_types');
+         $return['categories'] = config('settings.categories');
+         return $return;
+    }
 
 }

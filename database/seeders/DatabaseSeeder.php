@@ -19,8 +19,6 @@ class DatabaseSeeder extends Seeder
         // $this->call(property::class);
         $this->call(roles::class);
         $this->call(counties::class);
-        $this->call(categories::class);
-        $this->call(options::class);
         $this->call(Countries::class);
 
         $this->call(location::class);
@@ -33,8 +31,8 @@ class DatabaseSeeder extends Seeder
         $this->call(utility_datas::class);
         $this->call(currencies::class);
         $this->call(architectural_styles::class);
+        $this->call(PropertyTableSeeder::class);
 
 
-        // \App\Models\User::factory(10)->create();
     }
 }

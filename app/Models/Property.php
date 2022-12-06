@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class property extends Model
+class Property extends Model
 {
     use HasFactory;
 
@@ -14,7 +14,7 @@ class property extends Model
     protected $table = 'properties';
 
     public function county(){
-        return $this->belongsTo('App\Models\county');
+        return $this->belongsTo('App\Models\County');
     }
     public function city(){
         return $this->belongsTo('App\Models\city');

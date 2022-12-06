@@ -22,6 +22,7 @@ Route::get('/welcome',function(){
 //Route::get('/', 'Frontend\IndexController@landingPage')->name('landingPage');
 //Route::get('/', 'Frontend\IndexController@newlandingPage')->name('landingPage');
 Route::get('/', 'Frontend\IndexController@home')->name('newhome');
+Route::post('search', 'Frontend\IndexController@search')->name('search');
 
 
 //Route::get('/', 'Frontend\IndexController@newlandingPage')->name('newlandingPage');
@@ -31,7 +32,10 @@ Route::get('/contact-Us', 'Frontend\IndexController@contactPage')->name('contact
 //frontend controllers
 Route::get('/for-sale/{id}','Frontend\propertiesController@showNavForSale')->name('showNavForSale');
 Route::get('/for-rent/{id}', 'Frontend\propertiesController@showNavForent')->name('showNavForent');
-Route::get('/properties/{id}', 'Frontend\propertiesController@viewPageshow')->name('propertyShow');
+Route::get('/properties/{id}', 'Frontend\PropertyController@show')->name('show');
+
+
+
 // receives data from search form
 Route::get('search','Frontend\SearchController@search')->name('search-form');
 

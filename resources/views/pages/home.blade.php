@@ -1,9 +1,10 @@
+@php(extract($data))
 @extends('layouts.frontend.newlayout')
 @section('content')
 <section class="py-4">
     <div class="container">
 
-        <span><h5><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Our Featured Properties</b></h5></span>
+        <span><h5><b>Our Featured Properties</b></h5></span>
         <div class="row g-5">
             <div class="col-md-8">
               <div class="row mx-0 item bg-white shadow-sm mb-1 py-1">
@@ -118,46 +119,7 @@
               </div>
             </div>
             <div class="col-md-4">
-              <div class="sticky-top">
-                  <div class="card bg-dark py-1">
-                    <div class="card-body">
-                      <form action="">
-                        <select name="" id="" class="form-control p-1 px-3 w-100 mb-2">
-                          <option value="">Chose Counties</option>
-                          <option value="">Nairobi</option>
-                          <option value="">Mombasa</option>
-                          <option value="">Kisumu</option>
-                        </select>
-                        <input type="text" placeholder="Choose Neighborhood" class="form-control p-1 px-3 w-100 mb-2">
-
-                        <select name="" id="" class="form-control p-1 px-3 w-100 mb-2">
-                          <option value="">Property Type</option>
-                          <option value="">Single Family Unit</option>
-                          <option value="">Multi Tenant Unit</option>
-                          <option value="">Land</option>
-                        </select>
-
-                        <select name="" id="" class="form-control w-100 mb-2 p-1 px-3">
-                            <option value="">Select Status</option>
-                            <option value="">Single Family Unit</option>
-                            <option value="">Multi Tenant Unit</option>
-                            <option value="">Land</option>
-                          </select>
-
-                        <button class="w-100 form-control btn-danger p-1">Submit</button>
-                    </form>
-                    </div>
-                </div>
-                    <div class="m-4"><span>&nbsp;</span></div>
-                  <div class="bg-white rounded p-2 mt-2">
-
-                    <figure class="figure">
-                        <img src="https://pictures-kenya.jijistatic.com/18849782_MzAwLTIyNS00MzIwY2E3NWRmLTE.webp" class="w-100" alt="House for sale - Karen">
-                        <figcaption class="figure-caption text-center">House for sale - Karen</figcaption>
-                      </figure>
-
-                </div>
-              </div>
+                @include('pages.side-menu')
             </div>
         </div>
     </div>
