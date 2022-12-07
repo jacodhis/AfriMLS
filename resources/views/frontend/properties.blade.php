@@ -68,19 +68,19 @@
             @endforeach
 
 
-       
+
         <!-- .row end -->
 
           <!--  -->
         </div>
          <!-- .row end -->
              <div class="row mb-50">
-                
+
                   <div class="justify-center">  {!!$properties->links()!!}</div>
-                 
+
              </div>
 
-       
+
     </div>
 
 </section>

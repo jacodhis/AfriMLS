@@ -13,8 +13,7 @@
   <body>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-    <div class="container">
-      <a class="navbar-brand mr-5" href="{{route('newhome')}}"><img src="{{asset('assets/images/logo/AfriMLS-logo-web.jpg')}}" class="logo" alt=""></a>
+    <div class="container"><a class="navbar-brand mr-5" href="{{route('newhome')}}"><img src="{{asset('assets/images/logo/AfriMLS-logo-web.jpg')}}" class="logo" alt=""></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
