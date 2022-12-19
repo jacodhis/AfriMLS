@@ -17,7 +17,7 @@ class Property extends Model
         return $this->belongsTo('App\Models\County');
     }
     public function city(){
-        return $this->belongsTo('App\Models\city');
+        return $this->belongsTo('App\Models\City');
     }
 
     public function category(){
