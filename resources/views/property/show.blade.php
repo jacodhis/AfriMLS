@@ -1,8 +1,9 @@
+@php(extract($data))
+
 @extends('layouts.backend.layout')
 
-
 @section('title')
-Afri MLS {{$data[0]['propertyData']->name}}s
+Afri MLS {{$data[0]['category_name']}}s
 @endsection
 
 @section('content')
@@ -13,8 +14,8 @@ Afri MLS {{$data[0]['propertyData']->name}}s
 
 <div class="card shadow mb-4">
     <div class="card-header d-flex justify-content-between py-3">
-        <h6 class="m-0 font-weight-bold text-primary">{{$data[0]['propertyData']->name}} Data</h6>
-        <h6 class="m-0 font-weight-bold text-primary"><a href="{{route('addProperty',[$data[0]['propertyData']->id])}}" class="btn btn-primary " > Add {{$data[0]['propertyData']->name}} <span class="badge badge-primary" >+</b></span></a> </h6>
+        <h6 class="m-0 font-weight-bold text-primary">{{$data[0]['category_name']}} Data</h6>
+        <h6 class="m-0 font-weight-bold text-primary"><a href="{{route('addProperty', $data[0]['category'])}}" class="btn btn-primary " > Add  <span class="badge badge-primary" >+</span></a> </h6>
     </div>
 
     <div class="card-body">

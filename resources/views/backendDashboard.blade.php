@@ -1,5 +1,5 @@
+@php(extract($data))
 @extends('layouts.backend.layout')
-
 
 @section('title')
     welcome Dashboard
@@ -9,6 +9,7 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+
         {{-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> --}}
     </div>
@@ -25,14 +26,9 @@
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                Total Property-Types</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                @php
-                                $propertyTypes =  \App\Models\category::get()->count() ;
-                                @endphp
-                               @if($propertyTypes<0)
+                               @if ($data['categ_count'] < 0)
                                  0
-
                                @else
-                               {{$propertyTypes}}
 
                                @endif
                             </div>
@@ -54,14 +50,12 @@
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                 All properties</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                @php
-                                $properties =  \App\Models\property::get()->count() ;
-                                @endphp
-                               @if($properties < 0)
+
+                                @if ($data['categ_count'] < 0)
                                  No PropertyType
 
                                @else
-                               {{$properties}}
+
 
                                @endif
                             </div>

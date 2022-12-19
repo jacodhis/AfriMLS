@@ -4,12 +4,11 @@ namespace App\Http\Controllers;
 
 use DB;
 use Image;
-use App\Models\city;
-use App\Models\option;
-use App\Models\category;
+use App\Models\City;
+//use App\Models\option;
 use App\Models\currency;
 use App\Models\location;
-use App\Models\property;
+use App\Models\Property;
 use App\Models\utility_data;
 use Illuminate\Http\Request;
 use App\Models\garage_feauture;
@@ -24,23 +23,20 @@ class PropertyController extends Controller
 {
 
 // shows all propertis with the propertyType id in variable
-    public function show( $propertyTypeId){
-        // dd('hi');
+    public function show( $category){
         $data = [];
 
-        $propertyData = category::findorFail($propertyTypeId);
-        // dd($propertyData);
-        $properties = property::where('category_id',$propertyTypeId)->get();
-        // dd($properties);
+        $properties = Property::where('category',$category)->get();
 
-        array_push($data,['propertyData'=>$propertyData,'properties' => $properties]);
-        if(empty($data)){
-            dd('empty');
-        }else{
-            // dd($data);
+        $categories = config('settings.categories');
+        $category_name = $categories[$category];
 
-         return view('property.show',['data'=>$data]);
-        }
+        $data['propertyTypes'] = $categories;
+        $data['category'] = $category;
+        $data['category_name'] = $category_name;
+
+        array_push($data,['category_name'=>$category_name,'category'=>$category,'properties' => $properties]);
+        return view('property.show',['data'=>$data]);
     }
     //   shows a single property to view page
     public function showoneproperty($id){
@@ -63,9 +59,14 @@ class PropertyController extends Controller
     //displays form to add property
     public function create($propertyTypeId){
         $data = [];
-        $options = option::get();
-        $cities = city::orderBy('name', 'asc')->get();
-        $propertyType = category::findorFail($propertyTypeId);
+        //$options = option::get();
+        $cities = City::orderBy('name', 'asc')->get();
+        //$propertyType = category::findorFail($propertyTypeId);
+
+        $categories = config('settings.categories');
+        $propertyTypes = $categories;
+        $category = $propertyTypeId;
+
         // dd($propertyType);
         // $community_feautures = DB::table('community_feautures')->select('id','community_feauture')->get();
          $f_communities = feauture_community::get();
@@ -78,23 +79,26 @@ class PropertyController extends Controller
 
         array_push($data,
         [
-        'options'=>$options,
+        'options'=>$categories,
         'cities'=>$cities,
-        'propertyType'=>$propertyType,
+        'propertyType'=>$propertyTypeId,
+        'category'=>$category,
+        'categories'=>$categories,
+        'propertyTypes'=>$propertyTypes,
         'f_communities'=>$f_communities,
         'exterior_feautures'=>$exterior_feautures,
         'utilities_data_feautures'=>$utilities_data_feautures,
         'garage_feautures'=>$garage_feautures,
         'currencies'=>$currencies
         ]);
-       
+
         return view('property.createp',['data'=>$data]);
 
     }
     //stores property
     public function store(Request $request){
         // dd($request->all());
-        
+
 
 
         $image = [];
@@ -114,7 +118,7 @@ class PropertyController extends Controller
                 array_push($image,$image_url);
             }
 
-           
+
             $newProperty = new property;
             $newProperty->name = $request->pname;
             $newProperty->category_id = $request->propertyId;
@@ -243,7 +247,7 @@ class PropertyController extends Controller
 
     }
 
-   
+
 
 
 

@@ -52,7 +52,7 @@
                       </p>
 
                   </div>
-                
+
                   <div class="col-md-3" style="padding: 1px; margin: 1px">
                     <p>
                         <input type="number" min="1" name="property_price" class="form-control" required placeholder="Property Price">
@@ -66,7 +66,7 @@
             </div>
               <div id="loc" class="col-md-3 py-3" style="padding: 1px; margin: 1px; display:none;">
                     <p>
-                       
+
                         <div id="DynamicLocationsDropdown"></div>
                       </p>
 
@@ -101,8 +101,8 @@
                     <p>
                         <select name="option_id" id="" class="form-control">Type
                             <option value="" disabled>select option</option>
-                            @foreach ($data[0]['options'] as $option)
-                                <option value="{{$option->id}}">{{$option->name}}</option>
+                            @foreach ($data[0]['options'] as $optionkey => $optionval)
+                                <option value="{{$optionkey}}">{{$optionval}}</option>
                             @endforeach
                         </select>
                      </p>
@@ -338,7 +338,7 @@
 
 
   </div>
-  <input type="hidden" value="{{$data[0]['propertyType']->id}}" name ="propertyTypeId">
+  <input type="hidden" value="{{$data[0]['category']}}" name="category">
 
 
  <div class="col-md-4 mx-auto py-4">
@@ -371,9 +371,9 @@
                    loc.style.display = "block";
                 }
             });
-            
+
     }
 
-  
+
 </script>
 @endsection

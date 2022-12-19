@@ -3,26 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\category;
 
 class BackendDashboardController extends Controller
 {
     //
     public function dashboard(){
         $data = [];
-        $categories = category::get();
-        array_push($data,['propertyTypes'=>$categories]);
+        $categories = config('settings.categories');
 
-        if(empty($data)){
-            dd('data is empty');
-        }else{
-            return view('backendDashboard',compact('data'));
+        $data['categ_count'] = count($categories);
+        $data['propertyTypes'] = $categories;
 
-        }
-
-
-
-
+        return view('backendDashboard', ['data' => $data]);
 
     }
 }

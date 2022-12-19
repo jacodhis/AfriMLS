@@ -22,7 +22,7 @@
 
     <!-- Custom styles for this page -->
     <link href="{{asset('assetss/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
-  
+
 
 </head>
 
@@ -63,13 +63,6 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         {{-- @livewire('property-data') --}}
                         {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
-                        @php
-                         $propertyTypes =  \App\Models\category::get() ;
-
-                        @endphp
-                        @foreach ($propertyTypes as $propertyType )
-                        <a class="collapse-item" href="/propertyType/{{$propertyType->id}}">{{$propertyType->name}}</a>
-                        @endforeach
 
 
 
@@ -360,7 +353,7 @@
                                     document.getElementById('logout-form').submit();">
                                       {{ __('Logout') }}
                             </a>
-            
+
                              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                  @csrf
                              </form>
@@ -375,10 +368,10 @@
 <style>
     #logout{
         color: red;
-      
+
     }
 </style>
-             
+
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -412,13 +405,13 @@
     </div>
     <!-- End of Page Wrapper -->
 
-  
-     
 
 
-  
 
-  
+
+
+
+
 
 
 
