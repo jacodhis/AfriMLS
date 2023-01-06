@@ -29,7 +29,7 @@
                                @if ($data['categ_count'] < 0)
                                  0
                                @else
-
+                                    {{$data['categ_count']}}
                                @endif
                             </div>
                         </div>

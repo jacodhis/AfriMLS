@@ -41,7 +41,7 @@ class PropertyController extends Controller
     //   shows a single property to view page
     public function showoneproperty($id){
         $property = property::findorFail($id);
-        return view('property.showsingleproperty',['property'=>$property]);
+        //return view('property.showsingleproperty',['property'=>$property]);
         // return $property;
     }
 
@@ -65,6 +65,7 @@ class PropertyController extends Controller
 
         $categories = config('settings.categories');
         $propertyTypes = $categories;
+
         $category = $propertyTypeId;
 
         // dd($propertyType);
@@ -91,8 +92,9 @@ class PropertyController extends Controller
         'garage_feautures'=>$garage_feautures,
         'currencies'=>$currencies
         ]);
+        $data['propertyTypes'] = $categories;
 
-        return view('property.createp',['data'=>$data]);
+        return view('property.createp', ['data'=>$data]);
 
     }
     //stores property

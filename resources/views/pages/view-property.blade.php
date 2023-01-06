@@ -42,11 +42,11 @@
 
                                 <div class="row">
                                     <div class="col-1 float-left">
-                                        <i class="fa-solid fa-bed fa-lg" style="color: grey"></i> 1
+                                        <i class="fa-solid fa-bed fa-lg" style="color: grey"></i> {{$data[0]['property']->number_bedroom}}
                                     </div>
 
                                     <div class="col-1 float-left">
-                                        <i class="fa-solid fa-shower fa-lg" style="color: grey"></i> 1
+                                        <i class="fa-solid fa-shower fa-lg" style="color: grey"></i> {{$data[0]['property']->number_bathroom}}
                                     </div>
 
                                     <div class="col-1 float-left">
@@ -75,26 +75,26 @@
                     </div>
                 </div>
 
-                <div class="row mx-0 item bg-white shadow-sm m-3 py-1 p-3">Your dream luxury studio</div>
+                <div class="row mx-0 item bg-white shadow-sm m-3 py-1 p-3">{!! nl2br($data[0]['property']->description) !!}</div>
 
                 <div class="row mx-0 item bg-white shadow-sm m-3 py-1 p-3">
                     <div class="container">
                         <div class="row">
-                            <div class="col-1"><i class="fa-solid fa-bed fa-lg" style="color: grey"></i> 1</div>
-                            <div class="col-5">Bedrooms: 2</div>
-                            <div class="col-1"><i class="fa-solid fa-dog fa-lg" style="color: grey"></i> 1</div>
+                            <div class="col-1"><i class="fa-solid fa-bed fa-lg" style="color: grey"></i> </div>
+                            <div class="col-5">Bedrooms: {{$data[0]['property']->number_bedroom}}</div>
+                            <div class="col-1"><i class="fa-solid fa-dog fa-lg" style="color: grey"></i> </div>
                             <div class="col-5">Pet Friendly</div>
                         </div>
 
                         <div class="row">
-                            <div class="col-1"><i class="fa-solid fa-shower fa-lg" style="color: grey"></i> 1</div>
-                            <div class="col-5">Bathrooms: 2</div>
-                            <div class="col-1"><i class="fa-solid fa-seedling fa-lg" style="color: grey"></i> 1</div>
+                            <div class="col-1"><i class="fa-solid fa-shower fa-lg" style="color: grey"></i> </div>
+                            <div class="col-5">Bathrooms: {{$data[0]['property']->number_bathroom}}</div>
+                            <div class="col-1"><i class="fa-solid fa-seedling fa-lg" style="color: grey"></i> </div>
                             <div class="col-5">Garden</div>
                         </div>
 
                         <div class="row">
-                            <div class="col-1"><i class="fa-solid fa-car fa-lg" style="color: grey"></i> 1</div>
+                            <div class="col-1"><i class="fa-solid fa-car fa-lg" style="color: grey"></i> </div>
                             <div class="col-5">Garages: 2</div>
                             <div class="col-1"></div>
                             <div class="col-5"></div>

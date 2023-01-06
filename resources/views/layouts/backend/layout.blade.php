@@ -65,10 +65,9 @@
                         {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
 
 
-
-                      {{-- @foreach($data[0]['propertyTypes'] as $propertyType )
-                        <a class="collapse-item" href="/propertyType/{{$propertyType->id}}">{{$propertyType->name}}</a>
-                      @endforeach --}}
+                      @foreach($data['propertyTypes'] as $keyT => $valT )
+                        <a class="collapse-item" href="/propertyType/{{$keyT}}">{{$valT}}</a>
+                      @endforeach
                     </div>
                 </div>
             </li>
@@ -393,7 +392,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; AFRIMLS Website 2022</span>
+                        <span>Copyright &copy; AFRIMLS 2022 - 2023</span>
                     </div>
                 </div>
             </footer>
