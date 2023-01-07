@@ -45,7 +45,7 @@ class IndexController extends Controller
 
     public function home() {
 
-        $properties = Property::take(3)->get();
+        $properties = Property::take(3)->orderby('id','desc')->get();
 
        $data['properties'] = $properties;
 

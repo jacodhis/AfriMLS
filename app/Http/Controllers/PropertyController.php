@@ -123,10 +123,10 @@ class PropertyController extends Controller
 
             $newProperty = new property;
             $newProperty->name = $request->pname;
-            $newProperty->category_id = $request->propertyId;
-            $newProperty->option_id = $request->option_id;
+            $newProperty->category = $request->category;
+            //$newProperty->option_id = $request->option_id;
             $newProperty->description = $request->description;
-            $newProperty->category_id = $request->propertyTypeId;
+            //$newProperty->category_id = $request->propertyTypeId;
             $newProperty->location_id = $request->location_id;
             $newProperty->price = $request->property_price;
             $newProperty->number_bedroom = $request->no_of_bedrooms;

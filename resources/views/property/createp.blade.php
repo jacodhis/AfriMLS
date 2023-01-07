@@ -60,7 +60,7 @@
                   </div>
                   <div class="col-md-3" style="padding: 1px; margin: 1px">
                     <p>
-                        <textarea name="description" id="" cols="60" rows="1" required placeholder="Description"></textarea>
+                        <textarea name="description" id="" cols="60" rows="2" required placeholder="Description"></textarea>
                     </p >
                 </div>
             </div>
