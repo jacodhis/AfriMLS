@@ -44,11 +44,17 @@ class IndexController extends Controller
     }
 
     public function home() {
+
+        $properties = Property::take(3)->get();
+
+       $data['properties'] = $properties;
+
          $data['getSearchParams'] = self::getSearchParams();
          return view('pages.home',  ['data' => $data]);
     }
 
     public function search(Request $request) {
+
 
 
         $properties = Property::where([

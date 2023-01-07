@@ -51,11 +51,7 @@
                         <div class="col-md-12">
                             <div class="align-self-center">
                                 <h5>Sorry! No results found for your search query</h5>
-
-
                             </div>
-
-
                         </div>
                     </div>
                 @endif
