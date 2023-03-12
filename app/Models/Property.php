@@ -53,6 +53,9 @@ class Property extends Model
     public function garage_property_feautures(){
         return $this->hasMany('App\Models\garage_property_feature');
     }
+    public function wateraccess(){
+        return $this->hasMany('App\Models\property');
+    }
 
 
 

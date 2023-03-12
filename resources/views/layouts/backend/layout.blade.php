@@ -65,7 +65,7 @@
                         {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
 
 
-                      @foreach($data['propertyTypes'] as $keyT => $valT )
+                      @foreach($data['property_types'] as $keyT => $valT )
                         <a class="collapse-item" href="/propertyType/{{$keyT}}">{{$valT}}</a>
                       @endforeach
                     </div>

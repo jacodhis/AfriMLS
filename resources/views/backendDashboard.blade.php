@@ -26,10 +26,10 @@
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                Total Property-Types</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                               @if ($data['categ_count'] < 0)
+                               @if ($data['property_types_count'] < 0)
                                  0
                                @else
-                                    {{$data['categ_count']}}
+                                    {{$data['property_types_count']}}
                                @endif
                             </div>
                         </div>

@@ -18,6 +18,10 @@ use App\Models\feauture_community;
 use App\Models\garage_property_feature;
 use App\Models\utility_property_feature;
 use App\Models\exterior_property_feauture;
+use App\Models\WaterAccess;
+use App\Models\WaterExtras;
+use App\Models\WaterFrontage;
+use App\Models\WaterView;
 
 class PropertyController extends Controller
 {
@@ -28,12 +32,16 @@ class PropertyController extends Controller
 
         $properties = Property::where('category',$category)->get();
 
-        $categories = config('settings.categories');
-        $category_name = $categories[$category];
+        $property_types_array = config('settings.property_types');
+        $category_name = $property_types_array[$category];
 
-        $data['propertyTypes'] = $categories;
+        $data['propertyTypes'] = $property_types_array;
         $data['category'] = $category;
         $data['category_name'] = $category_name;
+
+        $property_types = config('settings.property_types');
+
+        $data['property_types'] = $property_types_array;
 
         array_push($data,['category_name'=>$category_name,'category'=>$category,'properties' => $properties]);
         return view('property.show',['data'=>$data]);
@@ -61,10 +69,8 @@ class PropertyController extends Controller
         $data = [];
         //$options = option::get();
         $cities = City::orderBy('name', 'asc')->get();
-        //$propertyType = category::findorFail($propertyTypeId);
-
-        $categories = config('settings.categories');
-        $propertyTypes = $categories;
+        $property_types = config('settings.property_types');
+        $propertyTypes = $property_types;
 
         $category = $propertyTypeId;
 
@@ -75,26 +81,38 @@ class PropertyController extends Controller
          $utilities_data_feautures = utility_data::get();
          $currencies = currency::get();
          $garage_feautures = garage_feauture::get();
-        //  dd($garage_feautures);
-
+         $water_accesses = WaterAccess::get();
+         $water_extras = WaterExtras::get();
+         $water_frontages = WaterFrontage::get();
+         $water_views = WaterView::get();
 
         array_push($data,
         [
-        'options'=>$categories,
+        'options'=>$property_types,
         'cities'=>$cities,
         'propertyType'=>$propertyTypeId,
         'category'=>$category,
-        'categories'=>$categories,
+        'categories'=>$property_types,
         'propertyTypes'=>$propertyTypes,
         'f_communities'=>$f_communities,
         'exterior_feautures'=>$exterior_feautures,
         'utilities_data_feautures'=>$utilities_data_feautures,
         'garage_feautures'=>$garage_feautures,
-        'currencies'=>$currencies
+        'currencies'=>$currencies,
+        'water_accesses_array'=> $water_accesses,
+        'water_extras_array'=> $water_extras,
+        'water_frontages_array'=> $water_frontages,
+        'water_views_array'=> $water_views,
         ]);
-        $data['propertyTypes'] = $categories;
-
-        return view('property.createp', ['data'=>$data]);
+        $data['propertyTypes'] = $property_types;
+        $data['property_types'] = $property_types;
+        
+        if ($category == "land") {
+            
+            return view('property.createpland', ['data'=>$data]);
+        } else {
+            return view('property.createp', ['data'=>$data]);
+        }
 
     }
     //stores property
@@ -154,6 +172,16 @@ class PropertyController extends Controller
             $newProperty->fireplace = $request->fire_place ?  'yes' : "no";
             // $newProperty->currency_id = $request->currency_id;
             $newProperty->city_id = $request->city_id;
+            
+            if ($request->category == "land") {
+                $newProperty->water_access = $request->water_access;
+                $newProperty->water_view = $request->water_view;
+                $newProperty->water_frontage = $request->water_frontage;
+                $newProperty->water_extras = $request->water_extras;
+                $newProperty->water_name = $request->water_name;
+                $newProperty->water_front_feet = $request->water_front_feet;
+            }
+
             $newProperty->image = implode('|',$image);
 
             $newProperty->save();

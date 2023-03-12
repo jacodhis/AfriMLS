@@ -12,7 +12,12 @@ class BackendDashboardController extends Controller
         $categories = config('settings.categories');
 
         $data['categ_count'] = count($categories);
-        $data['propertyTypes'] = $categories;
+        $data['categories'] = $categories;
+
+        $property_types = config('settings.property_types');
+
+        $data['property_types_count'] = count($property_types);
+        $data['property_types'] = $property_types;
 
         return view('backendDashboard', ['data' => $data]);
 
