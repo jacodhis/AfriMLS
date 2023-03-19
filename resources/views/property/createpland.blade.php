@@ -28,14 +28,14 @@
             <div class="row" style="padding: 1px; margin: 1px">
                 <div class="col-md-3" style="padding: 1px; margin: 1px">
                     <p>
-                        <label for="pname">Property Name </label>
-                        <input type="text" name="pname" class="form-control" required>
+                        <label for="updated_at">Listing Date </label>
+                        <input type="date" name="updated_at" class="form-control" required>
                     </p>
                 </div>
                 <div class="col-md-3" style="padding: 1px; margin: 1px">
                     <p>
-                        <label for="pname">Property Image</label>
-                        <input type="file" name="property_images[]" class="form-control" multiple >
+                        <label for="pname">Expires On</label>
+                        <input type="date" name="expires_on" class="form-control" >
                     </p>
                 </div>
 
@@ -52,9 +52,25 @@
                       </p>
 
                   </div>
+            </div>
 
-                  <div class="col-md-3" style="padding: 1px; margin: 1px">
+            <div class="row" style="padding: 1px; margin: 1px">
+                <div class="col-md-4" style="padding: 1px; margin: 1px">
                     <p>
+                        <label for="pname">Property Name </label>
+                        <input type="text" name="pname" class="form-control" required>
+                    </p>
+                </div>
+                <div class="col-md-4" style="padding: 1px; margin: 1px">
+                    <p>
+                        <label for="pname">Property Image</label>
+                        <input type="file" name="property_images[]" class="form-control" multiple >
+                    </p>
+                </div>
+
+                <div class="col-md-3" style="padding: 1px; margin: 1px">
+                    <p>
+                        <label for="pname">Property Price</label>
                         <input type="number" min="1" name="property_price" class="form-control" required placeholder="Property Price">
                     </p>
                   </div>
@@ -126,7 +142,7 @@
     </div>
 
     <div class="card">
-        <div class="card-header" id="headingSix">
+    <div class="card-header" id="headingSix">
           <h5 class="mb-0">
             <button class="btn btn-link collapsed " type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
            Property Style
@@ -138,35 +154,49 @@
               <div class="row">
                   <div class="col-md-4" style="padding: 1px; margin: 1px">
                     <p>
-                        <input type="number" min="1" name="no_of_bedrooms" class="form-control" placeholder="No. of Bedrooms" >
+                        <input type="number" min="1" name="no_of_bedrooms" class="form-control" placeholder="Section" >
                     </p>
                   </div>
                   <div class="col-md-4" style="padding: 1px; margin: 1px">
                     <p>
-                        <input type="number" min="1" name="no_of_bathrooms" class="form-control" placeholder="No. of Bathrooms  ">
+                        <input type="number" min="1" name="no_of_bathrooms" class="form-control" placeholder="Township">
                     </p>
                   </div>
                   <div class="col-md-4" style="padding: 1px; margin: 1px">
                     <p>
-                        <input type="number" min="1" name="no_of_floor" class="form-control" placeholder="No. of Floors">
+                        <input type="number" min="1" name="no_of_floor" class="form-control" placeholder="Range">
                     </p>
                   </div>
                   <div class="col-md-4" style="padding: 1px; margin: 1px">
                     <p>
-                        <input type="text" name="square" class="form-control" placeholder="Enter Square Metre area">
+                        <input type="text" name="square" class="form-control" placeholder="Subdivision #">
                     </p>
                   </div>
                   <div class="col-md-4" style="padding: 1px; margin: 1px">
                     <p>
-                        <input type="number" min="1" name="house_number" class="form-control" placeholder="House No" >
+                        <input type="number" min="1" name="house_number" class="form-control" placeholder="Block / Parcel" >
                     </p>
                    </div>
                    <div class="col-md-4" style="padding: 1px; margin: 1px">
-                        <input type="number" min="1" name="floors_in_unit" class="form-control" placeholder="Floors in Unit">
-
+                        <input type="number" min="1" name="floors_in_unit" class="form-control" placeholder="Lot #">
                    </div>
                   </div>
-              </div>
+                  <div class="col-md-4" style="padding: 1px; margin: 1px">
+                    <p>
+                        <input type="text" name="no_of_bedrooms" class="form-control" placeholder="Legal Description" >
+                    </p>
+                  </div>
+                  <div class="col-md-4" style="padding: 1px; margin: 1px">
+                    <p>
+                        <input type="text" name="no_of_bathrooms" class="form-control" placeholder="Legal Subdivision Name">
+                    </p>
+                  </div>
+                  <div class="col-md-4" style="padding: 1px; margin: 1px">
+                    <p>
+                        <input type="text" min="1" name="no_of_floor" class="form-control" placeholder="Zoning">
+                    </p>
+                  </div>
+                                </div>
           </div>
         </div>
       </div>
@@ -248,21 +278,17 @@
         <div class="card-header" id="headingLand">
           <h5 class="mb-0">
             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseLand" aria-expanded="false" aria-controls="collapseLand">
-             Land Information
+            Property Style
             </button>
           </h5>
         </div>
         <div id="collapseLand" class="collapse" aria-labelledby="headingLand" data-parent="#accordionExample">
           <div class="card-body">
-            <h3>Utilities Data</h3>
              <div class="row">
-              @foreach ($data[0]['utilities_data_feautures'] as $ut_data_feauture)
+              @foreach ($data['property_styles'] as $ut_data_key => $ut_data_feauture)
                 <div class=" col-md-2">
                   <ul class="list-unstyled">
-
-
-                    <li><input type="checkbox" name="utilities_feauture[]" value="{{$ut_data_feauture->id}}" >{{$ut_data_feauture->utilities_data}}</li>
-
+                    <li><input type="checkbox" name="utilities_feauture[]" value="{{$ut_data_key}}"> {{$ut_data_feauture}}</li>
                   </ul>
 
                 </div>
@@ -349,6 +375,90 @@
                     </p>
                   </div>
             </div>
+            
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <div class="card-header" id="headingFive">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                Land Information
+            </button>
+          </h5>
+        </div>
+        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+          <div class="card-body">
+            <div class="row">
+                  <div class="col-2" style="padding: 1px; margin: 1px">
+                    <p>
+                        <input type="text" name="lot_dimensions" class="form-control" placeholder="Lot Dimensions" >
+                    </p>
+                  </div>
+                  <div class="col-2" style="padding: 1px; margin: 1px">
+                    <p>
+                        <input type="text" name="lot_size_sq_ft" class="form-control" placeholder="Lot Size (Sq. Ft.):" >
+                    </p>
+                  </div>
+                  <div class="col-2" style="padding: 1px; margin: 1px">
+                    <p>
+                        <input type="text" name="lot_size_acre" class="form-control" placeholder="Lot Size (Acre):" >
+                    </p>
+                  </div>
+                  <div class="col-3" style="padding: 1px; margin: 1px">
+                    <p>
+                        <input type="text" name="front_footage" class="form-control" placeholder="Front Footage:" >
+                    </p>
+                  </div>
+            </div>
+
+            <div class="row">
+                  <div class="col-md-3"><h5>Total Acreage</h5>
+                    @foreach ($data['total-acreage'] as $total_acreage_key => $total_acreage_val)
+                      <ul class="list-unstyled">
+                        <li><input type="checkbox" name="total_acreage[]" value="{{$total_acreage_key}}" >{{$total_acreage_val}}</li>
+                      </ul>
+                    @endforeach
+                  </div>
+
+                  <div class="col-md-3"><h5>Location (9 Max)</h5>
+                    @foreach ($data['location'] as $location_key => $location_val)
+                      <ul class="list-unstyled">
+                        <li><input type="checkbox" name="location[]" value="{{$location_key}}" >{{$location_val}}</li>
+                      </ul>
+                    @endforeach
+                  </div>
+                    
+                  <div class="col-md-3"><h5> &nbsp; </h5>
+                  @foreach ($data['location2'] as $location2_key => $location2_val)
+                      <ul class="list-unstyled">
+                        <li><input type="checkbox" name="location2[]" value="{{$location2_key}}" >{{$location2_val}}</li>
+                      </ul>
+                    @endforeach
+                  </div>
+
+                  <div class="col-md-3"><h5>Front Exp</h5>
+                    @foreach ($data['front-exp'] as $front_exp_key => $front_exp_val)
+                      <ul class="list-unstyled">
+                        <li><input type="checkbox" name="front_exp[]" value="{{$front_exp_key}}" >{{$front_exp_val}}</li>
+                      </ul>
+                    @endforeach
+                  </div>
+            </div>
+
+            <div class="row">
+                  <div class="col-5" style="padding: 1px; margin: 1px">
+                    <textarea class="form-control" name="availability">Availability</textarea>
+                  </div>
+                  <div class="col-5" style="padding: 1px; margin: 1px">
+                    <textarea class="form-control" name="easements">Easements</textarea>
+                  </div>
+                  
+            </div>
+            
             
 
           </div>

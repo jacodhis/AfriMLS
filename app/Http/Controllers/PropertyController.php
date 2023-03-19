@@ -108,7 +108,11 @@ class PropertyController extends Controller
         $data['property_types'] = $property_types;
         
         if ($category == "land") {
-            
+            $data['property_styles'] = config('settings.property-styles');
+            $data['total-acreage'] = config('settings.total-acreage');
+            $data['location'] = config('settings.location');
+            $data['location2'] = config('settings.location2');
+            $data['front-exp'] = config('settings.front-exp');
             return view('property.createpland', ['data'=>$data]);
         } else {
             return view('property.createp', ['data'=>$data]);
