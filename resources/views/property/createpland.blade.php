@@ -79,6 +79,19 @@
                         <textarea name="description" id="" cols="60" rows="2" required placeholder="Description"></textarea>
                     </p >
                 </div>
+                
+            </div>
+
+            <div class="row" style="padding: 1px; margin: 1px">
+                <div class="col-md-3" style="padding: 1px; margin: 1px">
+                          <label for="pnames">Listing Type</label>
+                </div>
+
+                <div class="col-md-9" style="padding: 1px; margin: 1px">
+                    @foreach ($data['listing_types'] as $listing_type_key => $listing_type_val)
+                      <input type="checkbox" name="listing_types[]" value="{{$listing_type_key}}"> &nbsp; {{$listing_type_val}} &nbsp; &nbsp;
+                    @endforeach 
+                </div>
             </div>
               <div id="loc" class="col-md-3 py-3" style="padding: 1px; margin: 1px; display:none;">
                     <p>
@@ -112,31 +125,7 @@
             </div>
             <hr>
 
-            <div class="row">
-                <div class="col-md-4" >
-                    <p>
-                        <select name="option_id" id="" class="form-control">Type
-                            <option value="" disabled>select option</option>
-                            @foreach ($data[0]['options'] as $optionkey => $optionval)
-                                <option value="{{$optionkey}}">{{$optionval}}</option>
-                            @endforeach
-                        </select>
-                     </p>
-                </div>
-                <div class="col-md-2">
-                    <p>
-                        <input type="checkbox" name="is_feautured">  Is Feautured
-                     </p>
-
-
-                </div>
-                <div class="col-md-2">
-                    <p>
-                        <input type="checkbox" name="fire_place"> Fire place
-                    </p>
-
-                </div>
-            </div>
+            
         </div>
       </div>
     </div>
@@ -188,12 +177,12 @@
                   </div>
                   <div class="col-md-4" style="padding: 1px; margin: 1px">
                     <p>
-                        <input type="text" name="no_of_bathrooms" class="form-control" placeholder="Legal Subdivision Name">
+                        <input type="text" maxlength="255" name="legal_subdivision_name" class="form-control" placeholder="Legal Subdivision Name">
                     </p>
                   </div>
                   <div class="col-md-4" style="padding: 1px; margin: 1px">
                     <p>
-                        <input type="text" min="1" name="no_of_floor" class="form-control" placeholder="Zoning">
+                        <input type="text" maxlength="255" name="zoning" class="form-control" placeholder="Zoning">
                     </p>
                   </div>
                                 </div>
@@ -215,7 +204,7 @@
           <div class="card-body">
              <div class="row">
                  <div class="col-md-6">
-                        <input type="text" class="form-control" name="owner_name" placeholder=" property owners name">
+                        <input type="text" maxlength="255" class="form-control" name="owner_name" placeholder=" property owners name">
                  </div>
                  <div class="col-md-6">
                         <input type="number" min="10" class="form-control" name="owner_phone" placeholder="owner's phone number">
@@ -253,23 +242,6 @@
                     </p>
                   </div>
               </div>
-              <div class="row">
-                  <div class="col-md-3" style="padding: 1px; margin: 1px">
-                      <p>
-                          <input type="text" name="street_dir" class="form-control"placeholder="Street Direction" >
-                      </p>
-                  </div>
-                  <div class="col-md-3" style="padding: 1px; margin: 1px">
-                      <p>
-                          <input type="number" min="1" name="unit_number" placeholder="unit number" class="form-control" >
-                      </p>
-                  </div>
-                  <div class="col-md-3" style="padding: 1px; margin: 1px">
-                      <p>
-                          <input type="text" name="period" class="form-control" placeholder="period" >
-                      </p>
-                  </div>
-              </div>
           </div>
         </div>
       </div>
@@ -288,7 +260,7 @@
               @foreach ($data['property_styles'] as $ut_data_key => $ut_data_feauture)
                 <div class=" col-md-2">
                   <ul class="list-unstyled">
-                    <li><input type="checkbox" name="utilities_feauture[]" value="{{$ut_data_key}}"> {{$ut_data_feauture}}</li>
+                    <li><input type="checkbox" name="property_styles[]" value="{{$ut_data_key}}"> {{$ut_data_feauture}}</li>
                   </ul>
 
                 </div>
@@ -299,88 +271,6 @@
           </div>
         </div>
       </div>
-
-      <div class="card">
-        <div class="card-header" id="headingFive">
-          <h5 class="mb-0">
-            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                Waterfront Information
-            </button>
-          </h5>
-        </div>
-        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-3">
-                Water Access Y/N: <input type="radio" name="water_access" value="yes" checked>Yes
-                <input type="radio" name="water_access" value="no" >No
-              </div>
-              <div class="col-md-3">
-              Water View Y/N:  <input type="radio" name="water_view" value="yes" checked>Yes
-               <input type="radio" name="water_view" value="no" >No
-              </div>
-              <div class="col-md-3">
-              Water Frontage Y/N: <input type="radio" name="water_frontage" value="yes" checked>Yes
-              <input type="radio" name="water_frontage" value="no" >No
-              </div>
-              <div class="col-md-3">
-              Water Extras Y/N: <input type="radio" name="water_extras" value="yes" checked>Yes
-              <input type="radio" name="water_extras" value="no" >No
-              </div>
-            </div>
-
-            <div class="row">
-                  <div class="col-md-3">
-                    @foreach ($data[0]['water_accesses_array'] as $water_access)
-                      <ul class="list-unstyled">
-                        <li><input type="checkbox" name="water_access[]" value="{{$water_access->id}}" >{{$water_access->name}}</li>
-                      </ul>
-                    @endforeach
-                  </div>
-
-                  <div class="col-md-3">
-                    @foreach ($data[0]['water_extras_array'] as $water_extras)
-                      <ul class="list-unstyled">
-                        <li><input type="checkbox" name="water_extras[]" value="{{$water_extras->id}}" >{{$water_extras->name}}</li>
-                      </ul>
-                    @endforeach
-                  </div>
-                    
-                  <div class="col-md-3">
-                    @foreach ($data[0]['water_frontages_array'] as $water_frontages)
-                      <ul class="list-unstyled">
-                        <li><input type="checkbox" name="water_frontages[]" value="{{$water_frontages->id}}" >{{$water_frontages->name}}</li>
-                      </ul>
-                    @endforeach
-                  </div>
-
-                  <div class="col-md-3">
-                    @foreach ($data[0]['water_views_array'] as $water_views)
-                      <ul class="list-unstyled">
-                        <li><input type="checkbox" name="water_views[]" value="{{$water_views->id}}" >{{$water_views->name}}</li>
-                      </ul>
-                    @endforeach
-                  </div>
-            </div>
-
-            <div class="row">
-                  <div class="col-4" style="padding: 1px; margin: 1px">
-                    <p>
-                        <input type="text" name="water_name" class="form-control" placeholder="water name" >
-                    </p>
-                  </div>
-                  <div class="col-4" style="padding: 1px; margin: 1px">
-                    <p>
-                        <input type="text" name="water_front_feet" class="form-control" placeholder="water front feet" >
-                    </p>
-                  </div>
-            </div>
-            
-
-          </div>
-        </div>
-      </div>
-
 
       <div class="card">
         <div class="card-header" id="headingFive">
@@ -442,19 +332,19 @@
 
                   <div class="col-md-3"><h5>Front Exp</h5>
                     @foreach ($data['front-exp'] as $front_exp_key => $front_exp_val)
-                      <ul class="list-unstyled">
-                        <li><input type="checkbox" name="front_exp[]" value="{{$front_exp_key}}" >{{$front_exp_val}}</li>
-                      </ul>
+                      
+                      <input type="checkbox" name="front_exp[]" value="{{$front_exp_key}}" >&nbsp;{{$front_exp_val}}&nbsp;&nbsp;
+                      
                     @endforeach
                   </div>
             </div>
 
             <div class="row">
                   <div class="col-5" style="padding: 1px; margin: 1px">
-                    <textarea class="form-control" name="availability">Availability</textarea>
+                    <textarea class="form-control" name="availability" maxlength="255">Availability</textarea>
                   </div>
                   <div class="col-5" style="padding: 1px; margin: 1px">
-                    <textarea class="form-control" name="easements">Easements</textarea>
+                    <textarea class="form-control" name="easements" maxlength="255">Easements</textarea>
                   </div>
                   
             </div>
@@ -464,6 +354,90 @@
           </div>
         </div>
       </div>
+
+      <div class="card">
+        <div class="card-header" id="headingFive">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                Waterfront Information
+            </button>
+          </h5>
+        </div>
+        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-3">
+                Water Access Y/N: <input type="radio" name="water_access" value="yes" checked>Yes
+                <input type="radio" name="water_access" value="no" >No
+              </div>
+              <div class="col-md-3">
+              Water View Y/N:  <input type="radio" name="water_view" value="yes" checked>Yes
+               <input type="radio" name="water_view" value="no" >No
+              </div>
+              <div class="col-md-3">
+              Water Frontage Y/N: <input type="radio" name="water_frontage" value="yes" checked>Yes
+              <input type="radio" name="water_frontage" value="no" >No
+              </div>
+              <div class="col-md-3">
+              Water Extras Y/N: <input type="radio" name="water_extras" value="yes" checked>Yes
+              <input type="radio" name="water_extras" value="no" >No
+              </div>
+            </div>
+
+            <div class="row">
+                  <div class="col-md-3">
+                    @foreach ($data[0]['water_accesses_array'] as $water_access)
+                      <ul class="list-unstyled">
+                        <li><input type="checkbox" name="water_access[]" value="{{$water_access->id}}" > {{$water_access->name}}</li>
+                      </ul>
+                    @endforeach
+                  </div>
+
+                  <div class="col-md-3">
+                    @foreach ($data[0]['water_extras_array'] as $water_extras)
+                      <ul class="list-unstyled">
+                        <li><input type="checkbox" name="water_extras[]" value="{{$water_extras->id}}" > {{$water_extras->name}}</li>
+                      </ul>
+                    @endforeach
+                  </div>
+                    
+                  <div class="col-md-3">
+                    @foreach ($data[0]['water_frontages_array'] as $water_frontages)
+                      <ul class="list-unstyled">
+                        <li><input type="checkbox" name="water_frontages[]" value="{{$water_frontages->id}}" > {{$water_frontages->name}}</li>
+                      </ul>
+                    @endforeach
+                  </div>
+
+                  <div class="col-md-3">
+                    @foreach ($data[0]['water_views_array'] as $water_views)
+                      <ul class="list-unstyled">
+                        <li><input type="checkbox" name="water_views[]" value="{{$water_views->id}}" > {{$water_views->name}}</li>
+                      </ul>
+                    @endforeach
+                  </div>
+            </div>
+
+            <div class="row">
+                  <div class="col-4" style="padding: 1px; margin: 1px">
+                    <p>
+                        <input type="text" name="water_name" class="form-control" placeholder="water name" >
+                    </p>
+                  </div>
+                  <div class="col-4" style="padding: 1px; margin: 1px">
+                    <p>
+                        <input type="text" name="water_front_feet" class="form-control" placeholder="water front feet" >
+                    </p>
+                  </div>
+            </div>
+            
+
+          </div>
+        </div>
+      </div>
+
+
+      
 
 
   </div>

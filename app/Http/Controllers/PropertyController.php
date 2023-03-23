@@ -22,6 +22,7 @@ use App\Models\WaterAccess;
 use App\Models\WaterExtras;
 use App\Models\WaterFrontage;
 use App\Models\WaterView;
+use App\Models\Config_Property_Selection;
 
 class PropertyController extends Controller
 {
@@ -108,6 +109,7 @@ class PropertyController extends Controller
         $data['property_types'] = $property_types;
         
         if ($category == "land") {
+            $data['listing_types'] = config('settings.listing_types');
             $data['property_styles'] = config('settings.property-styles');
             $data['total-acreage'] = config('settings.total-acreage');
             $data['location'] = config('settings.location');
@@ -121,7 +123,7 @@ class PropertyController extends Controller
     }
     //stores property
     public function store(Request $request){
-        // dd($request->all());
+         dd($request->all());
 
 
 
@@ -146,26 +148,17 @@ class PropertyController extends Controller
             $newProperty = new property;
             $newProperty->name = $request->pname;
             $newProperty->category = $request->category;
-            //$newProperty->option_id = $request->option_id;
             $newProperty->description = $request->description;
-            //$newProperty->category_id = $request->propertyTypeId;
             $newProperty->location_id = $request->location_id;
             $newProperty->price = $request->property_price;
-            $newProperty->number_bedroom = $request->no_of_bedrooms;
-            $newProperty->number_bathroom = $request->no_of_bathrooms;
-            $newProperty->number_floor = $request->no_of_floor;
+            
             $newProperty->square = $request->square;
             $newProperty->house_no = $request->house_number;
             $newProperty->street_name = $request->street_name;
             $newProperty->street_type = $request->street_type;
             $newProperty->str_dir = $request->street_dir;
             $newProperty->unit_no = $request->unit_number;
-            $newProperty->period = $request->period;
-            $newProperty->condo_building = $request->condo_building;
-            $newProperty->condo_floor = $request->condo_floor;
-            $newProperty->building_no_floors = $request->building_no_floors;
-            $newProperty->building_name_number = $request->building_name_No;
-            $newProperty->floors_in_unit = $request->floors_in_unit;
+            $newProperty->period = $request->period;            
             $newProperty->tax_id = $request->tax_id;
             $newProperty->taxes = $request->taxes;
             $newProperty->tax_year = $request->tax_year;
@@ -174,7 +167,6 @@ class PropertyController extends Controller
             $newProperty->owner_phone = $request->owner_phone;
             $newProperty->is_feautured = $request->is_feautured ? 'yes' : "no";
             $newProperty->fireplace = $request->fire_place ?  'yes' : "no";
-            // $newProperty->currency_id = $request->currency_id;
             $newProperty->city_id = $request->city_id;
             
             if ($request->category == "land") {
@@ -184,6 +176,17 @@ class PropertyController extends Controller
                 $newProperty->water_extras = $request->water_extras;
                 $newProperty->water_name = $request->water_name;
                 $newProperty->water_front_feet = $request->water_front_feet;
+                $newProperty->updated_at = $request->updated_at;
+                $newProperty->expires_on = $request->expires_on;
+            } else {
+                $newProperty->number_bedroom = $request->no_of_bedrooms;
+                $newProperty->number_bathroom = $request->no_of_bathrooms;
+                $newProperty->number_floor = $request->no_of_floor;
+                $newProperty->condo_building = $request->condo_building;
+                $newProperty->condo_floor = $request->condo_floor;
+                $newProperty->building_no_floors = $request->building_no_floors;
+                $newProperty->building_name_number = $request->building_name_No;
+                $newProperty->floors_in_unit = $request->floors_in_unit;
             }
 
             $newProperty->image = implode('|',$image);
@@ -192,7 +195,6 @@ class PropertyController extends Controller
 
            if($newProperty){
 
-                // dd($request->exeterior_fs);
                 $c_fs = $request->community_fs;
                 if(!empty($c_fs)){
                     foreach($c_fs as $cf){
@@ -232,7 +234,16 @@ class PropertyController extends Controller
                         $garage_f->garage_feauture_id = $garage_property_feauture_id;
                         $garage_f->save();
                     }
+                }
 
+
+                if ($request->category == "land") {
+                    $newConfigProperty = new Config_Property_Selection;
+                    $newConfigProperty->category = "land";
+                    $newConfigProperty->property_id = $newProperty->id;
+                    $newConfigProperty->setting = "listing_types";
+                    $newConfigProperty->selection = "limited-service";
+                    $newConfigProperty->save();
                 }
 
 
