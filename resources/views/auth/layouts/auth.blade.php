@@ -18,7 +18,8 @@
 <body>
 <div class="container">
 	<div class="d-flex justify-content-center h-100">
-		<div class="card"><img class="logo-light" src="{{asset('assets/images/logo/AfriMLS-logo-web.jpg')}}"                                alt="Afri MLS Logo">
+		<div class="card">
+			<img class="logo-light" src="{{asset('assets/images/logo/AfriMLS-logo-web.jpg')}}"    alt="Afri MLS Logo">
 			<div class="card-header">
 
 			</div>

@@ -32,7 +32,7 @@
               <li><a class="dropdown-item" href="#">Something else here</a></li>
 			  -->
               @foreach($getSearchParams['property_types'] as $category_nav)
-				<li><a onclick="location.href='/for-sale/';" data-toggle="dropdown" class="dropdown-toggle"></a></li>
+				<li><a onclick="location.href='/for-sale/';" data-toggle="dropdown" class="dropdown-toggle">{{$category_nav}}</a></li>
 			  @endforeach
             </ul>
           </li>
@@ -41,6 +41,9 @@
               For Rent
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              @foreach($getSearchParams['property_types'] as $category_nav)
+                <li><a onclick="location.href='/for-rent/';" data-toggle="dropdown" class="dropdown-toggle">{{$category_nav}}</a></li>
+              @endforeach
 			  <!--
               <li><a class="dropdown-item" href="#">Action</a></li>
               <li><a class="dropdown-item" href="#">Another action</a></li>

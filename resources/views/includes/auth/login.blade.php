@@ -37,11 +37,11 @@
 </div>
 <div class="card-footer">
     <div class="d-flex justify-content-center links">
-        Don't have an account?<a href="{{route('register')}}">Sign Up</a>
+        Don't have an account?<a href="{{route('register')}}" style="color: whitesmoke;text-shadow: 2px 2px 5px black">Sign Up</a>
     </div>
     <div class="d-flex justify-content-center">
         @if (Route::has('password.request'))
-                <a class="btn btn-link" href="{{ route('password.request') }}">
+                <a class="btn btn-link" href="{{ route('password.request') }}" style="color: whitesmoke;text-shadow: 2px 2px 5px black">
                     {{ __('Forgot Your Password?') }}
                 </a>
             @endif
