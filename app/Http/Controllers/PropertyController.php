@@ -123,7 +123,7 @@ class PropertyController extends Controller
     }
     //stores property
     public function store(Request $request){
-         dd($request->all());
+         //dd($request->all());
 
 
 
@@ -252,7 +252,6 @@ class PropertyController extends Controller
            }
 
             return back()->with('success','property added successfully');
-            // session()->flash('success','upload done successfully');
 
 
         }else{
