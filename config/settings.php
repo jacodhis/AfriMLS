@@ -1,11 +1,16 @@
 <?php
 
 return [
-    'property_types' => [
-        'single-family-unit' => 'Single Family Unit',
-        'multi-tenant-unit' => 'Multi Tenant Unit',
-        'land' => 'Land'
-    ],
+//    'property_types' => [
+//        'single-family-unit' => 'Single Family Unit',
+//        'multi-tenant-unit' => 'Multi Tenant Unit',
+//        'land' => 'Land'
+//    ],
+	'property_types' => [
+		'single-unit' => 'Single Unit',
+		'multi-unit' => 'Multi Unit',
+		'land' => 'Land'
+	],
     'categories' => [
         'to-let' => 'To Let',
         'for-sale' => 'For Sale'

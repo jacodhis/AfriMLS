@@ -8,7 +8,7 @@
 @section('content')
 <ol class="breadcrumb">
     <li><a href="{{route('newhome')}}" class="mr-1">Home </a></li> /
-    <li class="active"> <p style="color: blue">Add {{$data[0]['propertyType']->name ??""}}</p></li>
+    <li class="active"> <p style="color: blue">Add {{$data[0]['propertyValue']??""}}</p></li>
 </ol>
 <form action="{{route('property.store')}}" method="post" enctype="multipart/form-data">
     @csrf

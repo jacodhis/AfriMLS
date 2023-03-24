@@ -27,24 +27,21 @@ use App\Models\Config_Property_Selection;
 class PropertyController extends Controller
 {
 
-// shows all propertis with the propertyType id in variable
-    public function show( $category){
-        $data = [];
+// shows all properties with the propertyType id in variable
+    public function show( $propertyType){
 
-        $properties = Property::where('category',$category)->get();
-
-        $property_types_array = config('settings.property_types');
-        $category_name = $property_types_array[$category];
-
-        $data['propertyTypes'] = $property_types_array;
-        $data['category'] = $category;
-        $data['category_name'] = $category_name;
-
-        $property_types = config('settings.property_types');
-
+		$property_types_array = config('settings.property_types');
+		if(!array_key_exists($propertyType,$property_types_array)){
+			return back();
+		}
+		$propertyTypeValue = $property_types_array[$propertyType];
+		if(!$properties = Property::where('property_type',$propertyTypeValue)->get()){
+			return back();
+		}
+        $data['propertyValue'] = $propertyTypeValue;
+		$data['propertyType'] = $propertyType;
         $data['property_types'] = $property_types_array;
-
-        array_push($data,['category_name'=>$category_name,'category'=>$category,'properties' => $properties]);
+		$data['properties'] = $properties;
         return view('property.show',['data'=>$data]);
     }
     //   shows a single property to view page
@@ -67,6 +64,8 @@ class PropertyController extends Controller
     }
     //displays form to add property
     public function create($propertyTypeId){
+
+
         $data = [];
         //$options = option::get();
         $cities = City::orderBy('name', 'asc')->get();
@@ -75,7 +74,6 @@ class PropertyController extends Controller
 
         $category = $propertyTypeId;
 
-        // dd($propertyType);
         // $community_feautures = DB::table('community_feautures')->select('id','community_feauture')->get();
          $f_communities = feauture_community::get();
          $exterior_feautures = exterior_feauture::get();
@@ -123,14 +121,18 @@ class PropertyController extends Controller
     }
     //stores property
     public function store(Request $request){
-         //dd($request->all());
-
-
+		$propertyType = $request->category;
+		$property_types_array = config('settings.property_types');
+		if(!array_key_exists($propertyType,$property_types_array)){
+			return back();
+		}
+		$propertyValue = $property_types_array[$propertyType];
 
         $image = [];
         if($request->hasFile('property_images')){
+
             $files = $request->property_images;
-            // dd($files);
+
             foreach($files as $file){
 
                 $image_name = md5(rand(1000,10000));
@@ -168,8 +170,9 @@ class PropertyController extends Controller
             $newProperty->is_feautured = $request->is_feautured ? 'yes' : "no";
             $newProperty->fireplace = $request->fire_place ?  'yes' : "no";
             $newProperty->city_id = $request->city_id;
-            
-            if ($request->category == "land") {
+			$newProperty->property_type = $propertyValue;
+
+            if ($propertyType == "land") {
                 $newProperty->water_access = $request->water_access;
                 $newProperty->water_view = $request->water_view;
                 $newProperty->water_frontage = $request->water_frontage;
@@ -178,6 +181,7 @@ class PropertyController extends Controller
                 $newProperty->water_front_feet = $request->water_front_feet;
                 $newProperty->updated_at = $request->updated_at;
                 $newProperty->expires_on = $request->expires_on;
+
             } else {
                 $newProperty->number_bedroom = $request->no_of_bedrooms;
                 $newProperty->number_bathroom = $request->no_of_bathrooms;
@@ -236,30 +240,22 @@ class PropertyController extends Controller
                     }
                 }
 
-
                 if ($request->category == "land") {
-                    $newConfigProperty = new Config_Property_Selection;
-                    $newConfigProperty->category = "land";
-                    $newConfigProperty->property_id = $newProperty->id;
-                    $newConfigProperty->setting = "listing_types";
-                    $newConfigProperty->selection = "limited-service";
-                    $newConfigProperty->save();
+					//commented this code because it throws an error when posting lands
+//                    $newConfigProperty = new Config_Property_Selection;
+//                    $newConfigProperty->category = "land";
+//                    $newConfigProperty->property_id = $newProperty->id;
+//                    $newConfigProperty->setting = "listing_types";
+//                    $newConfigProperty->selection = "limited-service";
+//                    $newConfigProperty->save();
                 }
-
-
            }else{
                return back()->with('error','image upload empty');
            }
-
             return back()->with('success','property added successfully');
-
-
         }else{
             return back()->with('error','please upload the property image/s');
         }
-
-
-
 
     }
 

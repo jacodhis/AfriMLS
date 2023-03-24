@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Config_Property_Selection extends Model
 {
     use HasFactory;
+	protected $guarded = [];
 }
