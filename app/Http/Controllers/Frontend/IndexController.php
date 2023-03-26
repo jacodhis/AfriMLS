@@ -45,11 +45,19 @@ class IndexController extends Controller
 
     public function home() {
 
-        $properties = Property::take(3)->orderby('id','desc')->get();
+	   $data['getSearchParams'] = self::getSearchParams();
 
-       $data['properties'] = $properties;
+	   	$singleUnit = $data['getSearchParams']['property_types']['single-unit'];
+	   	$multiUnit = $data['getSearchParams']['property_types']['multi-unit'];
+	   	$land = $data['getSearchParams']['property_types']['land'];
 
-         $data['getSearchParams'] = self::getSearchParams();
+	    $landProp = Property::where('property_type',$land)->inRandomOrder()->take(1)->get();
+		$singleUnitProp = Property::where('property_type',$singleUnit)->inRandomOrder()->take(1)->get();
+		$multiUnitProp = Property::where('property_type',$multiUnit)->inRandomOrder()->take(1)->get();
+
+		$properties = $landProp->merge($singleUnitProp)->merge($multiUnitProp);
+		$data['properties'] = $properties;
+
          return view('pages.home',  ['data' => $data]);
     }
 

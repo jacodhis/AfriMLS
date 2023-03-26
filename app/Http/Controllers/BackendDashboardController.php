@@ -8,6 +8,7 @@ class BackendDashboardController extends Controller
 {
     //
     public function dashboard(){
+
         $data = [];
         $categories = config('settings.categories');
 

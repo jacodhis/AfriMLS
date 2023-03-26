@@ -61,7 +61,7 @@ Route::GET('/ajaxGetLocations','PropertyController@getLocations');
 Route::middleware(['auth'])->group(function () {
     Route::get('/AfriMLSdashboard', 'BackendDashboardController@dashboard')->name('backendDashboard');
     Route::get('/propertyType/create/{id}','PropertyController@create')->name('addProperty');
-    Route::get('/propertyType/{propertyTypeId}','PropertyController@show')->name('properTypeShow');
+    Route::get('/propertyType/{propertyType}','PropertyController@show')->name('properTypeShow');
     Route::post('/property/store','PropertyController@store')->name('property.store');
     Route::get('/my-properties', 'PropertyController@myproperties')->name('myproperties');
     Route::get('showsingleproperty/{id}','PropertyController@showoneproperty')->name('showsingleproperty');

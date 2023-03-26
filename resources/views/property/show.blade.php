@@ -3,19 +3,16 @@
 @extends('layouts.backend.layout')
 
 @section('title')
-Afri MLS {{$data[0]['category_name']}}s
+Afri MLS {{$data['propertyValue']}}s
 @endsection
 
 @section('content')
 
-
-
-
-
 <div class="card shadow mb-4">
     <div class="card-header d-flex justify-content-between py-3">
-        <h6 class="m-0 font-weight-bold text-primary">{{$data[0]['category_name']}} Data</h6>
-        <h6 class="m-0 font-weight-bold text-primary"><a href="{{route('addProperty', $data[0]['category'])}}" class="btn btn-primary " > Add  <span class="badge badge-primary" >+</span></a> </h6>
+        <h6 class="m-0 font-weight-bold text-primary">{{$data['propertyValue']}} Data</h6>
+        <h6 class="m-0 font-weight-bold text-primary"><a href="{{route('addProperty', $data['propertyType'])}}" class="btn btn-primary " > Add  <span class="badge badge-primary"
+                >+</span></a> </h6>
     </div>
 
     <div class="card-body">
@@ -33,7 +30,7 @@ Afri MLS {{$data[0]['category_name']}}s
                 </thead>
 
                 <tbody>
-                    @forelse ( $data[0]['properties'] as $property  )
+                    @forelse ( $data['properties'] as $property  )
                     <tr>
 
                         <td>{{$property->name ?? ""}}</td>

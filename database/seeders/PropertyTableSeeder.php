@@ -24,6 +24,7 @@ class PropertyTableSeeder extends Seeder
 
         $k2 = rand(0, 1);
 
+		$defaultPropertyType = config('settings.property_types')['single-unit'];
 
         for ($i=0; $i < $data; $i++) {
             $count ++;
@@ -38,7 +39,8 @@ class PropertyTableSeeder extends Seeder
                 'city_id' => mt_rand(1,4),
                 'fireplace'=> 'no',
                 'description' => 'This is a DESCRIPTION ...... Duis aute irure dolor in reprehenderit in volupte velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis',
-                'property_type' => 'single-family-unit',
+//                'property_type' => 'single-family-unit',
+				'property_type' => $defaultPropertyType,
                 'category' => 'to-let',
 
             ]);

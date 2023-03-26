@@ -79,7 +79,7 @@
                         <textarea name="description" id="" cols="60" rows="2" required placeholder="Description"></textarea>
                     </p >
                 </div>
-                
+
             </div>
 
             <div class="row" style="padding: 1px; margin: 1px">
@@ -90,7 +90,7 @@
                 <div class="col-md-9" style="padding: 1px; margin: 1px">
                     @foreach ($data['listing_types'] as $listing_type_key => $listing_type_val)
                       <input type="checkbox" name="listing_types[]" value="{{$listing_type_key}}"> &nbsp; {{$listing_type_val}} &nbsp; &nbsp;
-                    @endforeach 
+                    @endforeach
                 </div>
             </div>
               <div id="loc" class="col-md-3 py-3" style="padding: 1px; margin: 1px; display:none;">
@@ -125,7 +125,7 @@
             </div>
             <hr>
 
-            
+
         </div>
       </div>
     </div>
@@ -321,7 +321,7 @@
                       </ul>
                     @endforeach
                   </div>
-                    
+
                   <div class="col-md-3"><h5> &nbsp; </h5>
                   @foreach ($data['location2'] as $location2_key => $location2_val)
                       <ul class="list-unstyled">
@@ -332,9 +332,9 @@
 
                   <div class="col-md-3"><h5>Front Exp</h5>
                     @foreach ($data['front-exp'] as $front_exp_key => $front_exp_val)
-                      
+
                       <input type="checkbox" name="front_exp[]" value="{{$front_exp_key}}" >&nbsp;{{$front_exp_val}}&nbsp;&nbsp;
-                      
+
                     @endforeach
                   </div>
             </div>
@@ -346,10 +346,10 @@
                   <div class="col-5" style="padding: 1px; margin: 1px">
                     <textarea class="form-control" name="easements" maxlength="255">Easements</textarea>
                   </div>
-                  
+
             </div>
-            
-            
+
+
 
           </div>
         </div>
@@ -400,7 +400,7 @@
                       </ul>
                     @endforeach
                   </div>
-                    
+
                   <div class="col-md-3">
                     @foreach ($data[0]['water_frontages_array'] as $water_frontages)
                       <ul class="list-unstyled">
@@ -430,18 +430,15 @@
                     </p>
                   </div>
             </div>
-            
+
 
           </div>
         </div>
       </div>
-
-
-      
-
-
-  </div>
   <input type="hidden" value="{{$data[0]['category']}}" name="category">
+
+
+
 
 
  <div class="col-md-4 mx-auto py-4">
