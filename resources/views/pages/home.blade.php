@@ -9,9 +9,10 @@
             <div class="col-md-8">
                 @if(count($properties) >= 1)
                 @foreach($properties as $property)
+
                     <div class="row mx-0 item bg-white shadow-sm mb-1 py-1">
                         <div class="col-md-5">
-                            <img src="https://imgs.search.brave.com/q0S9RCJHS77w3UbbflKz4WPPmt7p-v5staJ2vmRUi3o/rs:fit:1024:684:1/g:ce/aHR0cDovL3d3dy5y/ZWFsZXN0YXRlc3Ry/dWN0dXJlZC5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTgv/MDkvUmVhbC1Fc3Rh/dGUtaXMtdGhlLUJl/c3QtSW5kdXN0cnkt/VGhlcmUtaXMtMTAy/NHg2ODQuanBn" alt="" class="w-100">
+                            <img src="{{$property->getPropertyImage()}}" alt="" class="w-100">
                         </div>
                         <div class="col-md-7">
                             <div class="align-self-center">

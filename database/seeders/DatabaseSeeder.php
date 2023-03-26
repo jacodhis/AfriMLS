@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
         $this->call(utility_datas::class);
         $this->call(currencies::class);
         $this->call(architectural_styles::class);
-        $this->call(PropertyTableSeeder::class);
+//        $this->call(PropertyTableSeeder::class);
 
 
     }
