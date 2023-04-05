@@ -258,6 +258,13 @@ class PropertyController extends Controller
         }
 
     }
+    // edit property
+    public function edit($id){
+        $property = Property::find($id);
+
+        return view('properties.edit', compact('property'));
+    }
+    
 
 
     public function myproperties(){
