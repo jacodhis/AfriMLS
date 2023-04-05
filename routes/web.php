@@ -56,6 +56,8 @@ Route::get('/all-properties/show','PropertyController@allProperties')->name('pro
 //ajax get locations
 Route::GET('/ajaxGetLocations','PropertyController@getLocations');
 // Route::GET('/ajaxGetsearchLike','PropertyController@searchLike');
+Route::get('/properties/{id}/edit', 'PropertyController@edit')->name('properties.edit');
+//property edit
 
 
 Route::middleware(['auth'])->group(function () {
