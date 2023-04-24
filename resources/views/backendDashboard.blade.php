@@ -7,8 +7,18 @@
 
 @section('content')
     <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <div class="d-sm-flex flex-column align-items-start mb-4">
         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+        <br>
+        <div class="d-sm-flex align-items-center justify-content-center">
+            <h4 class="pr-2 text-end">Add Property:</h4>
+            <div class="btn-group" role="group" aria-label="Default button group">
+                @foreach($data['property_types'] as $keyT => $valT )
+                    <a class="mx-1 btn btn-outline-primary" href="/propertyType/{{$keyT}}">{{$valT}}</a>
+                @endforeach
+            </div>
+        </div>
+
 
         {{-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> --}}
