@@ -15,113 +15,121 @@
  <div class="accordion" id="accordionExample">
     <div class="card">
       <div class="card-header" id="headingOne">
-        <h5 class="mb-0">
-          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-            <span style="color: GREEN">BASIC INFORMATION</span> Click the section to add Information
-          </button>
-        </h5>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Basic Information: Click the section to add Information.
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" data-parent="#accordionExample">
+            <div class="accordion-body">
+              <div class="card-body" style="padding: 1px; margin: 1px">
+                <p style="color: red">Property Details</p>
+                <div class="row" style="padding: 1px; margin: 1px">
+                    <div class="col-md-3" style="padding: 1px; margin: 1px">
+                        <p>
+                            <label for="pname">Property Name </label>
+                            <input type="text" name="pname" class="form-control" required>
+                        </p>
+                    </div>
+                    <div class="col-md-3" style="padding: 1px; margin: 1px">
+                        <p>
+                            <label for="pname">Property Image</label>
+                            <input type="file" name="property_images[]" class="form-control" multiple >
+                        </p>
+                    </div>
+    
+                    <div class="col-md-3" style="padding: 1px; margin: 1px">
+                        <p>
+                            <label for="">City</label>
+                                <select name="city_id" id="city_id" class="form-control" required onchange="getLocations()">
+                                    <option value="" disabled>select city</option>
+                                    @foreach ($data[0]['cities'] as $city)
+                                    <option value="{{$city->id}}">{{$city->name}}</option>
+                                    @endforeach
+    
+                                </select>
+                          </p>
+    
+                      </div>
+    
+                      <div class="col-md-3" style="padding: 1px; margin: 1px">
+                        <p>
+                            <input type="number" min="1" name="property_price" class="form-control" required placeholder="Property Price">
+                        </p>
+                      </div>
+                      <div class="col-md-3" style="padding: 1px; margin: 1px">
+                        <p>
+                            <textarea name="description" id="" cols="60" rows="2" required placeholder="Description"></textarea>
+                        </p >
+                    </div>
+                </div>
+                  <div id="loc" class="col-md-3 py-3" style="padding: 1px; margin: 1px; display:none;">
+                        <p>
+    
+                            <div id="DynamicLocationsDropdown"></div>
+                          </p>
+    
+                      </div>
+                <hr>
+                <p style="color: red">Taxes</p>
+                <div class="row" style="padding: 1px; margin: 1px">
+                    <div class="col-md-3" style="padding: 1px; margin: 1px">
+                        <p>
+                            <label for="taxId">Tax Id</label>
+                            <input type="number" name="tax_id" class="form-control" placeholder="Tax Id" >
+                        </p>
+                    </div>
+                    <div class="col-md-3" style="padding: 1px; margin: 1px">
+                        <p>
+                            <label for="taxes">Taxes</label>
+                            <input type="text" name="taxes" class="form-control" placeholder="Taxes" >
+                        </p>
+                    </div>
+                    <div class="col-md-3" style="padding: 1px; margin: 1px">
+                        <p>
+                            <label for="taxes">Tax year</label>
+                            <input type="date" name="tax_year" class="form-control" placeholder="Tax Year" >
+                        </p>
+                    </div>
+    
+                </div>
+                <hr>
+    
+                <div class="row">
+                    <div class="col-md-4" >
+                        <p>
+                            <select name="option_id" id="" class="form-control">Type
+                                <option value="" disabled>select option</option>
+                                @foreach ($data[0]['options'] as $optionkey => $optionval)
+                                    <option value="{{$optionkey}}">{{$optionval}}</option>
+                                @endforeach
+                            </select>
+                         </p>
+                    </div>
+                    <div class="col-md-2">
+                        <p>
+                            <input type="checkbox" name="is_feautured">  Is Feautured
+                         </p>
+    
+    
+                    </div>
+                    <div class="col-md-2">
+                        <p>
+                            <input type="checkbox" name="fire_place"> Fire place
+                        </p>
+    
+                    </div>
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample" >
-        <div class="card-body" style="padding: 1px; margin: 1px">
-            <p style="color: red">Property Details</p>
-            <div class="row" style="padding: 1px; margin: 1px">
-                <div class="col-md-3" style="padding: 1px; margin: 1px">
-                    <p>
-                        <label for="pname">Property Name </label>
-                        <input type="text" name="pname" class="form-control" required>
-                    </p>
-                </div>
-                <div class="col-md-3" style="padding: 1px; margin: 1px">
-                    <p>
-                        <label for="pname">Property Image</label>
-                        <input type="file" name="property_images[]" class="form-control" multiple >
-                    </p>
-                </div>
+      <div id="collapseOne" class="collapse " aria-labelledby="headingOne" aria-hidden='false' data-parent="#accordionExample" >
 
-                <div class="col-md-3" style="padding: 1px; margin: 1px">
-                    <p>
-                        <label for="">City</label>
-                            <select name="city_id" id="city_id" class="form-control" required onchange="getLocations()">
-                                <option value="" disabled>select city</option>
-                                @foreach ($data[0]['cities'] as $city)
-                                <option value="{{$city->id}}">{{$city->name}}</option>
-                                @endforeach
-
-                            </select>
-                      </p>
-
-                  </div>
-
-                  <div class="col-md-3" style="padding: 1px; margin: 1px">
-                    <p>
-                        <input type="number" min="1" name="property_price" class="form-control" required placeholder="Property Price">
-                    </p>
-                  </div>
-                  <div class="col-md-3" style="padding: 1px; margin: 1px">
-                    <p>
-                        <textarea name="description" id="" cols="60" rows="2" required placeholder="Description"></textarea>
-                    </p >
-                </div>
-            </div>
-              <div id="loc" class="col-md-3 py-3" style="padding: 1px; margin: 1px; display:none;">
-                    <p>
-
-                        <div id="DynamicLocationsDropdown"></div>
-                      </p>
-
-                  </div>
-            <hr>
-            <p style="color: red">Taxes</p>
-            <div class="row" style="padding: 1px; margin: 1px">
-                <div class="col-md-3" style="padding: 1px; margin: 1px">
-                    <p>
-                        <label for="taxId">Tax Id</label>
-                        <input type="number" name="tax_id" class="form-control" placeholder="Tax Id" >
-                    </p>
-                </div>
-                <div class="col-md-3" style="padding: 1px; margin: 1px">
-                    <p>
-                        <label for="taxes">Taxes</label>
-                        <input type="text" name="taxes" class="form-control" placeholder="Taxes" >
-                    </p>
-                </div>
-                <div class="col-md-3" style="padding: 1px; margin: 1px">
-                    <p>
-                        <label for="taxes">Tax year</label>
-                        <input type="date" name="tax_year" class="form-control" placeholder="Tax Year" >
-                    </p>
-                </div>
-
-            </div>
-            <hr>
-
-            <div class="row">
-                <div class="col-md-4" >
-                    <p>
-                        <select name="option_id" id="" class="form-control">Type
-                            <option value="" disabled>select option</option>
-                            @foreach ($data[0]['options'] as $optionkey => $optionval)
-                                <option value="{{$optionkey}}">{{$optionval}}</option>
-                            @endforeach
-                        </select>
-                     </p>
-                </div>
-                <div class="col-md-2">
-                    <p>
-                        <input type="checkbox" name="is_feautured">  Is Feautured
-                     </p>
-
-
-                </div>
-                <div class="col-md-2">
-                    <p>
-                        <input type="checkbox" name="fire_place"> Fire place
-                    </p>
-
-                </div>
-            </div>
-        </div>
       </div>
     </div>
 
