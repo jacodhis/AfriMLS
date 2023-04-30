@@ -77,6 +77,6 @@ Route::middleware(['auth'])->group(function () {
 //user route
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
