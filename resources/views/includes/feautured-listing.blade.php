@@ -1,4 +1,4 @@
-
+@dd('hello')
 
 @foreach($data[0]['properties'] as $property)
     <div class="col row pb-3 mb-3" style="margin-bottom: 15px">

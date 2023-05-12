@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use App\Models\Property;
 use App\Models\County;
 use App\Models\country;
-use App\Models\category;
 use App\Models\city;
 use Illuminate\Support\Facades\DB;
 
@@ -45,11 +44,25 @@ class IndexController extends Controller
     }
 
     public function home() {
-         $data['getSearchParams'] = self::getSearchParams();
+
+	   $data['getSearchParams'] = self::getSearchParams();
+
+	   	$singleUnit = $data['getSearchParams']['property_types']['single-unit'];
+	   	$multiUnit = $data['getSearchParams']['property_types']['multi-unit'];
+	   	$land = $data['getSearchParams']['property_types']['land'];
+
+	    $landProp = Property::where('property_type',$land)->inRandomOrder()->take(1)->get();
+		$singleUnitProp = Property::where('property_type',$singleUnit)->inRandomOrder()->take(1)->get();
+		$multiUnitProp = Property::where('property_type',$multiUnit)->inRandomOrder()->take(1)->get();
+
+		$properties = $landProp->merge($singleUnitProp)->merge($multiUnitProp);
+		$data['properties'] = $properties;
+
          return view('pages.home',  ['data' => $data]);
     }
 
     public function search(Request $request) {
+
 
 
         $properties = Property::where([

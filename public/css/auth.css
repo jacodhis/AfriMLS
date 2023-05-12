@@ -4,7 +4,7 @@
 
 
 .container{
-height: 200%;
+height: 100%;
 align-content: center;
 }
 
@@ -19,7 +19,7 @@ background-color: rgba(0,0,0,0.5) !important;
 .social_icon span{
 font-size: 60px;
 margin-left: 10px;
-color: #FFC312;
+color: #a24749;
 }
 
 .social_icon span:hover{

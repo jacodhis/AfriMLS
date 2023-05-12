@@ -56,12 +56,14 @@ Route::get('/all-properties/show','PropertyController@allProperties')->name('pro
 //ajax get locations
 Route::GET('/ajaxGetLocations','PropertyController@getLocations');
 // Route::GET('/ajaxGetsearchLike','PropertyController@searchLike');
+Route::get('/properties/{id}/edit', 'PropertyController@edit')->name('properties.edit');
+//property edit
 
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/AfriMLSdashboard', 'BackendDashboardController@dashboard')->name('backendDashboard');
     Route::get('/propertyType/create/{id}','PropertyController@create')->name('addProperty');
-    Route::get('/propertyType/{propertyTypeId}','PropertyController@show')->name('properTypeShow');
+    Route::get('/propertyType/{propertyType}','PropertyController@show')->name('properTypeShow');
     Route::post('/property/store','PropertyController@store')->name('property.store');
     Route::get('/my-properties', 'PropertyController@myproperties')->name('myproperties');
     Route::get('showsingleproperty/{id}','PropertyController@showoneproperty')->name('showsingleproperty');
@@ -75,6 +77,6 @@ Route::middleware(['auth'])->group(function () {
 //user route
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

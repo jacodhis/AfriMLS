@@ -1,5 +1,5 @@
+@php(extract($data))
 @extends('layouts.backend.layout')
-
 
 @section('title')
     welcome Dashboard
@@ -7,8 +7,19 @@
 
 @section('content')
     <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <div class="d-sm-flex flex-column align-items-start mb-4">
         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+        <br>
+        <div class="d-sm-flex align-items-center justify-content-center">
+            <h4 class="pr-2 text-end">Add Property:</h4>
+            <div class="btn-group" role="group" aria-label="Default button group">
+                @foreach($data['property_types'] as $keyT => $valT )
+                    <a class="mx-1 btn btn-outline-primary" href="/propertyType/{{$keyT}}">{{$valT}}</a>
+                @endforeach
+            </div>
+        </div>
+
+
         {{-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> --}}
     </div>
@@ -25,15 +36,10 @@
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                Total Property-Types</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                @php
-                                $propertyTypes =  \App\Models\category::get()->count() ;
-                                @endphp
-                               @if($propertyTypes<0)
+                               @if ($data['property_types_count'] < 0)
                                  0
-
                                @else
-                               {{$propertyTypes}}
-
+                                    {{$data['property_types_count']}}
                                @endif
                             </div>
                         </div>
@@ -54,14 +60,12 @@
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                 All properties</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                @php
-                                $properties =  \App\Models\property::get()->count() ;
-                                @endphp
-                               @if($properties < 0)
+
+                                @if ($data['categ_count'] < 0)
                                  No PropertyType
 
                                @else
-                               {{$properties}}
+
 
                                @endif
                             </div>
